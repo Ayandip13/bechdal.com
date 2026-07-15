@@ -162,3 +162,168 @@ export const nearYouAds = [
     isFavorite: false,
   },
 ];
+
+export const verifiedSellers = [
+  {
+    id: 1,
+    name: "Tech World",
+    avatar: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=200&auto=format&fit=crop",
+    isVerified: true,
+    rating: 4.8,
+    reviewsCount: 256,
+    totalListings: 512,
+    joinedSince: "2020",
+    location: "Mumbai",
+    description: "Top seller for electronics and gadgets.",
+  },
+  {
+    id: 2,
+    name: "Kolkata Properties",
+    avatar: "https://images.unsplash.com/photo-1560518884-ce58750a5656?q=80&w=200&auto=format&fit=crop",
+    isVerified: true,
+    rating: 4.7,
+    reviewsCount: 178,
+    totalListings: 342,
+    joinedSince: "2019",
+    location: "Kolkata",
+    description: "Premium real estate and properties.",
+  },
+  {
+    id: 3,
+    name: "Bike Zone",
+    avatar: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=200&auto=format&fit=crop",
+    isVerified: true,
+    rating: 4.6,
+    reviewsCount: 235,
+    totalListings: 639,
+    joinedSince: "2021",
+    location: "Delhi",
+    description: "Best used bikes in top condition.",
+  },
+  {
+    id: 4,
+    name: "Fashion Point",
+    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop",
+    isVerified: true,
+    rating: 4.8,
+    reviewsCount: 191,
+    totalListings: 278,
+    joinedSince: "2022",
+    location: "Bangalore",
+    description: "Trendy clothes and fashion accessories.",
+  },
+  {
+    id: 5,
+    name: "Furniture Hub",
+    avatar: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=200&auto=format&fit=crop",
+    isVerified: true,
+    rating: 4.7,
+    reviewsCount: 163,
+    totalListings: 289,
+    joinedSince: "2018",
+    location: "Pune",
+    description: "Quality home furniture.",
+  },
+];
+
+export const testimonials = [
+  {
+    id: 1,
+    customerName: "Rahul Sharma",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+    rating: 5,
+    review: "Sold my old bike within 2 days! The process was incredibly smooth and the buyer was verified. Highly recommend BechDal for quick sales.",
+    purchasedProduct: "Bajaj Pulsar 220F",
+    location: "Delhi, India",
+  },
+  {
+    id: 2,
+    customerName: "Priya Patel",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
+    rating: 5,
+    review: "Found a beautiful sofa set for half the original price. The seller was very polite and the delivery was hassle-free. Amazing platform!",
+    purchasedProduct: "3 Seater Sofa Set",
+    location: "Mumbai, India",
+  },
+  {
+    id: 3,
+    customerName: "Amit Kumar",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop",
+    rating: 4,
+    review: "Bought a used MacBook Air. The condition was exactly as described in the ad. Safe and secure platform for electronics.",
+    purchasedProduct: "MacBook Air M1",
+    location: "Bangalore, India",
+  },
+];
+
+export const faqData = [
+  {
+    question: "How to post a listing?",
+    answer: "To post a listing, click on the 'Sell' button at the top right corner. Fill in the product details, upload clear photos, set a competitive price, and publish. It takes less than 2 minutes!",
+  },
+  {
+    question: "Is listing free?",
+    answer: "Yes, posting basic ads is 100% free on BechDal. We also offer Premium and Featured ad options for sellers who want more visibility.",
+  },
+  {
+    question: "How does chat work?",
+    answer: "Once you find a product you like, you can click 'Chat with Seller' to send them a direct message. Our in-app chat is secure and keeps your phone number private.",
+  },
+  {
+    question: "How do I contact a seller?",
+    answer: "You can contact a seller via our secure in-app chat or by revealing their verified phone number if they have chosen to make it public on their listing.",
+  },
+  {
+    question: "Are payments secure?",
+    answer: "We recommend meeting in person at a safe public location to inspect the item before making any payment. Avoid sending money in advance for unseen goods.",
+  },
+  {
+    question: "How do I report fraud?",
+    answer: "If you spot a suspicious ad or user, click the 'Report' button on their listing or profile. Our moderation team reviews reports 24/7 and takes immediate action.",
+  },
+];
+
+export const footerLinks = [
+  {
+    title: "Company",
+    links: [
+      { name: "About Us", href: "#" },
+      { name: "Careers", href: "#" },
+      { name: "Press", href: "#" },
+      { name: "BechDal Blog", href: "#" },
+      { name: "Contact Us", href: "#" },
+    ]
+  },
+  {
+    title: "Support",
+    links: [
+      { name: "Help Center", href: "#" },
+      { name: "Safety Tips", href: "#" },
+      { name: "How to Sell", href: "#" },
+      { name: "How to Buy", href: "#" },
+      { name: "Report User", href: "#" },
+    ]
+  },
+  {
+    title: "Legal",
+    links: [
+      { name: "Terms & Conditions", href: "#" },
+      { name: "Privacy Policy", href: "#" },
+      { name: "Return Policy", href: "#" },
+      { name: "Cookie Policy", href: "#" },
+    ]
+  },
+  {
+    title: "Popular Categories",
+    links: [
+      { name: "Mobiles", href: "#" },
+      { name: "Cars", href: "#" },
+      { name: "Bikes", href: "#" },
+      { name: "Properties", href: "#" },
+      { name: "Laptops", href: "#" },
+      { name: "Jobs", href: "#" },
+      { name: "Furniture", href: "#" },
+      { name: "All Categories", href: "#" },
+    ]
+  }
+];
