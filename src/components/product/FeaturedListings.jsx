@@ -41,7 +41,7 @@ export default function FeaturedListings() {
         </button>
       </div>
 
-      <div className="relative group">
+      <div className="relative group/nav">
         <div className="flex gap-4 overflow-x-auto hide-scrollbar pb-4 snap-x">
           {featuredListings.map((listing) => (
             <div key={listing.id} className="snap-start shrink-0 w-[240px] sm:w-[260px] md:w-[280px]">
@@ -51,7 +51,7 @@ export default function FeaturedListings() {
         </div>
         
         {/* Right Arrow Navigation (Desktop) */}
-        <button className="absolute -right-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-card border border-border hidden lg:flex items-center justify-center text-text-muted hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+        <button className="absolute -right-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-card border border-border hidden lg:flex items-center justify-center text-text-muted hover:text-primary transition-colors opacity-0 group-hover/nav:opacity-100">
           <ChevronRight className="w-5 h-5" />
         </button>
       </div>

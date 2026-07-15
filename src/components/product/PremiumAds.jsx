@@ -12,7 +12,7 @@ export default function PremiumAds() {
         </button>
       </div>
 
-      <div className="relative group">
+      <div className="relative">
         <div className="flex gap-4 overflow-x-auto hide-scrollbar pb-4 snap-x">
           {premiumAds.map((listing) => (
             <div key={listing.id} className="snap-start shrink-0 w-[240px] sm:w-[260px] md:w-[280px]">
