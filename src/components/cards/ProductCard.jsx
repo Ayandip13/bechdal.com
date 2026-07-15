@@ -3,6 +3,7 @@
 import { Heart, MapPin, Clock } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavorite } from "@/redux/wishlistSlice";
+import Link from "next/link";
 
 export default function ProductCard(props) {
   const {
@@ -28,7 +29,7 @@ export default function ProductCard(props) {
   };
 
   return (
-    <div className="bg-card rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-card transition-shadow duration-300 flex flex-col min-w-[240px] w-full cursor-pointer group">
+    <Link href={`/product/${id}`} className="bg-card rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-card transition-shadow duration-300 flex flex-col min-w-[240px] w-full cursor-pointer group block">
       {/* Image Container */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
         <img
@@ -39,7 +40,7 @@ export default function ProductCard(props) {
         
         {/* Badges */}
         {badge && (
-          <div className="absolute top-3 left-3">
+          <div className="absolute top-3 left-3 z-10">
             <span className="bg-secondary text-text px-2 py-1 text-[10px] font-bold rounded flex items-center uppercase tracking-wide">
               {badge}
             </span>
@@ -49,7 +50,7 @@ export default function ProductCard(props) {
         {/* Favorite Button */}
         <button 
           onClick={handleFavoriteClick}
-          className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-full text-text-muted hover:text-red-500 transition-colors shadow-sm z-10"
+          className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-full text-text-muted hover:text-red-500 transition-colors shadow-sm z-20"
         >
           <Heart className={`w-4 h-4 ${isFav ? "fill-red-500 text-red-500" : ""}`} />
         </button>
@@ -89,6 +90,6 @@ export default function ProductCard(props) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

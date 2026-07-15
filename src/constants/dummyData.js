@@ -323,7 +323,175 @@ export const footerLinks = [
       { name: "Laptops", href: "#" },
       { name: "Jobs", href: "#" },
       { name: "Furniture", href: "#" },
-      { name: "All Categories", href: "#" },
     ]
   }
 ];
+
+export const productDetailsData = {
+  id: "BD12345678",
+  title: "Apple iPhone 13 128GB - Blue",
+  price: "42,999",
+  originalPrice: "54,900",
+  discount: "22% OFF",
+  location: "Kolkata, West Bengal",
+  postedTime: "2 hours ago",
+  badge: "Sale",
+  isFeatured: true,
+  rating: 4.8,
+  reviewsCount: 56,
+  interestedCount: 120,
+  images: [
+    "https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1592755219588-d4bf92a0a2eb?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1556656793-08538906a9f8?q=80&w=800&auto=format&fit=crop",
+  ],
+  keyFeatures: [
+    { icon: "HardDrive", text: "128 GB Storage" },
+    { icon: "Cpu", text: "4 GB RAM" },
+    { icon: "Smartphone", text: "15.49 cm (6.1 inch) Super Retina XDR Display" },
+    { icon: "Camera", text: "12MP + 12MP Dual Rear Camera | 12MP Front Camera" },
+    { icon: "Zap", text: "A15 Bionic Chip" },
+    { icon: "Battery", text: "Battery Health: 88%" },
+    { icon: "CheckCircle", text: "Excellent Condition" },
+  ],
+  seller: {
+    id: 1,
+    name: "Rahul Sharma",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+    isVerified: true,
+    rating: 4.7,
+    reviewsCount: 98,
+    memberSince: "Jan 2022",
+    activeListings: 32,
+    positiveReviews: "98%",
+  },
+  description: "Selling my iPhone 13 128GB Blue color in excellent condition. Always used with screen protector and case. No scratches or dents. Original box, charging cable, and bill available. Battery health is at 88%. Selling because I upgraded to a new phone.",
+  specifications: [
+    { label: "Brand", value: "Apple" },
+    { label: "Model", value: "iPhone 13" },
+    { label: "Condition", value: "Used - Like New" },
+    { label: "Storage", value: "128 GB" },
+    { label: "RAM", value: "4 GB" },
+    { label: "Display", value: "6.1 inch Super Retina XDR" },
+    { label: "Camera", value: "12MP + 12MP Dual Rear | 12MP Front" },
+    { label: "Processor", value: "A15 Bionic Chip" },
+    { label: "Battery Health", value: "88%" },
+    { label: "Color", value: "Blue" },
+    { label: "Warranty", value: "Out of Warranty" },
+    { label: "Purchase Date", value: "Oct 2022" },
+    { label: "Invoice Available", value: "Yes" },
+    { label: "Box Available", value: "Yes" },
+    { label: "Accessories Included", value: "Charging Cable" },
+  ],
+};
+
+export const categoryTemplates = {
+  Mobile: {
+    keyFeatures: [
+      { icon: "HardDrive", text: "128 GB / 256 GB Storage" },
+      { icon: "Cpu", text: "4 GB / 6 GB RAM" },
+      { icon: "Smartphone", text: "6+ inch Display" },
+      { icon: "Camera", text: "Advanced Camera Setup" },
+      { icon: "Battery", text: "Excellent Battery Health" },
+      { icon: "CheckCircle", text: "Mint Condition" },
+    ],
+    specifications: [
+      { label: "Condition", value: "Used - Like New" },
+      { label: "Warranty", value: "Out of Warranty" },
+      { label: "Invoice Available", value: "Yes" },
+      { label: "Box Available", value: "Yes" },
+      { label: "Accessories Included", value: "Charging Cable" },
+    ],
+    description: "Selling my phone in excellent condition. Always used with screen protector and case. No scratches or dents. Original box, charging cable, and bill available. Selling because I upgraded to a new phone.",
+  },
+  Car: {
+    keyFeatures: [
+      { icon: "Settings", text: "Manual Transmission" },
+      { icon: "Gauge", text: "45,000 km Driven" },
+      { icon: "Droplet", text: "Petrol" },
+      { icon: "Users", text: "1st Owner" },
+      { icon: "Shield", text: "Comprehensive Insurance" },
+    ],
+    specifications: [
+      { label: "Make Year", value: "2020-2021" },
+      { label: "Registration", value: "WB" },
+      { label: "Insurance", value: "Valid till 2025" },
+      { label: "Service History", value: "Authorized Service Center" },
+      { label: "Accidental", value: "No" },
+      { label: "Flood Driven", value: "No" },
+    ],
+    description: "Well maintained car, single hand driven. Regularly serviced at authorized service center only. New tires and battery recently installed. All original papers available. Price is slightly negotiable.",
+  },
+  Bike: {
+    keyFeatures: [
+      { icon: "Gauge", text: "15,000 km Driven" },
+      { icon: "Droplet", text: "Petrol" },
+      { icon: "Users", text: "1st Owner" },
+      { icon: "CheckCircle", text: "Mint Condition" },
+    ],
+    specifications: [
+      { label: "Make Year", value: "2021" },
+      { label: "Registration", value: "WB" },
+      { label: "Insurance", value: "Valid till 2024" },
+      { label: "Service History", value: "Available" },
+    ],
+    description: "Bike is in excellent condition. Scratchless body, smooth engine. Timely serviced. Selling as I am relocating. All papers are clear.",
+  },
+  Property: {
+    keyFeatures: [
+      { icon: "Home", text: "Spacious Layout" },
+      { icon: "MapPin", text: "Prime Location" },
+      { icon: "ShieldCheck", text: "Gated Community" },
+      { icon: "Car", text: "Dedicated Parking" },
+    ],
+    specifications: [
+      { label: "Furnishing", value: "Semi-Furnished" },
+      { label: "Facing", value: "South-East" },
+      { label: "Floor", value: "3rd Floor" },
+      { label: "Age of Construction", value: "New Construction" },
+      { label: "Ownership", value: "Freehold" },
+    ],
+    description: "Premium property available in a prime location. Excellent connectivity to main road, schools, and hospitals. Well ventilated rooms with ample natural light. Safe and secure neighborhood.",
+  },
+  Furniture: {
+    keyFeatures: [
+      { icon: "CheckCircle", text: "Premium Wood" },
+      { icon: "Clock", text: "2 Years Old" },
+      { icon: "Shield", text: "Termite Proof" },
+    ],
+    specifications: [
+      { label: "Material", value: "Teak Wood" },
+      { label: "Condition", value: "Good" },
+      { label: "Age", value: "2 Years" },
+    ],
+    description: "High quality furniture in very good condition. Rarely used. Selling due to house renovation. Dimensions can be shared on chat.",
+  },
+  Laptop: {
+    keyFeatures: [
+      { icon: "Cpu", text: "M1 / Core i5 Processor" },
+      { icon: "HardDrive", text: "256 GB / 512 GB SSD" },
+      { icon: "MemoryStick", text: "8 GB / 16 GB RAM" },
+      { icon: "Battery", text: "Great Battery Life" },
+    ],
+    specifications: [
+      { label: "Condition", value: "Used - Like New" },
+      { label: "Warranty", value: "Out of Warranty" },
+      { label: "Invoice", value: "Available" },
+    ],
+    description: "Laptop is in perfect working condition. Used carefully for office work. No hardware or software issues. Charger and original box included.",
+  },
+};
+
+export function getCategoryByTitle(title) {
+  if (!title) return 'Mobile';
+  const t = title.toLowerCase();
+  if (t.includes('iphone') || t.includes('mobile')) return 'Mobile';
+  if (t.includes('hyundai') || t.includes('honda') || t.includes('car')) return 'Car';
+  if (t.includes('enfield') || t.includes('bajaj') || t.includes('bike')) return 'Bike';
+  if (t.includes('bhk') || t.includes('flat') || t.includes('space')) return 'Property';
+  if (t.includes('sofa') || t.includes('table') || t.includes('furniture')) return 'Furniture';
+  if (t.includes('macbook') || t.includes('laptop')) return 'Laptop';
+  return 'Mobile';
+}
