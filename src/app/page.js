@@ -13,7 +13,7 @@ export default function Home() {
     <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8">
       <HeroSection />
       <QuickActions />
-      <PopularCategories />
+      {/* <PopularCategories /> */}
       <FeaturedListings />
       <PremiumAds />
       <div className="flex flex-col lg:flex-row gap-8">

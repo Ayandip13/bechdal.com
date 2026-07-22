@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function FooterColumn({ title, links }) {
   return (
     <div className="flex flex-col gap-4">
@@ -5,12 +7,12 @@ export default function FooterColumn({ title, links }) {
       <ul className="flex flex-col gap-3">
         {links.map((link, index) => (
           <li key={index}>
-            <a 
+            <Link 
               href={link.href} 
               className="text-gray-400 hover:text-white hover:underline transition-colors text-sm"
             >
               {link.name}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

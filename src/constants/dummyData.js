@@ -316,13 +316,13 @@ export const footerLinks = [
   {
     title: "Popular Categories",
     links: [
-      { name: "Mobiles", href: "#" },
-      { name: "Cars", href: "#" },
-      { name: "Bikes", href: "#" },
-      { name: "Properties", href: "#" },
-      { name: "Laptops", href: "#" },
-      { name: "Jobs", href: "#" },
-      { name: "Furniture", href: "#" },
+      { name: "Mobiles", href: "/category/mobiles" },
+      { name: "Cars", href: "/category/vehicles" },
+      { name: "Bikes", href: "/category/vehicles" },
+      { name: "Properties", href: "/category/properties" },
+      { name: "Laptops", href: "/category/electronics" },
+      { name: "Services", href: "/category/services" },
+      { name: "Furniture", href: "/category/furniture" },
     ]
   }
 ];
