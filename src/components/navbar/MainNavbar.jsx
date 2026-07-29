@@ -64,11 +64,11 @@ export default function MainNavbar() {
             )}
             <span className="text-xs font-medium">Wishlist</span>
           </Link>
-          <button className="flex flex-col items-center gap-1 hover:text-primary transition-colors relative">
+          <Link href="/inbox" className="flex flex-col items-center gap-1 hover:text-primary transition-colors relative">
             <Inbox size={20} />
             <span className="absolute -top-1 -right-1 bg-red-500 w-2 h-2 rounded-full border border-white"></span>
             <span className="text-xs font-medium">Inbox</span>
-          </button>
+          </Link>
         </div>
 
         {/* Sell Button */}
