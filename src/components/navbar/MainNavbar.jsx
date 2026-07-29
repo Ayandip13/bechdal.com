@@ -72,13 +72,13 @@ export default function MainNavbar() {
         </div>
 
         {/* Sell Button */}
-        <button className="flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-lg font-semibold shadow-md transition-all hover:shadow-lg transform hover:-translate-y-0.5">
+        <Link href="/sell" className="flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-lg font-semibold shadow-md transition-all hover:shadow-lg transform hover:-translate-y-0.5">
           <PlusCircle size={20} />
           <div className="flex flex-col text-left">
             <span className="text-sm">Sell Now</span>
             <span className="text-[10px] font-normal opacity-90 -mt-0.5">Post Free Ad</span>
           </div>
-        </button>
+        </Link>
 
       </div>
     </div>

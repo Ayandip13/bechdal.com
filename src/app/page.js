@@ -21,7 +21,7 @@ export default function Home() {
         {/* Empty div to balance layout if Trending Now was to be added here, but not needed as flex-1 is on NearYou */}
       </div>
       <VerifiedSellers />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <FAQSection />
     </div>
   );

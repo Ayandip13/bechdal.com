@@ -1,3 +1,4 @@
+import Image from "next/image";
 import FooterColumn from "./FooterColumn";
 import SocialLinks from "./SocialLinks";
 import { footerLinks } from "@/constants/dummyData";
@@ -7,21 +8,24 @@ export default function Footer() {
     <footer className="w-full bg-[#0a1128] pt-16 pb-8 border-t-4 border-secondary mt-8 rounded-t-3xl">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8 mb-16">
-          
+
           {/* Brand Column */}
           <div className="lg:col-span-2 flex flex-col pr-4">
             <div className="mb-4">
-              <h2 className="text-3xl font-extrabold tracking-tight">
-                <span className="text-white">BechDal</span>
-                <span className="text-secondary">.com</span>
-              </h2>
-              <p className="text-white text-sm mt-1">Buy. Sell. Anything.</p>
+              <Image
+                src="/bechdal-Photoroom.svg"
+                alt="BechDal Logo"
+                width={200}
+                height={100}
+                className="w-50 h-15 object-contain"
+                priority
+              />
             </div>
-            
+
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               BechDal.com is your one-stop platform to buy, sell, rent anything. 100% Free and Easy to use. Join thousands of users today.
             </p>
-            
+
             <SocialLinks />
           </div>
 
