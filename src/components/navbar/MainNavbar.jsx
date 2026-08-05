@@ -9,7 +9,7 @@ export default function MainNavbar() {
 
   return (
     <div className="bg-white py-4 px-4 sm:px-6 lg:px-8 border-b border-border">
-      <div className="max-w-[1400px] mx-auto flex items-center justify-between gap-4 lg:gap-8">
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between gap-2 md:gap-4 lg:gap-8">
         
         {/* Logo */}
         <Link href="/" className="flex flex-col flex-shrink-0 cursor-pointer hover:opacity-90 transition-opacity">
@@ -31,16 +31,16 @@ export default function MainNavbar() {
         </div>
 
         {/* Search Bar */}
-        <div className="flex-1 max-w-3xl hidden md:flex items-center border-2 border-primary rounded-md overflow-hidden bg-white shadow-sm hover:shadow transition-shadow">
-          <button className="flex items-center gap-2 px-4 py-2.5 bg-slate-100 border-r border-border text-sm font-medium text-text-muted hover:bg-slate-200 transition-colors">
+        <div className="flex-1 max-w-3xl hidden md:flex items-center border-2 border-primary rounded-md overflow-hidden bg-white shadow-sm hover:shadow transition-shadow min-w-0">
+          <button className="flex-shrink-0 flex items-center gap-1.5 px-3 lg:px-4 py-2.5 bg-slate-100 border-r border-border text-xs lg:text-sm font-medium text-text-muted hover:bg-slate-200 transition-colors whitespace-nowrap">
             All Categories <ChevronDown size={14} />
           </button>
           <input 
             type="text" 
-            placeholder="Search for cars, mobiles, bikes, properties and more..." 
-            className="flex-1 px-4 py-2.5 outline-none text-sm text-text placeholder:text-text-light"
+            placeholder="Search for cars, mobiles, properties and more..." 
+            className="flex-1 min-w-[100px] w-full px-3 lg:px-4 py-2.5 outline-none text-xs md:text-sm text-text placeholder:text-text-light truncate"
           />
-          <button className="bg-secondary px-6 py-2.5 text-text hover:bg-secondary-dark hover:text-white transition-colors">
+          <button className="flex-shrink-0 bg-secondary px-4 md:px-5 lg:px-6 py-2.5 text-text hover:bg-secondary-dark hover:text-white transition-colors flex items-center justify-center">
             <Search size={20} />
           </button>
         </div>

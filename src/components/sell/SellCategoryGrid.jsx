@@ -1,5 +1,5 @@
 import { sellCategories } from "@/constants/sellDummyData";
-import { MonitorSmartphone, Smartphone, Car, Sofa, Shirt, BookOpen, Dog, Home, Briefcase, Wrench, Gamepad2 } from "lucide-react";
+import { MonitorSmartphone, Smartphone, Car, Sofa, Shirt, BookOpen, Dog, Home, Briefcase, Wrench, Gamepad2, Dumbbell } from "lucide-react";
 import CategoryCard from "./CategoryCard";
 
 const iconMap = {
@@ -14,6 +14,7 @@ const iconMap = {
   Briefcase,
   Wrench,
   Gamepad2,
+  Dumbbell,
 };
 
 export default function SellCategoryGrid({ onSelectCategory }) {

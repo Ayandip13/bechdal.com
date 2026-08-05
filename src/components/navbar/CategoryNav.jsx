@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Menu, Monitor, Smartphone, Car, Home, Shirt, Armchair, Briefcase, Wrench, Dog, BookOpen, LayoutGrid, Gamepad2 } from "lucide-react";
+import { Menu, Monitor, Smartphone, Car, Home, Shirt, Armchair, Briefcase, Wrench, Dog, BookOpen, LayoutGrid, Gamepad2, Dumbbell } from "lucide-react";
 
 export default function CategoryNav() {
   const categories = [
@@ -9,9 +9,10 @@ export default function CategoryNav() {
     { name: "Properties", slug: "properties", icon: Home },
     { name: "Fashion", slug: "fashion", icon: Shirt },
     { name: "Furniture", slug: "furniture", icon: Armchair },
-    { name: "Toys", slug: "toys", icon: Gamepad2 },
+    { name: "Kids Accessories", slug: "kids-accessories", icon: Gamepad2 },
+    { name: "Fitness, Gym & Musical", slug: "fitness-gym-music", icon: Dumbbell },
     { name: "Services", slug: "services", icon: Wrench },
-    { name: "Pets", slug: "pets", icon: Dog },
+    { name: "Pet Items", slug: "pets", icon: Dog },
     { name: "Books", slug: "books", icon: BookOpen },
     { name: "More", slug: "electronics", icon: LayoutGrid },
   ];
