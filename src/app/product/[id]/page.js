@@ -17,7 +17,7 @@ import {
   categoryTemplates, 
   getCategoryByTitle 
 } from "@/constants/dummyData";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, MessageSquare, Phone } from "lucide-react";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -70,7 +70,7 @@ export default async function ProductDetailsPage({ params }) {
   ];
 
   return (
-    <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pb-12 flex flex-col gap-6">
+    <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pb-24 lg:pb-12 flex flex-col gap-6">
       
       {/* Breadcrumb */}
       <Breadcrumb items={breadcrumbItems} />
@@ -148,6 +148,18 @@ export default async function ProductDetailsPage({ params }) {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Sticky Bottom Actions for Mobile/Tablet */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 p-3.5 shadow-[0_-4px_10px_rgba(0,0,0,0.06)] flex items-center justify-between gap-3 px-4">
+        <button className="flex-1 btn-primary gap-2 h-11">
+          <MessageSquare className="w-5 h-5 flex-shrink-0" />
+          <span>Chat</span>
+        </button>
+        <button className="flex-1 btn-outline gap-2 h-11">
+          <Phone className="w-5 h-5 flex-shrink-0" />
+          <span>Call Seller</span>
+        </button>
       </div>
 
     </div>

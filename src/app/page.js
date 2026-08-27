@@ -1,6 +1,5 @@
 import HeroSection from "@/components/hero/HeroSection";
 import QuickActions from "@/components/hero/QuickActions";
-import PopularCategories from "@/components/categories/PopularCategories";
 import FeaturedListings from "@/components/product/FeaturedListings";
 import PremiumAds from "@/components/product/PremiumAds";
 import NearYou from "@/components/product/NearYou";
@@ -47,7 +46,6 @@ export default function Home() {
         </div>
       </section>
 
-      <PopularCategories />
       <FeaturedListings />
       <PremiumAds />
       <div className="flex flex-col lg:flex-row gap-8">

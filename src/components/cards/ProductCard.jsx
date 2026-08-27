@@ -67,7 +67,7 @@ export default function ProductCard(props) {
       </div>
 
       {/* Content Container */}
-      <div className="p-2.5 sm:p-3.5 flex flex-col flex-grow">
+      <div className="p-2 sm:p-3.5 flex flex-col flex-grow">
         
         {/* Condition pill & Rating */}
         <div className="flex items-center justify-between gap-2 mb-1.5">
@@ -91,7 +91,7 @@ export default function ProductCard(props) {
           </h3>
           {(isVerifiedSeller || badge === "Verified") && (
             <span className="text-primary mt-0.5 flex-shrink-0" title="Verified Seller">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM9.8 17.3L5.6 13.1L7 11.7L9.8 14.5L17 7.3L18.4 8.7L9.8 17.3Z" />
               </svg>
             </span>
@@ -99,13 +99,13 @@ export default function ProductCard(props) {
         </div>
 
         {/* Price Section */}
-        <div className="flex flex-wrap items-baseline gap-1 mt-auto pt-2">
+        <div className="flex flex-wrap items-baseline gap-1 mt-auto pt-1.5">
           <span className="font-extrabold text-sm sm:text-base text-slate-900">
             ₹{displayPrice}
           </span>
           {originalPrice && (
             <>
-              <span className="text-[10px] sm:text-xs text-text-light line-through font-medium">
+              <span className="text-[9px] sm:text-xs text-text-light line-through font-medium">
                 ₹{originalPrice.toString().replace("₹", "")}
               </span>
               {discount && (
@@ -118,14 +118,14 @@ export default function ProductCard(props) {
         </div>
 
         {/* Location and Time */}
-        <div className="mt-2.5 pt-2 border-t border-slate-100 space-y-1">
-          <div className="flex items-center text-[10px] text-text-muted font-semibold gap-1">
-            <MapPin className="w-3 h-3 flex-shrink-0 text-text-light" />
+        <div className="mt-2 pt-1.5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-[9px] text-text-muted font-semibold">
+          <div className="flex items-center gap-0.5 truncate max-w-full">
+            <MapPin className="w-2.5 h-2.5 flex-shrink-0 text-text-light" />
             <span className="truncate">{location.split(",")[0]}</span>
           </div>
           {postedTime && (
-            <div className="flex items-center text-[10px] text-text-muted font-semibold gap-1">
-              <Clock className="w-3 h-3 flex-shrink-0 text-text-light" />
+            <div className="flex items-center gap-0.5 flex-shrink-0">
+              <Clock className="w-2.5 h-2.5 flex-shrink-0 text-text-light" />
               <span>{postedTime}</span>
             </div>
           )}

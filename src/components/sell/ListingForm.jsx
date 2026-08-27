@@ -134,13 +134,13 @@ export default function ListingForm({ category, onPublish }) {
           <div className="bg-white border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6 animate-in fade-in duration-300">
             <LocationSection />
             
-            <div className="pt-6 border-t border-border flex justify-end">
+            <div className="pt-4 border-t border-border flex justify-end fixed bottom-0 left-0 right-0 p-4 bg-white z-30 sm:relative sm:p-0 sm:border-none shadow-[0_-4px_12px_rgba(0,0,0,0.05)] sm:shadow-none">
               <button
                 type="button"
                 onClick={handleNextStep1}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold bg-primary hover:bg-primary-dark text-white transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold bg-primary hover:bg-primary-dark text-white transition-all shadow-sm hover:shadow flex items-center justify-center gap-2 h-11"
               >
-                Next: Item Details <ArrowRight size={18} />
+                Next: Item Details <ArrowRight size={16} />
               </button>
             </div>
           </div>
@@ -220,20 +220,20 @@ export default function ListingForm({ category, onPublish }) {
 
             <SpecificationFields categoryId={category.id} />
 
-            <div className="pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="pt-4 border-t border-border flex flex-row items-center justify-between gap-3 fixed bottom-0 left-0 right-0 p-4 bg-white z-30 sm:relative sm:p-0 sm:border-none shadow-[0_-4px_12px_rgba(0,0,0,0.05)] sm:shadow-none">
               <button
                 type="button"
                 onClick={handlePrevStep}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold bg-slate-100 border border-border text-text hover:bg-slate-200 transition-colors flex items-center justify-center gap-2"
+                className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl font-bold bg-slate-100 border border-border text-text hover:bg-slate-200 transition-colors flex items-center justify-center gap-1.5 h-11"
               >
-                <ArrowLeft size={18} /> Back: Location
+                <ArrowLeft size={16} /> Back
               </button>
               <button
                 type="button"
                 onClick={handleNextStep2}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold bg-primary hover:bg-primary-dark text-white transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                className="flex-1 sm:flex-none px-6 py-3 rounded-xl font-bold bg-primary hover:bg-primary-dark text-white transition-all shadow-sm hover:shadow flex items-center justify-center gap-1.5 h-11"
               >
-                Next: Photos & Price <ArrowRight size={18} />
+                Next <ArrowRight size={16} />
               </button>
             </div>
           </div>
@@ -272,28 +272,28 @@ export default function ListingForm({ category, onPublish }) {
             </div>
 
             {/* Step 3 Action Bar */}
-            <div className="bg-white border border-border rounded-2xl p-6 shadow-sm flex flex-col-reverse sm:flex-row items-center justify-between gap-4">
+            <div className="bg-white border-t border-slate-200 p-4 flex flex-row items-center justify-between gap-3 fixed bottom-0 left-0 right-0 z-30 sm:relative sm:p-6 sm:border sm:border-border sm:rounded-2xl sm:shadow-sm">
               <button
                 type="button"
                 onClick={handlePrevStep}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl font-semibold bg-slate-100 border border-border text-text hover:bg-slate-200 transition-colors flex items-center justify-center gap-2"
+                className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl font-bold bg-slate-100 border border-border text-text hover:bg-slate-200 transition-colors flex items-center justify-center gap-1.5 h-11"
               >
-                <ArrowLeft size={18} /> Back: Item Details
+                <ArrowLeft size={16} /> Back
               </button>
               
-              <div className="flex items-center gap-3 w-full sm:w-auto">
+              <div className="flex items-center gap-2 flex-1 sm:flex-none justify-end">
                 <button
                   type="button"
                   onClick={() => setShowPreview(true)}
-                  className="flex-1 sm:flex-none px-6 py-3.5 rounded-xl font-semibold bg-white border border-border text-text hover:bg-slate-55 transition-colors shadow-sm flex items-center justify-center gap-2"
+                  className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl font-bold bg-white border border-border text-text hover:bg-slate-50 transition-colors shadow-xs flex items-center justify-center gap-1.5 h-11"
                 >
-                  <Eye size={18} /> Preview
+                  <Eye size={16} /> Preview
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 sm:flex-none px-8 py-3.5 rounded-xl font-semibold bg-primary hover:bg-primary-dark text-white transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                  className="flex-1 sm:flex-none px-6 py-2.5 rounded-xl font-bold bg-primary hover:bg-primary-dark text-white transition-all shadow-xs hover:shadow flex items-center justify-center gap-1.5 h-11"
                 >
-                  Publish Listing
+                  Publish
                 </button>
               </div>
             </div>

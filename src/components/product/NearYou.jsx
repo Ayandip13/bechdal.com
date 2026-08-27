@@ -15,7 +15,7 @@ export default function NearYou() {
       <div className="relative">
         <div className="flex gap-4 overflow-x-auto hide-scrollbar pb-4 snap-x">
           {nearYouAds.map((listing) => (
-            <div key={listing.id} className="snap-start shrink-0 w-[240px] sm:w-[260px] md:w-[280px]">
+            <div key={listing.id} className="snap-start shrink-0 w-[165px] sm:w-[220px] md:w-[265px]">
               <ProductCard {...listing} />
             </div>
           ))}

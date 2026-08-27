@@ -382,10 +382,10 @@ export default function MainNavbar() {
           {/* Location Selector shortcut */}
           <div 
             onClick={() => setIsLocationDropdownOpen(true)}
-            className="flex items-center gap-1 cursor-pointer bg-slate-50 border border-border px-2.5 py-1 rounded-md text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
+            className="flex items-center gap-1 cursor-pointer bg-slate-50 border border-border px-2 py-1 rounded-md text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors max-w-[120px] sm:max-w-none"
           >
-            <MapPin size={13} className="text-primary" />
-            <span>{selectedLocation}</span>
+            <MapPin size={13} className="text-primary flex-shrink-0" />
+            <span className="truncate max-w-[65px] sm:max-w-none">{selectedLocation}</span>
           </div>
 
         </div>
@@ -471,19 +471,6 @@ export default function MainNavbar() {
               </div>
             )}
           </form>
-        </div>
-
-        {/* Row 3: Horizontally scrollable category shortcuts */}
-        <div className="flex items-center gap-3 overflow-x-auto hide-scrollbar px-4 py-2 border-b border-slate-100 bg-slate-50/50">
-          {searchCategories.filter(c => c.id !== "all").map((cat) => (
-            <Link
-              key={cat.id}
-              href={`/category/${cat.id}`}
-              className="flex items-center gap-1 bg-white border border-slate-200/80 px-2.5 py-1 rounded-full text-[10px] font-bold text-slate-700 hover:text-primary transition-colors whitespace-nowrap shadow-2xs"
-            >
-              <span>{cat.name}</span>
-            </Link>
-          ))}
         </div>
 
       </div>

@@ -1,15 +1,47 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { 
   Menu, Monitor, Smartphone, Car, Home, Shirt, Armchair, 
   Briefcase, Wrench, Dog, BookOpen, LayoutGrid, ShoppingBag, 
-  Leaf, Hammer, Printer, Gamepad2, Dumbbell 
+  Leaf, Hammer, Printer
 } from "lucide-react";
 
 export default function CategoryNav() {
   const [showMoreDropdown, setShowMoreDropdown] = useState(false);
+  const desktopScrollRef = useRef(null);
+  const mobileScrollRef = useRef(null);
+
+  useEffect(() => {
+    const el = desktopScrollRef.current;
+    if (!el) return;
+
+    const onWheel = (e) => {
+      if (el.scrollWidth > el.clientWidth) {
+        e.preventDefault();
+        el.scrollLeft += e.deltaY * 0.95;
+      }
+    };
+
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, []);
+
+  useEffect(() => {
+    const el = mobileScrollRef.current;
+    if (!el) return;
+
+    const onWheel = (e) => {
+      if (el.scrollWidth > el.clientWidth) {
+        e.preventDefault();
+        el.scrollLeft += e.deltaY * 0.95;
+      }
+    };
+
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, []);
 
   const mainCategories = [
     { name: "Electronics", slug: "electronics", icon: Monitor },
@@ -26,60 +58,60 @@ export default function CategoryNav() {
 
   const moreCategories = [
     { name: "Pet Products", slug: "pet-products", icon: ShoppingBag },
-    { name: "Agricultural Products", slug: "agricultural-products", icon: Leaf },
+    { name: "Agriculture", slug: "agricultural-products", icon: Leaf },
     { name: "Construction Equipment", slug: "construction-equipment", icon: Hammer },
     { name: "Office Equipment", slug: "office-equipment", icon: Printer },
-    { name: "Kids Accessories", slug: "kids-accessories", icon: Gamepad2 },
-    { name: "Fitness & Gym", slug: "fitness-gym-music", icon: Dumbbell },
   ];
 
+  const allCategories = [...mainCategories, ...moreCategories];
+
   return (
-    <div className="bg-white border-b border-border shadow-sm hidden md:block">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-4">
-        
-        {/* All Categories Dropdown / Link */}
+    <div className="bg-white border-b border-border shadow-xs">
+      
+      {/* ----------------- DESKTOP LAYOUT ----------------- */}
+      <div className="hidden md:block max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between gap-4">
+        {/* All Categories Link */}
         <Link
           href="/category/electronics"
-          className="flex items-center gap-2 text-primary font-bold text-sm hover:text-primary-dark transition-colors whitespace-nowrap mr-2"
+          className="flex items-center gap-1.5 text-primary font-bold text-xs hover:text-primary-dark transition-colors whitespace-nowrap mr-2 select-none h-8"
         >
-          <Menu size={16} />
+          <Menu size={15} />
           All Categories
         </Link>
 
         {/* Categories List */}
-        <div className="flex items-center gap-6 overflow-x-auto hide-scrollbar flex-1">
+        <div ref={desktopScrollRef} className="flex items-center gap-5 overflow-x-auto overflow-y-hidden hide-scrollbar flex-1 scroll-smooth">
           {mainCategories.map((cat, index) => {
             const Icon = cat.icon;
             return (
               <Link 
                 key={index} 
                 href={`/category/${cat.slug}`} 
-                className="flex items-center gap-1.5 text-text-muted hover:text-primary text-xs font-semibold transition-colors whitespace-nowrap py-1 border-b-2 border-transparent hover:border-primary"
+                className="flex items-center gap-1.5 text-text-muted hover:text-primary text-[11px] sm:text-xs font-semibold transition-colors whitespace-nowrap py-1 border-b-2 border-transparent hover:border-primary h-8"
               >
-                <Icon size={14} className="opacity-80" />
+                <Icon size={13} className="opacity-80" />
                 {cat.name}
               </Link>
             );
           })}
 
-          {/* More Categories Dropdown Toggle */}
+          {/* More Categories Dropdown */}
           <div 
             className="relative"
             onMouseEnter={() => setShowMoreDropdown(true)}
             onMouseLeave={() => setShowMoreDropdown(false)}
           >
             <button 
-              className="flex items-center gap-1.5 text-text-muted hover:text-primary text-xs font-semibold transition-colors whitespace-nowrap py-1 cursor-pointer focus:outline-none"
+              className="flex items-center gap-1.5 text-text-muted hover:text-primary text-[11px] sm:text-xs font-semibold transition-colors whitespace-nowrap py-1 cursor-pointer focus:outline-none h-8"
             >
-              <LayoutGrid size={14} className="opacity-80" />
+              <LayoutGrid size={13} className="opacity-80" />
               <span>More</span>
             </button>
 
-            {/* Dropdown Panel */}
             {showMoreDropdown && (
-              <div className="absolute top-[26px] right-0 bg-white border border-border rounded-xl shadow-lg py-2.5 w-60 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                <div className="px-3 pb-1.5 mb-1.5 border-b border-slate-100 text-[10px] uppercase tracking-wider font-extrabold text-text-muted">
-                  Additional Categories
+              <div className="absolute top-[28px] right-0 bg-white border border-border rounded-xl shadow-lg py-2 w-56 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                <div className="px-3 pb-1 border-b border-slate-100 text-[9px] uppercase tracking-wider font-extrabold text-text-muted">
+                  More Categories
                 </div>
                 {moreCategories.map((cat, index) => {
                   const Icon = cat.icon;
@@ -87,10 +119,10 @@ export default function CategoryNav() {
                     <Link
                       key={index}
                       href={`/category/${cat.slug}`}
-                      className="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-text-muted hover:text-primary hover:bg-slate-50 transition-colors"
+                      className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-text-muted hover:text-primary hover:bg-slate-50 transition-colors"
                       onClick={() => setShowMoreDropdown(false)}
                     >
-                      <Icon size={14} className="text-text-muted opacity-80" />
+                      <Icon size={13} className="text-text-muted opacity-80" />
                       <span>{cat.name}</span>
                     </Link>
                   );
@@ -99,8 +131,33 @@ export default function CategoryNav() {
             )}
           </div>
         </div>
+      </div>
+
+      {/* ----------------- MOBILE LAYOUT (Horizontally Scrollable) ----------------- */}
+      <div className="relative block md:hidden w-full overflow-hidden">
+        
+        {/* Scroll Container */}
+        <div ref={mobileScrollRef} className="overflow-x-auto overflow-y-hidden whitespace-nowrap hide-scrollbar flex items-center gap-3.5 px-4 py-2.5 w-full scroll-smooth">
+          {allCategories.map((cat, index) => {
+            const Icon = cat.icon;
+            return (
+              <Link 
+                key={index} 
+                href={`/category/${cat.slug}`} 
+                className="flex items-center gap-1 bg-slate-50 border border-slate-200/60 px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-bold text-slate-700 hover:text-primary transition-colors whitespace-nowrap shadow-3xs"
+              >
+                <Icon size={12} className="opacity-85 text-slate-500" />
+                <span>{cat.name}</span>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Subtle right-side fade indicator for scroll direction */}
+        <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
 
       </div>
+
     </div>
   );
 }
