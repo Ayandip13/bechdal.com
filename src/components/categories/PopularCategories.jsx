@@ -1,17 +1,26 @@
 import Link from "next/link";
-import { Smartphone, Laptop, Car, Bike, Home, Armchair, Shirt, Briefcase, LayoutGrid, ChevronRight } from "lucide-react";
+import { 
+  Smartphone, Monitor, Car, Home, Armchair, Shirt, 
+  Briefcase, Wrench, Dog, BookOpen, ShoppingBag, Leaf, 
+  Hammer, Printer, ChevronRight 
+} from "lucide-react";
 
 export default function PopularCategories() {
   const categories = [
+    { name: "Electronics", slug: "electronics", icon: Monitor, color: "text-slate-600" },
     { name: "Mobiles", slug: "mobiles", icon: Smartphone, color: "text-blue-500" },
-    { name: "Electronics", slug: "electronics", icon: Laptop, color: "text-slate-600" },
     { name: "Vehicles", slug: "vehicles", icon: Car, color: "text-red-500" },
-    { name: "Bikes", slug: "vehicles", icon: Bike, color: "text-emerald-500" },
     { name: "Properties", slug: "properties", icon: Home, color: "text-orange-500" },
     { name: "Furniture", slug: "furniture", icon: Armchair, color: "text-amber-700" },
     { name: "Fashion", slug: "fashion", icon: Shirt, color: "text-indigo-500" },
-    { name: "Services", slug: "services", icon: Briefcase, color: "text-purple-600" },
-    { name: "More", slug: "electronics", icon: LayoutGrid, color: "text-text-muted" },
+    { name: "Jobs", slug: "jobs", icon: Briefcase, color: "text-teal-600" },
+    { name: "Services", slug: "services", icon: Wrench, color: "text-purple-600" },
+    { name: "Books", slug: "books", icon: BookOpen, color: "text-emerald-600" },
+    { name: "Pets", slug: "pets", icon: Dog, color: "text-yellow-600" },
+    { name: "Pet Products", slug: "pet-products", icon: ShoppingBag, color: "text-pink-500" },
+    { name: "Agriculture", slug: "agricultural-products", icon: Leaf, color: "text-green-600" },
+    { name: "Construction", slug: "construction-equipment", icon: Hammer, color: "text-yellow-700" },
+    { name: "Office Assets", slug: "office-equipment", icon: Printer, color: "text-blue-900" },
   ];
 
   return (
@@ -23,15 +32,15 @@ export default function PopularCategories() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-4 md:gap-6 justify-items-center">
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-4 md:gap-6 justify-items-center">
         {categories.map((cat, index) => {
           const Icon = cat.icon;
           return (
             <Link key={index} href={`/category/${cat.slug}`} className="flex flex-col items-center gap-3 cursor-pointer group">
-              <div className="w-20 h-20 rounded-full bg-slate-50 border border-slate-100 shadow-sm flex items-center justify-center group-hover:bg-blue-50 group-hover:border-blue-100 group-hover:shadow-md transition-all group-hover:-translate-y-1">
-                <Icon size={32} className={cat.color} strokeWidth={1.5} />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-50 border border-slate-100 shadow-xs flex items-center justify-center group-hover:bg-blue-50 group-hover:border-blue-100 group-hover:shadow-md transition-all group-hover:-translate-y-1">
+                <Icon size={28} className={cat.color} strokeWidth={1.5} />
               </div>
-              <span className="text-sm font-semibold text-text group-hover:text-primary transition-colors">
+              <span className="text-xs sm:text-sm font-semibold text-text group-hover:text-primary transition-colors text-center">
                 {cat.name}
               </span>
             </Link>

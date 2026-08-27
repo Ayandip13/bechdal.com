@@ -233,10 +233,150 @@ export default function FilterSidebar({
           </FilterSection>
         )}
 
-        {/* 6. Verified Sellers Only */}
-        <div className="py-3">
+        {/* 6. Dynamic Category Specific Filters */}
+        {categoryInfo?.slug === "mobiles" && (
+          <>
+            <FilterSection
+              title="Storage Capacity"
+              defaultOpen={true}
+              activeCount={filters.storage?.length || 0}
+            >
+              <div className="space-y-1">
+                {["64GB", "128GB", "256GB", "512GB"].map((size) => {
+                  const isChecked = (filters.storage || []).includes(size);
+                  return (
+                    <label key={size} className="flex items-center gap-2 text-xs text-text hover:text-primary cursor-pointer py-0.5 group select-none">
+                      <div className={`w-3.5 h-3.5 rounded border flex items-center justify-center transition-colors ${isChecked ? "bg-primary border-primary text-white" : "border-gray-300 group-hover:border-primary bg-white"}`}>
+                        {isChecked && <Check className="w-2.5 h-2.5 stroke-[3]" />}
+                      </div>
+                      <input type="checkbox" className="sr-only" checked={isChecked} onChange={() => handleCheckboxToggle("storage", size)} />
+                      <span className="font-medium text-slate-700 group-hover:text-text">{size}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </FilterSection>
+
+            <FilterSection
+              title="System RAM"
+              defaultOpen={false}
+              activeCount={filters.ram?.length || 0}
+            >
+              <div className="space-y-1">
+                {["4GB", "6GB", "8GB", "12GB", "16GB"].map((ramSize) => {
+                  const isChecked = (filters.ram || []).includes(ramSize);
+                  return (
+                    <label key={ramSize} className="flex items-center gap-2 text-xs text-text hover:text-primary cursor-pointer py-0.5 group select-none">
+                      <div className={`w-3.5 h-3.5 rounded border flex items-center justify-center transition-colors ${isChecked ? "bg-primary border-primary text-white" : "border-gray-300 group-hover:border-primary bg-white"}`}>
+                        {isChecked && <Check className="w-2.5 h-2.5 stroke-[3]" />}
+                      </div>
+                      <input type="checkbox" className="sr-only" checked={isChecked} onChange={() => handleCheckboxToggle("ram", ramSize)} />
+                      <span className="font-medium text-slate-700 group-hover:text-text">{ramSize}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </FilterSection>
+          </>
+        )}
+
+        {categoryInfo?.slug === "vehicles" && (
+          <>
+            <FilterSection
+              title="Fuel Type"
+              defaultOpen={true}
+              activeCount={filters.fuelTypes?.length || 0}
+            >
+              <div className="space-y-1">
+                {["Petrol", "Diesel", "CNG", "Electric"].map((fuel) => {
+                  const isChecked = (filters.fuelTypes || []).includes(fuel);
+                  return (
+                    <label key={fuel} className="flex items-center gap-2 text-xs text-text hover:text-primary cursor-pointer py-0.5 group select-none">
+                      <div className={`w-3.5 h-3.5 rounded border flex items-center justify-center transition-colors ${isChecked ? "bg-primary border-primary text-white" : "border-gray-300 group-hover:border-primary bg-white"}`}>
+                        {isChecked && <Check className="w-2.5 h-2.5 stroke-[3]" />}
+                      </div>
+                      <input type="checkbox" className="sr-only" checked={isChecked} onChange={() => handleCheckboxToggle("fuelTypes", fuel)} />
+                      <span className="font-medium text-slate-700 group-hover:text-text">{fuel}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </FilterSection>
+
+            <FilterSection
+              title="Transmission"
+              defaultOpen={false}
+              activeCount={filters.transmissions?.length || 0}
+            >
+              <div className="space-y-1">
+                {["Manual", "Automatic"].map((trans) => {
+                  const isChecked = (filters.transmissions || []).includes(trans);
+                  return (
+                    <label key={trans} className="flex items-center gap-2 text-xs text-text hover:text-primary cursor-pointer py-0.5 group select-none">
+                      <div className={`w-3.5 h-3.5 rounded border flex items-center justify-center transition-colors ${isChecked ? "bg-primary border-primary text-white" : "border-gray-300 group-hover:border-primary bg-white"}`}>
+                        {isChecked && <Check className="w-2.5 h-2.5 stroke-[3]" />}
+                      </div>
+                      <input type="checkbox" className="sr-only" checked={isChecked} onChange={() => handleCheckboxToggle("transmissions", trans)} />
+                      <span className="font-medium text-slate-700 group-hover:text-text">{trans}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </FilterSection>
+          </>
+        )}
+
+        {categoryInfo?.slug === "properties" && (
+          <>
+            <FilterSection
+              title="Furnishing Status"
+              defaultOpen={true}
+              activeCount={filters.furnishings?.length || 0}
+            >
+              <div className="space-y-1">
+                {["Furnished", "Semi-Furnished", "Unfurnished"].map((furn) => {
+                  const isChecked = (filters.furnishings || []).includes(furn);
+                  return (
+                    <label key={furn} className="flex items-center gap-2 text-xs text-text hover:text-primary cursor-pointer py-0.5 group select-none">
+                      <div className={`w-3.5 h-3.5 rounded border flex items-center justify-center transition-colors ${isChecked ? "bg-primary border-primary text-white" : "border-gray-300 group-hover:border-primary bg-white"}`}>
+                        {isChecked && <Check className="w-2.5 h-2.5 stroke-[3]" />}
+                      </div>
+                      <input type="checkbox" className="sr-only" checked={isChecked} onChange={() => handleCheckboxToggle("furnishings", furn)} />
+                      <span className="font-medium text-slate-700 group-hover:text-text">{furn}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </FilterSection>
+          </>
+        )}
+
+        {/* 7. Seller Type */}
+        <FilterSection
+          title="Seller Type"
+          defaultOpen={false}
+          activeCount={filters.sellerTypes?.length || 0}
+        >
+          <div className="space-y-1">
+            {["Individual", "Verified Dealer"].map((sellerType) => {
+              const isChecked = (filters.sellerTypes || []).includes(sellerType);
+              return (
+                <label key={sellerType} className="flex items-center gap-2 text-xs text-text hover:text-primary cursor-pointer py-0.5 group select-none">
+                  <div className={`w-3.5 h-3.5 rounded border flex items-center justify-center transition-colors ${isChecked ? "bg-primary border-primary text-white" : "border-gray-300 group-hover:border-primary bg-white"}`}>
+                    {isChecked && <Check className="w-2.5 h-2.5 stroke-[3]" />}
+                  </div>
+                  <input type="checkbox" className="sr-only" checked={isChecked} onChange={() => handleCheckboxToggle("sellerTypes", sellerType)} />
+                  <span className="font-medium text-slate-700 group-hover:text-text">{sellerType}</span>
+                </label>
+              );
+            })}
+          </div>
+        </FilterSection>
+
+        {/* 8. Additional Checklist Toggles (Verified, Negotiable, Delivery) */}
+        <div className="py-3 space-y-2.5">
           <label className="flex items-center justify-between text-xs font-semibold text-slate-700 cursor-pointer select-none">
-            <span>Verified Seller Only</span>
+            <span>Verified Sellers Only</span>
             <input
               type="checkbox"
               checked={!!filters.verifiedSeller}
@@ -244,7 +384,28 @@ export default function FilterSidebar({
               className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
             />
           </label>
+
+          <label className="flex items-center justify-between text-xs font-semibold text-slate-700 cursor-pointer select-none">
+            <span>Price Negotiable</span>
+            <input
+              type="checkbox"
+              checked={!!filters.negotiable}
+              onChange={(e) => onFilterChange("negotiable", e.target.checked)}
+              className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
+            />
+          </label>
+
+          <label className="flex items-center justify-between text-xs font-semibold text-slate-700 cursor-pointer select-none">
+            <span>Home Delivery Available</span>
+            <input
+              type="checkbox"
+              checked={!!filters.deliveryAvailable}
+              onChange={(e) => onFilterChange("deliveryAvailable", e.target.checked)}
+              className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
+            />
+          </label>
         </div>
+
       </div>
     </aside>
   );

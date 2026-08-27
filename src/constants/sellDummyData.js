@@ -175,6 +175,62 @@ export const sellCategories = [
       "Other Musical Instruments",
     ],
   },
+  {
+    id: "pet-products",
+    name: "Pet Products",
+    icon: "ShoppingBag",
+    description: "Pet Food, Leashes, Collars, Toys, Aquariums",
+    subcategories: [
+      "Pet Food",
+      "Leashes & Collars",
+      "Cages & Kennels",
+      "Aquarium Filters",
+      "Pet Toys",
+      "Other Pet Products"
+    ],
+  },
+  {
+    id: "agricultural-products",
+    name: "Agricultural Products",
+    icon: "Leaf",
+    description: "Crops, Fertilizers, Seeds, Farming Tools",
+    subcategories: [
+      "Organic Fertilizers",
+      "Seeds & Bulbs",
+      "Crop Protection",
+      "Farming Tools",
+      "Fresh Harvests",
+      "Other Agriculture"
+    ],
+  },
+  {
+    id: "construction-equipment",
+    name: "Construction Equipment",
+    icon: "Hammer",
+    description: "Machinery, Concrete Mixers, Power Tools",
+    subcategories: [
+      "Excavators & Backhoes",
+      "Concrete Mixers",
+      "Power Tools",
+      "Safety Equipment",
+      "Scaffolding",
+      "Other Equipment"
+    ],
+  },
+  {
+    id: "office-equipment",
+    name: "Office Equipment",
+    icon: "Printer",
+    description: "Printers, Projectors, Paper Shredders, Filing Cabinets",
+    subcategories: [
+      "Printers & Scanners",
+      "Projectors",
+      "Paper Shredders",
+      "Office Desks & Chairs",
+      "Filing Cabinets",
+      "Other Office Items"
+    ],
+  },
 ];
 
 export const dynamicSpecifications = {
@@ -216,5 +272,44 @@ export const dynamicSpecifications = {
     { name: "dimensions", label: "Dimensions (L x W x H)", type: "text", required: false },
     { name: "assemblyRequired", label: "Assembly Required", type: "checkbox", required: false },
     { name: "color", label: "Color", type: "text", required: false },
+  ],
+  jobs: [
+    { name: "salary", label: "Salary/Compensation (Monthly)", type: "number", required: true },
+    { name: "jobType", label: "Job Type", type: "select", options: ["Full-time", "Part-time", "Contract", "Internship"], required: true },
+    { name: "experience", label: "Experience Required (Years)", type: "text", required: false },
+    { name: "openings", label: "No. of Openings", type: "number", required: false },
+  ],
+  services: [
+    { name: "serviceType", label: "Service Type", type: "text", required: true },
+    { name: "pricingType", label: "Pricing Type", type: "select", options: ["Hourly Rate", "Fixed Flat Fee", "Contact for Quote"], required: true },
+  ],
+  pets: [
+    { name: "petType", label: "Pet Type", type: "select", options: ["Dog", "Cat", "Bird", "Fish", "Rabbit", "Other"], required: true },
+    { name: "breed", label: "Breed", type: "text", required: false },
+    { name: "age", label: "Age (Months/Years)", type: "text", required: false },
+    { name: "gender", label: "Gender", type: "select", options: ["Male", "Female", "Pair", "Unspecified"], required: false },
+    { name: "vaccinationStatus", label: "Vaccination Status", type: "select", options: ["Fully Vaccinated", "Partially Vaccinated", "Not Vaccinated"], required: true },
+  ],
+  "pet-products": [
+    { name: "productType", label: "Product Type", type: "text", required: true },
+    { name: "brand", label: "Brand", type: "text", required: false },
+    { name: "condition", label: "Condition", type: "select", options: ["Brand New", "Like New", "Excellent", "Good", "Fair"], required: true },
+  ],
+  "agricultural-products": [
+    { name: "productType", label: "Product Type", type: "text", required: true },
+    { name: "usage", label: "Primary Usage", type: "text", required: false },
+    { name: "brand", label: "Brand/Manufacturer", type: "text", required: false },
+    { name: "condition", label: "Condition", type: "select", options: ["Brand New", "Used/Pre-owned"], required: true },
+  ],
+  "construction-equipment": [
+    { name: "equipmentType", label: "Equipment Type", type: "text", required: true },
+    { name: "brand", label: "Brand/Manufacturer", type: "text", required: true },
+    { name: "operatingHours", label: "Operating Hours (Hrs)", type: "number", required: true },
+    { name: "registrationYear", label: "Year of Manufacture", type: "number", required: true },
+  ],
+  "office-equipment": [
+    { name: "equipmentType", label: "Equipment Type", type: "text", required: true },
+    { name: "brand", label: "Brand/Manufacturer", type: "text", required: false },
+    { name: "warranty", label: "Warranty Available", type: "select", options: ["Yes, Active Warranty", "No Warranty", "Expired"], required: true },
   ],
 };

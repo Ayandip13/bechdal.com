@@ -257,6 +257,20 @@ export default function ListingForm({ category, onPublish }) {
               <ContactSection />
             </div>
 
+            {/* Value Proposition Guarantee Badge */}
+            <div className="bg-slate-900 text-white border border-slate-800 rounded-2xl p-5 flex items-center justify-between gap-4 shadow-sm">
+              <div className="text-left">
+                <span className="text-secondary font-black uppercase text-[9px] tracking-wider bg-slate-800 px-2.5 py-1 rounded">
+                  Free Posting
+                </span>
+                <h4 className="text-sm font-black mt-2 text-white">Maximum Bachat. No Hidden Charges. No Platform Fees.</h4>
+                <p className="text-slate-400 text-xs mt-1 font-semibold leading-normal">
+                  BechDal is 100% free for everyone. Keep 100% of the price you negotiate with the buyer!
+                </p>
+              </div>
+              <span className="text-2xl hidden sm:block opacity-80">🤝</span>
+            </div>
+
             {/* Step 3 Action Bar */}
             <div className="bg-white border border-border rounded-2xl p-6 shadow-sm flex flex-col-reverse sm:flex-row items-center justify-between gap-4">
               <button
@@ -271,7 +285,7 @@ export default function ListingForm({ category, onPublish }) {
                 <button
                   type="button"
                   onClick={() => setShowPreview(true)}
-                  className="flex-1 sm:flex-none px-6 py-3.5 rounded-xl font-semibold bg-white border border-border text-text hover:bg-slate-50 transition-colors shadow-sm flex items-center justify-center gap-2"
+                  className="flex-1 sm:flex-none px-6 py-3.5 rounded-xl font-semibold bg-white border border-border text-text hover:bg-slate-55 transition-colors shadow-sm flex items-center justify-center gap-2"
                 >
                   <Eye size={18} /> Preview
                 </button>

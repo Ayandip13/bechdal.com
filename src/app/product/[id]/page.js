@@ -7,6 +7,7 @@ import SafetyTips from "@/components/seller/SafetyTips";
 import Description from "@/components/product/Description";
 import SpecificationsTable from "@/components/product/SpecificationsTable";
 import ProductCard from "@/components/cards/ProductCard";
+import MoreOptionsListings from "@/components/product/MoreOptionsListings";
 
 import { 
   productDetailsData, 
@@ -107,6 +108,11 @@ export default async function ProductDetailsPage({ params }) {
       <div className="flex lg:hidden flex-col gap-6 mt-2">
         <Description text={data.description} />
         <SpecificationsTable specifications={data.specifications} />
+      </div>
+
+      {/* More Options / Alternatives comparisons */}
+      <div className="mt-6">
+        <MoreOptionsListings productTitle={data.title} currentProductPrice={data.price} />
       </div>
 
       {/* Similar Products */}

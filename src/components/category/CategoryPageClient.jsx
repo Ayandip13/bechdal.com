@@ -33,6 +33,11 @@ export default function CategoryPageClient({ categorySlug, initialCategory, init
     negotiable: false,
     deliveryAvailable: false,
     minRating: null,
+    storage: [],
+    ram: [],
+    fuelTypes: [],
+    transmissions: [],
+    furnishings: [],
   });
 
   const handleFilterChange = (key, value) => {
@@ -57,6 +62,11 @@ export default function CategoryPageClient({ categorySlug, initialCategory, init
       negotiable: false,
       deliveryAvailable: false,
       minRating: null,
+      storage: [],
+      ram: [],
+      fuelTypes: [],
+      transmissions: [],
+      furnishings: [],
     });
     setSearchQuery("");
     setSelectedSort("newest");
@@ -166,6 +176,47 @@ export default function CategoryPageClient({ categorySlug, initialCategory, init
       // Min Rating
       if (filters.minRating && (product.rating || 0) < filters.minRating) {
         return false;
+      }
+
+      // Dynamic Mobiles Specs check
+      if (filters.storage?.length > 0) {
+        const matchesStorage = filters.storage.some(st => 
+          product.title.toLowerCase().includes(st.toLowerCase()) || 
+          product.storage?.toString().toLowerCase().includes(st.toLowerCase())
+        );
+        if (!matchesStorage) return false;
+      }
+      if (filters.ram?.length > 0) {
+        const matchesRam = filters.ram.some(rm => 
+          product.title.toLowerCase().includes(rm.toLowerCase()) || 
+          product.ram?.toString().toLowerCase().includes(rm.toLowerCase())
+        );
+        if (!matchesRam) return false;
+      }
+
+      // Dynamic Vehicles Specs check
+      if (filters.fuelTypes?.length > 0) {
+        const matchesFuel = filters.fuelTypes.some(ft => 
+          product.fuelType?.toLowerCase() === ft.toLowerCase() ||
+          product.title.toLowerCase().includes(ft.toLowerCase())
+        );
+        if (!matchesFuel) return false;
+      }
+      if (filters.transmissions?.length > 0) {
+        const matchesTrans = filters.transmissions.some(tr => 
+          product.transmission?.toLowerCase() === tr.toLowerCase() ||
+          product.title.toLowerCase().includes(tr.toLowerCase())
+        );
+        if (!matchesTrans) return false;
+      }
+
+      // Dynamic Properties Specs check
+      if (filters.furnishings?.length > 0) {
+        const matchesFurnish = filters.furnishings.some(fn => 
+          product.furnished?.toLowerCase() === fn.toLowerCase() ||
+          product.title.toLowerCase().includes(fn.toLowerCase())
+        );
+        if (!matchesFurnish) return false;
       }
 
       return true;
