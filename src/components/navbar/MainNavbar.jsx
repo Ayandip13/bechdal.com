@@ -422,37 +422,67 @@ export default function MainNavbar() {
 
 
       {/* ----------------- MOBILE DEDICATED HEADER ----------------- */}
-      <div className="md:hidden flex flex-col bg-white dark:bg-slate-800">
+      <div className="md:hidden flex flex-col bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700/80">
 
-        {/* Row 1: Top navigation bar */}
-        <div className="flex items-center justify-between px-4 py-2 gap-3 border-b border-slate-100 dark:border-slate-700/80">
+        {/* Row 1: Top navigation bar (Menu, Logo, Location, Login, Sell CTA) */}
+        <div className="flex items-center justify-between px-3 py-2 gap-2 border-b border-slate-100 dark:border-slate-700/80">
 
-          <button
-            onClick={() => setIsMobileMenuOpen(true)}
-            className="p-1 text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-colors focus:outline-none"
-          >
-            <Menu size={22} />
-          </button>
+          <div className="flex items-center gap-1.5 min-w-0">
+            <button
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="p-1 text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-colors focus:outline-none shrink-0"
+              aria-label="Open mobile menu"
+            >
+              <Menu size={20} />
+            </button>
 
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-1 cursor-pointer">
-            <h1 className="text-lg font-black text-primary dark:text-blue-400 flex items-center tracking-tight">
-              BechDal<span className="text-secondary dark:text-amber-400 font-extrabold">.com</span>
-            </h1>
-          </Link>
-
-          <div className="flex items-center gap-2">
-            {/* Theme toggle for mobile header */}
-            <ThemeToggle compact />
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-1 shrink-0">
+              <h1 className="text-base sm:text-lg font-black text-primary dark:text-blue-400 flex items-center tracking-tight">
+                BechDal<span className="text-secondary dark:text-amber-400 font-extrabold">.com</span>
+              </h1>
+            </Link>
 
             {/* Location Selector shortcut */}
             <div
               onClick={() => setIsLocationDropdownOpen(true)}
-              className="flex items-center gap-1 cursor-pointer bg-slate-50 dark:bg-slate-700/60 border border-border dark:border-slate-600 px-2 py-1 rounded-md text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors max-w-[110px] sm:max-w-none"
+              className="flex items-center gap-0.5 cursor-pointer bg-slate-50 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 px-1.5 py-0.5 rounded text-[10px] font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shrink-0 max-w-[85px]"
             >
-              <MapPin size={13} className="text-primary dark:text-blue-400 flex-shrink-0" />
-              <span className="truncate max-w-[55px] sm:max-w-none">{selectedLocation}</span>
+              <MapPin size={11} className="text-primary dark:text-blue-400 shrink-0" />
+              <span className="truncate">{selectedLocation}</span>
             </div>
+          </div>
+
+          {/* Right Mobile Actions: Theme, Login & Sell Button */}
+          <div className="flex items-center gap-1.5 shrink-0">
+            <ThemeToggle compact />
+
+            {/* Login Link / User Profile */}
+            {isAuthenticated ? (
+              <Link
+                href="/wishlist"
+                className="w-7 h-7 rounded-full bg-primary/10 dark:bg-blue-500/20 text-primary dark:text-blue-400 flex items-center justify-center text-xs font-bold border border-primary/30 shrink-0"
+              >
+                {user?.name ? user.name.charAt(0).toUpperCase() : "U"}
+              </Link>
+            ) : (
+              <Link
+                href="/login"
+                className="flex items-center gap-0.5 px-2 py-1 text-slate-700 dark:text-slate-200 hover:text-primary text-[11px] font-bold shrink-0"
+              >
+                <User size={15} />
+                <span>Login</span>
+              </Link>
+            )}
+
+            {/* Compact Sell CTA */}
+            <Link
+              href="/sell"
+              className="flex items-center gap-1 bg-primary hover:bg-primary-dark text-white px-2.5 py-1 rounded-md text-[11px] font-bold shadow-2xs transition-all whitespace-nowrap shrink-0"
+            >
+              <PlusCircle size={13} />
+              <span>Sell</span>
+            </Link>
           </div>
 
         </div>

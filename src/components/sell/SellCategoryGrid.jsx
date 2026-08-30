@@ -18,20 +18,23 @@ const iconMap = {
 };
 
 export default function SellCategoryGrid({ onSelectCategory }) {
-  // Map icons
   const categoriesWithIcons = sellCategories.map(cat => ({
     ...cat,
     IconComponent: iconMap[cat.icon]
   }));
 
   return (
-    <div className="animate-in fade-in zoom-in-95 duration-500 max-w-5xl mx-auto">
-      <div className="text-center mb-10">
-        <h1 className="text-3xl md:text-4xl font-bold text-text mb-4">What are you selling?</h1>
-        <p className="text-lg text-text-muted">Choose a category to start your listing.</p>
+    <div className="animate-in fade-in duration-300 max-w-4xl mx-auto py-2 sm:py-6">
+      <div className="text-center mb-6 sm:mb-8">
+        <h1 className="text-xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          Select a Category
+        </h1>
+        <p className="text-xs sm:text-sm text-text-muted dark:text-slate-400 font-medium mt-1">
+          Choose the main category for your listing.
+        </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3.5">
         {categoriesWithIcons.map((category) => (
           <CategoryCard 
             key={category.id} 

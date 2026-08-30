@@ -1,65 +1,75 @@
-import { Package, Recycle } from "lucide-react";
+"use client";
 
-function SellTypeCard({ type, title, description, selected, onClick }) {
-  const isSelected = selected === type;
-  
+import { Recycle, Package, Car, Home } from "lucide-react";
+
+function SellTypeCard({ type, title, description, icon: Icon, onClick }) {
   return (
     <div 
       onClick={() => onClick(type)}
-      className={`
-        relative p-6 rounded-2xl cursor-pointer border-2 transition-all duration-300
-        flex flex-col items-center text-center gap-4 group hover:-translate-y-1
-        ${isSelected ? "border-primary bg-primary/5 shadow-md" : "border-border bg-white hover:border-primary/50"}
-      `}
+      className="p-4 sm:p-5 rounded-xl sm:rounded-2xl cursor-pointer border border-slate-200/80 dark:border-slate-700/80 bg-white dark:bg-slate-800 hover:border-primary dark:hover:border-blue-400 hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group min-h-[64px]"
     >
-      <div className={`
-        w-16 h-16 rounded-full flex items-center justify-center transition-colors
-        ${isSelected ? "bg-primary text-white" : "bg-slate-100 text-text-muted group-hover:bg-primary/10 group-hover:text-primary"}
-      `}>
-        {type === "new" ? <Package size={32} /> : <Recycle size={32} />}
+      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 dark:bg-blue-500/20 text-primary dark:text-blue-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+        <Icon size={22} />
       </div>
       
-      <div>
-        <h3 className={`text-xl font-bold mb-2 ${isSelected ? "text-primary" : "text-text"}`}>
+      <div className="flex-1 min-w-0 text-left">
+        <h3 className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white truncate">
           {title}
         </h3>
-        <p className="text-sm text-text-muted">
+        <p className="text-xs text-text-muted dark:text-slate-400 font-medium truncate mt-0.5">
           {description}
         </p>
       </div>
-
-      {/* Selected Indicator */}
-      {isSelected && (
-        <div className="absolute top-4 right-4 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-          <div className="w-2.5 h-2.5 bg-white rounded-full"></div>
-        </div>
-      )}
     </div>
   );
 }
 
 export default function SellTypeSelection({ onSelectType }) {
   return (
-    <div className="animate-in fade-in zoom-in-95 duration-500 max-w-5xl mx-auto">
-      <div className="text-center mb-10">
-        <h1 className="text-3xl md:text-4xl font-bold text-text mb-4">What are you selling?</h1>
-        <p className="text-lg text-text-muted">Choose an option below to start your listing.</p>
+    <div className="animate-in fade-in duration-300 max-w-3xl mx-auto py-2 sm:py-6">
+      <div className="text-center mb-6 sm:mb-8">
+        <span className="text-[10px] font-black uppercase tracking-widest text-primary dark:text-blue-400 bg-primary/10 dark:bg-blue-500/20 px-3 py-1 rounded-full border border-primary/20">
+          Post Free Ad
+        </span>
+        <h1 className="text-xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight mt-2">
+          What are you selling?
+        </h1>
+        <p className="text-xs sm:text-sm text-text-muted dark:text-slate-400 font-medium mt-1">
+          Select an item type to begin listing on BechDal.
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-xl mx-auto">
         <SellTypeCard 
           type="old"
-          title="Old / Used Product"
-          description="Second-hand, pre-owned items. Best for individuals."
+          title="Used / Pre-owned Item"
+          description="Mobiles, gadgets, furniture, clothing & more"
+          icon={Recycle}
           onClick={onSelectType}
         />
         <SellTypeCard 
           type="new"
-          title="New Product"
-          description="Brand new, unused items in original packaging. Best for businesses."
+          title="Brand New Item"
+          description="Unused items in original packaging"
+          icon={Package}
+          onClick={onSelectType}
+        />
+        <SellTypeCard 
+          type="vehicle"
+          title="Vehicle or Bike"
+          description="Cars, motorcycles, scooty & commercial"
+          icon={Car}
+          onClick={onSelectType}
+        />
+        <SellTypeCard 
+          type="property"
+          title="Property / Real Estate"
+          description="Flats, houses, PG & land listings"
+          icon={Home}
           onClick={onSelectType}
         />
       </div>
     </div>
   );
 }
+
