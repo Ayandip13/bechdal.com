@@ -21,10 +21,9 @@ export function ThemeProvider({ children }) {
         setThemeState(savedTheme);
         applyTheme(savedTheme);
       } else {
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const initialTheme = prefersDark ? "dark" : "light";
-        setThemeState(initialTheme);
-        applyTheme(initialTheme);
+        // Default theme is ALWAYS "light"
+        setThemeState("light");
+        applyTheme("light");
       }
     } catch (e) {
       console.error("Failed to read theme from localStorage", e);

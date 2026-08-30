@@ -17,9 +17,16 @@ export const metadata = {
   description: "India's largest second-hand marketplace.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -27,8 +34,7 @@ export default function RootLayout({ children }) {
               (function() {
                 try {
                   var saved = localStorage.getItem('bechdal-theme');
-                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  if (saved === 'dark' || (!saved && prefersDark)) {
+                  if (saved === 'dark') {
                     document.documentElement.classList.add('dark');
                     document.documentElement.setAttribute('data-theme', 'dark');
                   } else {
@@ -41,12 +47,12 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className={`${inter.variable} font-sans bg-background text-text transition-colors duration-200`} suppressHydrationWarning>
+      <body className={`${inter.variable} font-sans bg-background text-text transition-colors duration-200 overflow-x-hidden max-w-full`} suppressHydrationWarning>
         <ThemeProvider>
           <AuthProvider>
             <ReduxProvider>
               <Navbar />
-              <main className="min-h-screen pt-4 pb-12">{children}</main>
+              <main className="min-h-screen pt-4 pb-12 overflow-x-hidden">{children}</main>
               <Footer />
             </ReduxProvider>
           </AuthProvider>

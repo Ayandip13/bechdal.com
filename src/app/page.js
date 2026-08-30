@@ -115,7 +115,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 flex flex-col gap-5 sm:gap-7 pt-3 sm:pt-4">
+    <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 flex flex-col gap-4 sm:gap-7 pt-2 sm:pt-4 overflow-x-hidden">
       {/* 1. Compact Hero Banner Carousel */}
       <HeroSection />
 
