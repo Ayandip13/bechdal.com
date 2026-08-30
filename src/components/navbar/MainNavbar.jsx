@@ -427,13 +427,14 @@ export default function MainNavbar() {
         {/* Row 1: Top navigation bar (Menu, Logo, Location, Login, Sell CTA) */}
         <div className="flex items-center justify-between px-3 py-2 gap-2 border-b border-slate-100 dark:border-slate-700/80">
 
-          <div className="flex items-center gap-1.5 min-w-0">
+          {/* Left: Menu & Brand Logo */}
+          <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="p-1 text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-colors focus:outline-none shrink-0"
+              className="p-1.5 text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors focus:outline-none"
               aria-label="Open mobile menu"
             >
-              <Menu size={20} />
+              <Menu size={22} />
             </button>
 
             {/* Logo */}
@@ -442,20 +443,18 @@ export default function MainNavbar() {
                 BechDal<span className="text-secondary dark:text-amber-400 font-extrabold">.com</span>
               </h1>
             </Link>
+          </div>
 
+          {/* Right: Location, Login/User Profile, and Sell Button */}
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             {/* Location Selector shortcut */}
             <div
               onClick={() => setIsLocationDropdownOpen(true)}
-              className="flex items-center gap-0.5 cursor-pointer bg-slate-50 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 px-1.5 py-0.5 rounded text-[10px] font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shrink-0 max-w-[85px]"
+              className="flex items-center gap-1 cursor-pointer bg-slate-100 dark:bg-slate-700/80 border border-slate-200 dark:border-slate-600 px-2 py-1 rounded-full text-[10px] font-extrabold text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors max-w-[85px] sm:max-w-none"
             >
               <MapPin size={11} className="text-primary dark:text-blue-400 shrink-0" />
               <span className="truncate">{selectedLocation}</span>
             </div>
-          </div>
-
-          {/* Right Mobile Actions: Theme, Login & Sell Button */}
-          <div className="flex items-center gap-1.5 shrink-0">
-            <ThemeToggle compact />
 
             {/* Login Link / User Profile */}
             {isAuthenticated ? (
@@ -468,7 +467,7 @@ export default function MainNavbar() {
             ) : (
               <Link
                 href="/login"
-                className="flex items-center gap-0.5 px-2 py-1 text-slate-700 dark:text-slate-200 hover:text-primary text-[11px] font-bold shrink-0"
+                className="flex items-center gap-1 px-1.5 py-1 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-blue-400 text-xs font-bold shrink-0"
               >
                 <User size={15} />
                 <span>Login</span>
@@ -478,9 +477,9 @@ export default function MainNavbar() {
             {/* Compact Sell CTA */}
             <Link
               href="/sell"
-              className="flex items-center gap-1 bg-primary hover:bg-primary-dark text-white px-2.5 py-1 rounded-md text-[11px] font-bold shadow-2xs transition-all whitespace-nowrap shrink-0"
+              className="flex items-center gap-1 bg-primary hover:bg-primary-dark text-white px-2.5 py-1 rounded-lg text-xs font-extrabold shadow-2xs transition-all whitespace-nowrap shrink-0"
             >
-              <PlusCircle size={13} />
+              <PlusCircle size={14} />
               <span>Sell</span>
             </Link>
           </div>
