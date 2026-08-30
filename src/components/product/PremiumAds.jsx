@@ -4,10 +4,13 @@ import { premiumAds } from "@/constants/dummyData";
 
 export default function PremiumAds() {
   return (
-    <section className="w-full bg-[#fefce8] rounded-2xl p-6 shadow-subtle border border-[#fef08a]/50">
-      <div className="flex items-center justify-between gap-4 mb-6">
-        <h2 className="text-xl font-bold text-text">Premium Ads</h2>
-        <button className="flex items-center gap-1 text-primary text-sm font-semibold hover:text-primary-dark transition-colors whitespace-nowrap">
+    <section className="w-full bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-amber-500/10 dark:from-amber-500/10 dark:via-slate-900/60 dark:to-amber-500/10 rounded-2xl p-5 sm:p-6 border border-amber-500/20 dark:border-amber-500/30 transition-all">
+      <div className="flex items-center justify-between gap-4 mb-5">
+        <h2 className="text-xl font-black text-text dark:text-white tracking-tight flex items-center gap-2">
+          <span>Premium Ads</span>
+          <span className="text-[9px] font-black uppercase tracking-widest text-amber-600 dark:text-amber-400 bg-amber-500/15 px-2 py-0.5 rounded-md border border-amber-500/25">Featured</span>
+        </h2>
+        <button className="flex items-center gap-1 text-primary dark:text-blue-400 text-xs sm:text-sm font-bold hover:underline transition-all whitespace-nowrap cursor-pointer">
           View All Premium Ads <ChevronRight className="w-4 h-4" />
         </button>
       </div>
@@ -24,3 +27,4 @@ export default function PremiumAds() {
     </section>
   );
 }
+

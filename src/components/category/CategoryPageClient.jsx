@@ -262,15 +262,15 @@ export default function CategoryPageClient({ categorySlug, initialCategory, init
       <CategoryHero category={initialCategory} totalCount={initialProducts.length} />
 
       {/* Filter & Sort Toolbar */}
-      <div className="bg-white rounded-2xl p-4 shadow-subtle border border-border/70 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-800/90 rounded-2xl p-4 shadow-subtle border border-border/70 dark:border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4 transition-colors">
         {/* Search Inside Category & Mobile Filter Button */}
         <div className="flex items-center gap-3 w-full sm:w-auto flex-1">
           <button
             type="button"
             onClick={() => setIsMobileDrawerOpen(true)}
-            className="lg:hidden inline-flex items-center gap-2 px-3 py-2 bg-slate-100 border border-border rounded-xl text-xs font-bold text-text hover:bg-slate-200 transition-colors"
+            className="lg:hidden inline-flex items-center gap-2 px-3 py-2 bg-slate-100 dark:bg-slate-700 border border-border dark:border-slate-600 rounded-xl text-xs font-bold text-text dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
           >
-            <SlidersHorizontal className="w-4 h-4 text-primary" />
+            <SlidersHorizontal className="w-4 h-4 text-primary dark:text-blue-400" />
             <span>Filters</span>
             {activeFilterCount > 0 && (
               <span className="bg-primary text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded-full">
@@ -280,7 +280,7 @@ export default function CategoryPageClient({ categorySlug, initialCategory, init
           </button>
 
           <div className="relative w-full max-w-md">
-            <Search className="w-4 h-4 text-text-muted absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-text-muted dark:text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder={`Search in ${initialCategory.title}...`}
@@ -289,7 +289,7 @@ export default function CategoryPageClient({ categorySlug, initialCategory, init
                 setSearchQuery(e.target.value);
                 setVisibleCount(8);
               }}
-              className="w-full pl-9 pr-8 py-2 text-xs sm:text-sm bg-slate-50 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-text font-medium"
+              className="w-full pl-9 pr-8 py-2 text-xs sm:text-sm bg-slate-50 dark:bg-slate-700/60 border border-border dark:border-slate-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-text dark:text-slate-100 placeholder:text-text-muted dark:placeholder:text-slate-400 font-medium"
             />
             {searchQuery && (
               <button

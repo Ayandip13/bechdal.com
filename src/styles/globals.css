@@ -2,9 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Light Theme Palette */
+  --bg-main: #f8fafc;
+  --bg-header: #ffffff;
+  --bg-section: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --bg-input: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  --border-color: #e2e8f0;
+  --shadow-subtle: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 2px 10px -2px rgba(0, 0, 0, 0.05);
+  color-scheme: light;
+}
+
+.dark {
+  /* Smooth Multi-Layer Dark Theme Elevation Palette */
+  --bg-main: #0b0f19;       /* Level 0: Deep Page Base */
+  --bg-header: #0f172a;     /* Level 1: Header / Navbar */
+  --bg-section: #131c2e;    /* Level 1.5: Section Wrappers (Featured Listings, Premium Ads, etc.) */
+  --bg-card: #1e293b;       /* Level 2: Foreground Cards (Product Cards, Seller Cards) */
+  --bg-card-hover: #273549; /* Level 2.5: Interactive Hover */
+  --bg-input: #0f172a;      /* Level 1: Input Fields */
+  --text-main: #f8fafc;     /* Primary Text */
+  --text-muted: #94a3b8;    /* Secondary Text */
+  --text-light: #64748b;    /* Subdued Text */
+  --border-color: #263346;  /* Subtle Layer Dividers */
+  --shadow-subtle: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 4px 14px -2px rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
+}
+
 @layer base {
+  html {
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
   body {
-    @apply bg-background text-text antialiased;
+    @apply bg-background text-text antialiased min-h-screen transition-colors duration-200;
   }
 }
 
@@ -20,15 +57,15 @@
   }
 
   .btn-secondary {
-    @apply btn-base bg-secondary text-text hover:bg-secondary-dark hover:text-white px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm h-10 sm:h-11 min-h-[40px] sm:min-h-[44px];
+    @apply btn-base bg-secondary text-slate-900 hover:bg-secondary-dark hover:text-white px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm h-10 sm:h-11 min-h-[40px] sm:min-h-[44px];
   }
 
   .btn-outline {
-    @apply btn-base bg-white border border-slate-300 text-text hover:bg-slate-50 px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm h-10 sm:h-11 min-h-[40px] sm:min-h-[44px];
+    @apply btn-base bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-text hover:bg-slate-50 dark:hover:bg-slate-700 px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm h-10 sm:h-11 min-h-[40px] sm:min-h-[44px];
   }
 
   .btn-icon {
-    @apply inline-flex items-center justify-center rounded-full p-2.5 sm:p-3 text-text-muted hover:text-primary hover:bg-slate-50 transition-colors h-10 w-10 sm:h-11 sm:w-11 min-h-[40px] min-w-[40px] focus:outline-none;
+    @apply inline-flex items-center justify-center rounded-full p-2.5 sm:p-3 text-text-muted hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors h-10 w-10 sm:h-11 sm:w-11 min-h-[40px] min-w-[40px] focus:outline-none;
   }
 
   .btn-small {
@@ -53,3 +90,4 @@
     scrollbar-width: none !important;  /* Firefox */
   }
 }
+

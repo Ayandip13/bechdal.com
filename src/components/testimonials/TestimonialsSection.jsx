@@ -3,10 +3,10 @@ import { testimonials } from "@/constants/dummyData";
 
 export default function TestimonialsSection() {
   return (
-    <section className="w-full bg-[#f8fafc] rounded-2xl p-6 md:p-10 shadow-subtle border border-border/50">
+    <section className="w-full py-2">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-text mb-2">What Our Customers Say</h2>
-        <p className="text-text-muted max-w-2xl mx-auto">
+        <h2 className="text-xl sm:text-2xl font-black text-text dark:text-white tracking-tight mb-2">What Our Customers Say</h2>
+        <p className="text-text-muted dark:text-slate-300 max-w-2xl mx-auto text-xs sm:text-sm">
           Read real stories from thousands of happy buyers and sellers who trust BechDal for their daily marketplace needs.
         </p>
       </div>
@@ -21,3 +21,4 @@ export default function TestimonialsSection() {
     </section>
   );
 }
+

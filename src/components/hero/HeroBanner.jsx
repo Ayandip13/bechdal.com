@@ -151,12 +151,12 @@ export default function HeroBanner() {
         return (
           <div
             key={banner.id || index}
-            className={`absolute inset-0 w-full h-full p-5 sm:p-8 md:p-12 bg-gradient-to-r ${banner.bgGradient} flex flex-col justify-center transition-opacity duration-500 ease-in-out ${
+            className={`absolute inset-0 w-full h-full p-5 sm:p-8 md:p-12 bg-gradient-to-r ${banner.bgGradient} dark:from-slate-800 dark:via-slate-800/90 dark:to-slate-900 flex flex-col justify-center transition-opacity duration-500 ease-in-out ${
               isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
             }`}
           >
             {/* Decorative Blob */}
-            <div className="absolute right-0 bottom-0 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] bg-secondary/10 rounded-full blur-3xl translate-x-1/4 translate-y-1/4"></div>
+            <div className="absolute right-0 bottom-0 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] bg-secondary/10 dark:bg-blue-500/10 rounded-full blur-3xl translate-x-1/4 translate-y-1/4"></div>
 
             {/* Responsive Split Columns Grid */}
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-6 w-full items-center text-left">
@@ -164,19 +164,19 @@ export default function HeroBanner() {
               {/* Left Column: Info & CTA */}
               <div className="max-w-sm sm:max-w-md md:max-w-lg">
                 {/* Badge tag */}
-                <span className={`inline-block text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2 py-0.5 border rounded-md mb-2 sm:mb-3.5 ${banner.themeColor}`}>
+                <span className={`inline-block text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2 py-0.5 border rounded-md mb-2 sm:mb-3.5 ${banner.themeColor} dark:bg-slate-700/80 dark:text-amber-300 dark:border-slate-600`}>
                   {banner.tag}
                 </span>
 
                 {/* Title with clamping and line breaks */}
-                <h2 className="text-lg sm:text-2xl md:text-3.5xl lg:text-4.5xl font-black text-text leading-tight mb-1.5 sm:mb-3 whitespace-pre-line">
+                <h2 className="text-lg sm:text-2xl md:text-3.5xl lg:text-4.5xl font-black text-text dark:text-white leading-tight mb-1.5 sm:mb-3 whitespace-pre-line">
                   {banner.title}
                 </h2>
 
                 {/* Subtitle */}
-                <p className="text-text-muted text-xs sm:text-sm md:text-base font-bold mb-3 sm:mb-5 leading-snug">
+                <p className="text-text-muted dark:text-slate-300 text-xs sm:text-sm md:text-base font-bold mb-3 sm:mb-5 leading-snug">
                   {banner.subtitle} <br className="hidden sm:block" />
-                  <span className="text-[10px] sm:text-xs text-text/80 font-semibold">{banner.desc}</span>
+                  <span className="text-[10px] sm:text-xs text-text/80 dark:text-slate-400 font-semibold">{banner.desc}</span>
                 </p>
 
                 {/* CTA Button */}
@@ -192,10 +192,10 @@ export default function HeroBanner() {
 
               {/* Right Column: Illustration / Graphic */}
               <div className="hidden md:flex justify-end pr-6">
-                <div className="w-36 h-36 md:w-48 md:h-48 bg-white/40 backdrop-blur-md border border-white/60 rounded-3xl shadow-sm flex flex-col items-center justify-center p-3 relative overflow-hidden group">
+                <div className="w-36 h-36 md:w-48 md:h-48 bg-white/40 dark:bg-slate-700/40 backdrop-blur-md border border-white/60 dark:border-slate-600 rounded-3xl shadow-sm flex flex-col items-center justify-center p-3 relative overflow-hidden group">
                   <div className="text-5xl md:text-7xl animate-bounce duration-1000 mb-2">{banner.emoji}</div>
-                  <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-white/50 rounded-full flex items-center justify-center text-xl shadow-sm">{banner.visual}</div>
-                  <div className="absolute -top-4 -right-4 w-14 h-14 bg-secondary/35 rounded-full flex items-center justify-center text-lg rotate-12">⭐</div>
+                  <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-white/50 dark:bg-slate-600/50 rounded-full flex items-center justify-center text-xl shadow-sm">{banner.visual}</div>
+                  <div className="absolute -top-4 -right-4 w-14 h-14 bg-secondary/35 dark:bg-amber-500/35 rounded-full flex items-center justify-center text-lg rotate-12">⭐</div>
                 </div>
               </div>
 
@@ -212,7 +212,7 @@ export default function HeroBanner() {
           handlePrev();
           setIsPaused(true);
         }}
-        className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 bg-white/90 backdrop-blur-xs rounded-full shadow-xs flex items-center justify-center text-text-muted hover:text-primary hover:scale-105 transition-all z-20 cursor-pointer border border-slate-100"
+        className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xs rounded-full shadow-xs flex items-center justify-center text-text-muted dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 hover:scale-105 transition-all z-20 cursor-pointer border border-slate-100 dark:border-slate-700"
         aria-label="Previous Slide"
       >
         <ChevronLeft size={16} />
@@ -223,11 +223,12 @@ export default function HeroBanner() {
           handleNext();
           setIsPaused(true);
         }}
-        className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 bg-white/90 backdrop-blur-xs rounded-full shadow-xs flex items-center justify-center text-text-muted hover:text-primary hover:scale-105 transition-all z-20 cursor-pointer border border-slate-100"
+        className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xs rounded-full shadow-xs flex items-center justify-center text-text-muted dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 hover:scale-105 transition-all z-20 cursor-pointer border border-slate-100 dark:border-slate-700"
         aria-label="Next Slide"
       >
         <ChevronRight size={16} />
       </button>
+
 
       {/* Pagination Dots */}
       <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-20 bg-slate-900/10 px-2.5 py-1 rounded-full backdrop-blur-xs">

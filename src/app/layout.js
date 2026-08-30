@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import { ReduxProvider } from "@/redux/ReduxProvider";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,14 +18,38 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} font-sans`}>
-        <ReduxProvider>
-          <Navbar />
-          <main className="min-h-screen pt-4 pb-12">{children}</main>
-          <Footer />
-        </ReduxProvider>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var saved = localStorage.getItem('bechdal-theme');
+                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  if (saved === 'dark' || (!saved && prefersDark)) {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                    document.documentElement.setAttribute('data-theme', 'light');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className={`${inter.variable} font-sans bg-background text-text transition-colors duration-200`} suppressHydrationWarning>
+        <ThemeProvider>
+          <ReduxProvider>
+            <Navbar />
+            <main className="min-h-screen pt-4 pb-12">{children}</main>
+            <Footer />
+          </ReduxProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
 }
+

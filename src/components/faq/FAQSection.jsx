@@ -12,14 +12,14 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="w-full bg-white rounded-2xl p-6 md:p-10 shadow-subtle border border-border/50">
+    <section className="w-full py-2">
       <div className="flex flex-col md:flex-row gap-8 lg:gap-16">
         <div className="md:w-1/3">
-          <h2 className="text-2xl font-bold text-text mb-4">Frequently Asked Questions</h2>
-          <p className="text-text-muted mb-6 leading-relaxed">
+          <h2 className="text-xl sm:text-2xl font-black text-text dark:text-white tracking-tight mb-3">Frequently Asked Questions</h2>
+          <p className="text-text-muted dark:text-slate-300 mb-6 text-xs sm:text-sm leading-relaxed">
             Have questions about buying, selling, or safety on BechDal? We've got answers. If you can't find what you're looking for, our support team is always here to help.
           </p>
-          <button className="px-5 py-2.5 bg-primary text-white font-medium rounded-lg hover:bg-primary-dark transition-colors shadow-sm">
+          <button className="px-5 py-2.5 bg-primary text-white text-xs sm:text-sm font-bold rounded-xl hover:bg-primary-dark transition-all shadow-md cursor-pointer">
             Contact Support
           </button>
         </div>
@@ -39,3 +39,4 @@ export default function FAQSection() {
     </section>
   );
 }
+

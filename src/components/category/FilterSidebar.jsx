@@ -38,11 +38,11 @@ export default function FilterSidebar({
   };
 
   return (
-    <aside className="w-full bg-white rounded-2xl p-4 shadow-subtle border border-border/70 flex flex-col gap-1">
+    <aside className="w-full bg-white dark:bg-slate-800/90 rounded-2xl p-4 shadow-subtle border border-border/70 dark:border-slate-700/80 flex flex-col gap-1 transition-colors">
       {/* Sidebar Header */}
-      <div className="flex items-center justify-between pb-3 border-b border-border">
+      <div className="flex items-center justify-between pb-3 border-b border-border dark:border-slate-700/70">
         <div className="flex items-center gap-2">
-          <h2 className="font-bold text-sm text-text">Filters</h2>
+          <h2 className="font-bold text-sm text-text dark:text-slate-100">Filters</h2>
           {activeFilterCount > 0 && (
             <span className="bg-primary text-white text-[11px] font-semibold px-2 py-0.5 rounded-full">
               {activeFilterCount}

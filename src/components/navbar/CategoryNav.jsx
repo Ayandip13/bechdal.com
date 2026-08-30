@@ -66,14 +66,14 @@ export default function CategoryNav() {
   const allCategories = [...mainCategories, ...moreCategories];
 
   return (
-    <div className="bg-white border-b border-border shadow-xs">
+    <div className="bg-white dark:bg-slate-800/90 border-b border-border dark:border-slate-700/80 shadow-xs transition-colors duration-200">
       
       {/* ----------------- DESKTOP LAYOUT ----------------- */}
       <div className="hidden md:block max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between gap-4">
         {/* All Categories Link */}
         <Link
           href="/category/electronics"
-          className="flex items-center gap-1.5 text-primary font-bold text-xs hover:text-primary-dark transition-colors whitespace-nowrap mr-2 select-none h-8"
+          className="flex items-center gap-1.5 text-primary dark:text-blue-400 font-bold text-xs hover:text-primary-dark transition-colors whitespace-nowrap mr-2 select-none h-8"
         >
           <Menu size={15} />
           All Categories
@@ -87,7 +87,7 @@ export default function CategoryNav() {
               <Link 
                 key={index} 
                 href={`/category/${cat.slug}`} 
-                className="flex items-center gap-1.5 text-text-muted hover:text-primary text-[11px] sm:text-xs font-semibold transition-colors whitespace-nowrap py-1 border-b-2 border-transparent hover:border-primary h-8"
+                className="flex items-center gap-1.5 text-text-muted dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 text-[11px] sm:text-xs font-semibold transition-colors whitespace-nowrap py-1 border-b-2 border-transparent hover:border-primary dark:hover:border-blue-400 h-8"
               >
                 <Icon size={13} className="opacity-80" />
                 {cat.name}
@@ -102,15 +102,15 @@ export default function CategoryNav() {
             onMouseLeave={() => setShowMoreDropdown(false)}
           >
             <button 
-              className="flex items-center gap-1.5 text-text-muted hover:text-primary text-[11px] sm:text-xs font-semibold transition-colors whitespace-nowrap py-1 cursor-pointer focus:outline-none h-8"
+              className="flex items-center gap-1.5 text-text-muted dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 text-[11px] sm:text-xs font-semibold transition-colors whitespace-nowrap py-1 cursor-pointer focus:outline-none h-8"
             >
               <LayoutGrid size={13} className="opacity-80" />
               <span>More</span>
             </button>
 
             {showMoreDropdown && (
-              <div className="absolute top-[28px] right-0 bg-white border border-border rounded-xl shadow-lg py-2 w-56 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                <div className="px-3 pb-1 border-b border-slate-100 text-[9px] uppercase tracking-wider font-extrabold text-text-muted">
+              <div className="absolute top-[28px] right-0 bg-white dark:bg-slate-800 border border-border dark:border-slate-700 rounded-xl shadow-lg py-2 w-56 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                <div className="px-3 pb-1 border-b border-slate-100 dark:border-slate-700 text-[9px] uppercase tracking-wider font-extrabold text-text-muted dark:text-slate-400">
                   More Categories
                 </div>
                 {moreCategories.map((cat, index) => {
@@ -119,10 +119,10 @@ export default function CategoryNav() {
                     <Link
                       key={index}
                       href={`/category/${cat.slug}`}
-                      className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-text-muted hover:text-primary hover:bg-slate-50 transition-colors"
+                      className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-text-muted dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
                       onClick={() => setShowMoreDropdown(false)}
                     >
-                      <Icon size={13} className="text-text-muted opacity-80" />
+                      <Icon size={13} className="text-text-muted dark:text-slate-400 opacity-80" />
                       <span>{cat.name}</span>
                     </Link>
                   );
@@ -144,9 +144,9 @@ export default function CategoryNav() {
               <Link 
                 key={index} 
                 href={`/category/${cat.slug}`} 
-                className="flex items-center gap-1 bg-slate-50 border border-slate-200/60 px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-bold text-slate-700 hover:text-primary transition-colors whitespace-nowrap shadow-3xs"
+                className="flex items-center gap-1 bg-slate-50 dark:bg-slate-700/60 border border-slate-200/60 dark:border-slate-600 px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-blue-400 transition-colors whitespace-nowrap shadow-3xs"
               >
-                <Icon size={12} className="opacity-85 text-slate-500" />
+                <Icon size={12} className="opacity-85 text-slate-500 dark:text-slate-400" />
                 <span>{cat.name}</span>
               </Link>
             );
@@ -154,10 +154,11 @@ export default function CategoryNav() {
         </div>
 
         {/* Subtle right-side fade indicator for scroll direction */}
-        <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white dark:from-slate-800 to-transparent pointer-events-none"></div>
 
       </div>
 
     </div>
   );
 }
+
