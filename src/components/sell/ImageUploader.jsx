@@ -59,25 +59,26 @@ export default function ImageUploader() {
 
   return (
     <div className="space-y-6">
-      <div className="border-b border-border pb-4">
-        <h2 className="text-xl font-bold text-text mb-1">Photos</h2>
-        <p className="text-sm text-text-muted">Upload up to 10 photos. Listings with clear photos sell faster.</p>
+      <div className="border-b border-slate-100 dark:border-slate-700/80 pb-4">
+        <h2 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white mb-1">Photos</h2>
+        <p className="text-xs sm:text-sm text-text-muted dark:text-slate-400 font-medium">Upload up to 10 photos. Listings with clear photos sell faster.</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
         
         {/* Uploader Area */}
         <div className="lg:col-span-2 space-y-4">
           <div
             className={`
-              relative border-2 border-dashed rounded-xl p-8 text-center transition-all
-              ${dragActive ? "border-primary bg-primary/5" : "border-border bg-slate-50 hover:bg-slate-100/80"}
-              ${errors.images ? "border-red-500 bg-red-50" : ""}
+              relative border-2 border-dashed rounded-2xl p-6 sm:p-8 text-center transition-all cursor-pointer
+              ${dragActive ? "border-primary dark:border-blue-400 bg-primary/5 dark:bg-blue-500/10" : "border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800/60"}
+              ${errors.images ? "border-red-500 bg-red-50/20" : ""}
             `}
             onDragEnter={onDrag}
             onDragLeave={onDrag}
             onDragOver={onDrag}
             onDrop={onDrop}
+            onClick={() => inputRef.current?.click()}
           >
             <input
               ref={inputRef}
@@ -88,20 +89,23 @@ export default function ImageUploader() {
               onChange={handleChange}
             />
             
-            <div className="flex flex-col items-center justify-center gap-4 pointer-events-none">
-              <div className="w-16 h-16 bg-white rounded-full shadow-sm flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                <UploadCloud size={32} />
+            <div className="flex flex-col items-center justify-center gap-3">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full shadow-2xs flex items-center justify-center text-primary dark:text-blue-400">
+                <UploadCloud size={28} />
               </div>
               <div>
-                <p className="font-semibold text-text text-lg">Click to upload or drag & drop</p>
-                <p className="text-sm text-text-muted mt-1">PNG, JPG or JPEG (Max 10 images)</p>
+                <p className="font-extrabold text-slate-900 dark:text-white text-base sm:text-lg">Click to upload or drag & drop</p>
+                <p className="text-xs text-text-muted dark:text-slate-400 mt-1 font-medium">PNG, JPG or JPEG (Max 10 images)</p>
               </div>
             </div>
             
             <button 
               type="button"
-              onClick={() => inputRef.current?.click()}
-              className="mt-6 px-6 py-2.5 bg-white border border-border rounded-lg text-sm font-semibold text-text hover:border-primary hover:text-primary transition-colors shadow-sm"
+              onClick={(e) => {
+                e.stopPropagation();
+                inputRef.current?.click();
+              }}
+              className="mt-4 px-5 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-800 dark:text-slate-200 hover:border-primary dark:hover:border-blue-400 transition-colors shadow-2xs cursor-pointer"
             >
               Select Photos
             </button>
@@ -112,40 +116,39 @@ export default function ImageUploader() {
           {/* Preview Grid */}
           {images.length > 0 && (
             <div className="pt-4">
-              <h3 className="font-semibold text-text mb-4 text-sm">Uploaded Photos ({images.length}/10)</h3>
+              <h3 className="font-bold text-slate-900 dark:text-slate-100 mb-3 text-xs sm:text-sm">Uploaded Photos ({images.length}/10)</h3>
               <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
                 {images.map((img, idx) => (
-                  <div key={img.id} className="relative group rounded-lg overflow-hidden border border-border aspect-square bg-slate-100 animate-in zoom-in duration-300">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <div key={img.id} className="relative group rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 aspect-square bg-slate-100 dark:bg-slate-900 animate-in zoom-in duration-200">
                     <img src={img.url} alt="preview" className="w-full h-full object-cover" />
                     
                     {/* Overlay */}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-2">
+                    <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-2">
                       <div className="flex justify-between">
                         {idx !== 0 ? (
                           <button 
                             type="button"
                             onClick={() => moveImageToFront(idx)}
-                            className="bg-white/90 hover:bg-white text-[10px] px-2 py-1 rounded text-text font-medium"
+                            className="bg-white/90 text-slate-900 hover:bg-white text-[10px] px-2 py-0.5 rounded font-bold"
                           >
                             Set Cover
                           </button>
                         ) : (
-                          <span className="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded">COVER</span>
+                          <span className="bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded">COVER</span>
                         )}
                         <button 
                           type="button"
                           onClick={() => removeImage(idx)}
-                          className="bg-red-500/90 hover:bg-red-500 text-white w-6 h-6 rounded flex items-center justify-center ml-auto"
+                          className="bg-red-600 hover:bg-red-700 text-white w-5 h-5 rounded flex items-center justify-center ml-auto cursor-pointer"
                         >
-                          <X size={14} />
+                          <X size={13} />
                         </button>
                       </div>
                     </div>
 
                     {/* Cover Label if not hovering */}
                     {idx === 0 && (
-                      <div className="absolute top-2 left-2 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm group-hover:hidden">
+                      <div className="absolute top-2 left-2 bg-primary text-white text-[10px] font-extrabold px-2 py-0.5 rounded shadow-2xs group-hover:hidden">
                         COVER
                       </div>
                     )}
@@ -158,26 +161,26 @@ export default function ImageUploader() {
 
         {/* Guidelines Card */}
         <div className="lg:col-span-1 hidden lg:block">
-          <div className="bg-blue-50 border border-blue-100 rounded-xl p-5 sticky top-28">
-            <h3 className="font-bold text-primary flex items-center gap-2 mb-4">
+          <div className="bg-blue-50 dark:bg-slate-900 border border-blue-100 dark:border-slate-700/80 rounded-2xl p-5 sticky top-28">
+            <h3 className="font-extrabold text-primary dark:text-blue-400 flex items-center gap-2 mb-3 text-sm">
               <ImageIcon size={18} /> Photo Guidelines
             </h3>
             
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-2 text-text">
-                <CheckCircle size={16} className="text-green-500 flex-shrink-0 mt-0.5" />
+            <ul className="space-y-3 text-xs">
+              <li className="flex items-start gap-2 text-slate-700 dark:text-slate-300 font-medium">
+                <CheckCircle size={15} className="text-emerald-500 shrink-0 mt-0.5" />
                 <span>Use a clean, plain background.</span>
               </li>
-              <li className="flex items-start gap-2 text-text">
-                <CheckCircle size={16} className="text-green-500 flex-shrink-0 mt-0.5" />
+              <li className="flex items-start gap-2 text-slate-700 dark:text-slate-300 font-medium">
+                <CheckCircle size={15} className="text-emerald-500 shrink-0 mt-0.5" />
                 <span>Ensure good natural lighting.</span>
               </li>
-              <li className="flex items-start gap-2 text-text">
-                <CheckCircle size={16} className="text-green-500 flex-shrink-0 mt-0.5" />
+              <li className="flex items-start gap-2 text-slate-700 dark:text-slate-300 font-medium">
+                <CheckCircle size={15} className="text-emerald-500 shrink-0 mt-0.5" />
                 <span>Show any damages clearly if used.</span>
               </li>
-              <li className="flex items-start gap-2 text-text">
-                <AlertCircle size={16} className="text-amber-500 flex-shrink-0 mt-0.5" />
+              <li className="flex items-start gap-2 text-slate-700 dark:text-slate-300 font-medium">
+                <AlertCircle size={15} className="text-amber-500 shrink-0 mt-0.5" />
                 <span>No blurry or low-res photos.</span>
               </li>
             </ul>
