@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import { ReduxProvider } from "@/redux/ReduxProvider";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { AuthProvider } from "@/context/AuthContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -42,11 +43,13 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${inter.variable} font-sans bg-background text-text transition-colors duration-200`} suppressHydrationWarning>
         <ThemeProvider>
-          <ReduxProvider>
-            <Navbar />
-            <main className="min-h-screen pt-4 pb-12">{children}</main>
-            <Footer />
-          </ReduxProvider>
+          <AuthProvider>
+            <ReduxProvider>
+              <Navbar />
+              <main className="min-h-screen pt-4 pb-12">{children}</main>
+              <Footer />
+            </ReduxProvider>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -3,19 +3,21 @@
 import { useState, useEffect, useRef } from "react";
 import {
   MapPin, Search, ChevronDown, User, ClipboardList, Heart,
-  Inbox, PlusCircle, Menu, X, ArrowRight, Clock, Sparkles, Check, HelpCircle
+  Inbox, PlusCircle, Menu, X, ArrowRight, Clock, Sparkles, Check, HelpCircle, LogOut
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useSelector } from "react-redux";
 import { categoryDetails, categoryProducts, popularSearchTags } from "@/constants/categoryData";
 import ThemeToggle from "./ThemeToggle";
+import { useAuth } from "@/context/AuthContext";
 
 
 export default function MainNavbar() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const wishlistItems = useSelector((state) => state.wishlist.items);
+  const { user, isAuthenticated, logout } = useAuth();
 
   // States
   const [searchQuery, setSearchQuery] = useState("");
@@ -25,6 +27,7 @@ export default function MainNavbar() {
   const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
 
   // Suggestion results
   const [suggestedProducts, setSuggestedProducts] = useState([]);
@@ -332,10 +335,61 @@ export default function MainNavbar() {
             {/* Theme Toggle Button */}
             <ThemeToggle />
 
-            <button className="flex flex-col items-center hover:text-primary dark:hover:text-blue-400 transition-colors focus:outline-none cursor-pointer">
-              <User size={18} />
-              <span className="text-[10px] font-bold mt-0.5">Account</span>
-            </button>
+            {/* Auth State Action: Login Link or User Account Dropdown */}
+            {isAuthenticated ? (
+              <div className="relative">
+                <button
+                  onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)}
+                  className="flex flex-col items-center hover:text-primary dark:hover:text-blue-400 transition-colors focus:outline-none cursor-pointer"
+                >
+                  <div className="w-5 h-5 rounded-full overflow-hidden bg-primary/10 dark:bg-blue-500/20 text-primary dark:text-blue-400 flex items-center justify-center text-[10px] font-bold border border-primary/30">
+                    {user?.name ? user.name.charAt(0).toUpperCase() : <User size={13} />}
+                  </div>
+                  <span className="text-[10px] font-bold mt-0.5 max-w-[50px] truncate">{user?.name?.split(" ")[0] || "Account"}</span>
+                </button>
+
+                {isUserDropdownOpen && (
+                  <div className="absolute top-[38px] right-0 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl py-2 w-48 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                    <div className="px-4 py-2 border-b border-slate-100 dark:border-slate-700">
+                      <p className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">{user?.name}</p>
+                      <p className="text-[10px] text-text-muted dark:text-slate-400 truncate">{user?.email || user?.mobile}</p>
+                    </div>
+                    <Link
+                      href="/wishlist"
+                      onClick={() => setIsUserDropdownOpen(false)}
+                      className="block px-4 py-2 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-primary transition-colors"
+                    >
+                      My Wishlist
+                    </Link>
+                    <Link
+                      href="/inbox"
+                      onClick={() => setIsUserDropdownOpen(false)}
+                      className="block px-4 py-2 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-primary transition-colors"
+                    >
+                      My Chats
+                    </Link>
+                    <button
+                      onClick={() => {
+                        logout();
+                        setIsUserDropdownOpen(false);
+                      }}
+                      className="w-full text-left px-4 py-2 text-xs font-semibold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors flex items-center gap-1.5 cursor-pointer"
+                    >
+                      <LogOut size={13} />
+                      <span>Log Out</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                href="/login"
+                className="flex flex-col items-center hover:text-primary dark:hover:text-blue-400 transition-colors focus:outline-none cursor-pointer"
+              >
+                <User size={18} />
+                <span className="text-[10px] font-bold mt-0.5">Login</span>
+              </Link>
+            )}
 
             <Link href="/wishlist" className="flex flex-col items-center hover:text-primary dark:hover:text-blue-400 transition-colors relative">
               <Heart size={18} />
@@ -505,12 +559,24 @@ export default function MainNavbar() {
 
             {/* Header */}
             <div className="p-4 bg-primary dark:bg-slate-900 text-white flex items-center justify-between">
-              <div className="flex flex-col">
-                <span className="text-xs opacity-80 leading-none">Welcome to</span>
-                <span className="text-lg font-black tracking-tight mt-0.5 flex items-center gap-0.5">
-                  BechDal<span className="text-secondary dark:text-amber-400 font-black">.com</span>
-                </span>
-              </div>
+              {isAuthenticated ? (
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-white/20 text-white font-extrabold flex items-center justify-center text-sm border border-white/30">
+                    {user?.name ? user.name.charAt(0).toUpperCase() : "U"}
+                  </div>
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-sm font-bold truncate max-w-[140px]">{user?.name}</span>
+                    <span className="text-[10px] text-white/80 truncate max-w-[140px]">{user?.email || user?.mobile}</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex flex-col">
+                  <span className="text-xs opacity-80 leading-none">Welcome to</span>
+                  <span className="text-lg font-black tracking-tight mt-0.5 flex items-center gap-0.5">
+                    BechDal<span className="text-secondary dark:text-amber-400 font-black">.com</span>
+                  </span>
+                </div>
+              )}
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="p-1 rounded-full text-white/95 hover:bg-white/10 transition-colors focus:outline-none cursor-pointer"
@@ -544,6 +610,17 @@ export default function MainNavbar() {
               {/* Main Links */}
               <div className="px-2 divide-y divide-slate-100 dark:divide-slate-700">
                 <div className="py-2.5">
+                  {!isAuthenticated ? (
+                    <Link
+                      href="/login"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="flex items-center gap-2.5 px-3 py-2 bg-primary/10 dark:bg-blue-500/20 text-primary dark:text-blue-400 hover:bg-primary/20 rounded-lg text-xs font-bold mb-1"
+                    >
+                      <User size={16} />
+                      <span>Login / Create Account</span>
+                    </Link>
+                  ) : null}
+
                   <Link
                     href="/sell"
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -568,6 +645,18 @@ export default function MainNavbar() {
                     <Inbox size={16} className="text-text-muted dark:text-slate-400" />
                     <span>My Chats / Inbox</span>
                   </Link>
+                  {isAuthenticated ? (
+                    <button
+                      onClick={() => {
+                        logout();
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-semibold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 rounded-lg transition-colors cursor-pointer"
+                    >
+                      <LogOut size={16} />
+                      <span>Log Out</span>
+                    </button>
+                  ) : null}
                 </div>
 
                 {/* Categories Links */}
