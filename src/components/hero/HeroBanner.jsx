@@ -135,8 +135,8 @@ export default function HeroBanner() {
   };
 
   return (
-    <div
-      className="w-full relative rounded-2xl overflow-hidden shadow-2xs border border-border/50 min-h-[140px] sm:min-h-[180px] md:min-h-[240px] lg:min-h-[280px] flex items-center outline-none select-none"
+    <div 
+      className="w-full relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xs border border-border/50 min-h-[115px] sm:min-h-[160px] md:min-h-[220px] flex items-center outline-none select-none"
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
@@ -144,56 +144,57 @@ export default function HeroBanner() {
       tabIndex={0}
       aria-label="Promotional Banners Carousel"
     >
-
+      
       {/* Slides container */}
       {bannerData.map((banner, index) => {
         const isActive = index === currentIndex;
         return (
           <div
             key={banner.id || index}
-            className={`absolute inset-0 w-full h-full p-3.5 sm:p-6 md:p-8 lg:p-10 bg-gradient-to-r ${banner.bgGradient} dark:from-slate-800 dark:via-slate-800/90 dark:to-slate-900 flex flex-col justify-center transition-opacity duration-500 ease-in-out ${isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
-              }`}
+            className={`absolute inset-0 w-full h-full p-3 sm:p-5 md:p-8 bg-gradient-to-r ${banner.bgGradient} dark:from-slate-800 dark:via-slate-800/90 dark:to-slate-900 flex flex-col justify-center transition-opacity duration-500 ease-in-out ${
+              isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+            }`}
           >
             {/* Background ambient glow */}
-            <div className="absolute right-0 bottom-0 w-48 h-48 sm:w-72 sm:h-72 bg-secondary/15 dark:bg-blue-500/10 rounded-full blur-2xl translate-x-1/4 translate-y-1/4"></div>
+            <div className="absolute right-0 bottom-0 w-36 h-36 sm:w-60 sm:h-60 bg-secondary/15 dark:bg-blue-500/10 rounded-full blur-xl translate-x-1/4 translate-y-1/4"></div>
 
             {/* Split Grid */}
-            <div className="relative z-10 flex items-center justify-between gap-3 w-full text-left">
-
+            <div className="relative z-10 flex items-center justify-between gap-2 w-full text-left">
+              
               {/* Info Column */}
-              <div className="max-w-[70%] sm:max-w-md md:max-w-lg">
+              <div className="max-w-[85%] sm:max-w-md md:max-w-lg">
                 {/* Badge tag */}
-                <span className={`inline-block text-[8px] sm:text-[10px] font-black uppercase tracking-wider px-2 py-0.5 border rounded-md mb-1 sm:mb-2 ${banner.themeColor} dark:bg-slate-700/80 dark:text-amber-300 dark:border-slate-600`}>
+                <span className={`inline-block text-[8px] sm:text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 border rounded mb-0.5 sm:mb-1.5 ${banner.themeColor} dark:bg-slate-700/80 dark:text-amber-300 dark:border-slate-600`}>
                   {banner.tag}
                 </span>
 
                 {/* Title */}
-                <h2 className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-black text-text dark:text-white leading-tight mb-1 sm:mb-2 whitespace-pre-line">
+                <h2 className="text-xs sm:text-lg md:text-2xl font-black text-slate-900 dark:text-white leading-tight mb-0.5 sm:mb-1.5 whitespace-pre-line">
                   {banner.title}
                 </h2>
 
                 {/* Subtitle */}
-                <p className="text-text-muted dark:text-slate-300 text-[10px] sm:text-xs md:text-sm font-bold mb-2 sm:mb-4 leading-tight truncate sm:whitespace-normal">
+                <p className="text-text-muted dark:text-slate-300 text-[9px] sm:text-xs font-semibold mb-1.5 sm:mb-3 leading-tight truncate sm:whitespace-normal">
                   {banner.subtitle}
                 </p>
 
                 {/* CTA Button */}
-                <Link
+                <Link 
                   href={banner.ctaLink}
                   onClick={() => setIsPaused(true)}
-                  className={`inline-flex items-center gap-1 sm:gap-2 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-[10px] sm:text-xs font-bold shadow-2xs hover:shadow transition-all group cursor-pointer ${banner.buttonTheme}`}
+                  className={`inline-flex items-center gap-1 text-white px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-md sm:rounded-lg text-[9px] sm:text-xs font-bold shadow-2xs hover:shadow transition-all group cursor-pointer ${banner.buttonTheme}`}
                 >
                   <span>{banner.ctaText}</span>
-                  <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+                  <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
                 </Link>
               </div>
 
-              {/* Graphic / Visual Box */}
-              <div className="flex justify-end pr-2 sm:pr-6 shrink-0">
-                <div className="w-16 h-16 sm:w-28 sm:h-28 md:w-36 md:h-36 bg-white/50 dark:bg-slate-700/50 backdrop-blur-md border border-white/60 dark:border-slate-600 rounded-2xl sm:rounded-3xl shadow-2xs flex flex-col items-center justify-center p-2 relative overflow-hidden group">
-                  <div className="text-2xl sm:text-4xl md:text-6xl animate-bounce duration-1000 mb-1">{banner.emoji}</div>
-                  <div className="absolute -bottom-2 -left-2 w-7 h-7 sm:w-10 sm:h-10 bg-white/60 dark:bg-slate-600/60 rounded-full flex items-center justify-center text-xs sm:text-base shadow-2xs">{banner.visual}</div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 sm:w-12 sm:h-12 bg-secondary/40 dark:bg-amber-500/40 rounded-full flex items-center justify-center text-xs sm:text-base rotate-12">⭐</div>
+              {/* Graphic / Visual Box (Desktop Only to maximize mobile text space) */}
+              <div className="hidden sm:flex justify-end pr-2 sm:pr-6 shrink-0">
+                <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white/50 dark:bg-slate-700/50 backdrop-blur-md border border-white/60 dark:border-slate-600 rounded-2xl shadow-2xs flex flex-col items-center justify-center p-2 relative overflow-hidden group">
+                  <div className="text-3xl md:text-5xl animate-bounce duration-1000 mb-1">{banner.emoji}</div>
+                  <div className="absolute -bottom-2 -left-2 w-7 h-7 sm:w-9 sm:h-9 bg-white/60 dark:bg-slate-600/60 rounded-full flex items-center justify-center text-xs sm:text-sm shadow-2xs">{banner.visual}</div>
+                  <div className="absolute -top-2 -right-2 w-7 h-7 sm:w-9 sm:h-9 bg-secondary/40 dark:bg-amber-500/40 rounded-full flex items-center justify-center text-xs sm:text-sm rotate-12">⭐</div>
                 </div>
               </div>
 
