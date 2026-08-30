@@ -2,11 +2,10 @@
 
 import { useRef } from "react";
 import Link from "next/link";
-import { ChevronRight, ChevronLeft, Sparkles } from "lucide-react";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 import ProductCard from "../cards/ProductCard";
-import { premiumAds } from "@/constants/dummyData";
 
-export default function PremiumAds() {
+export default function CategoryProductRail({ title, categorySlug, products = [], subtitle }) {
   const scrollRef = useRef(null);
 
   const scrollLeft = () => {
@@ -21,25 +20,40 @@ export default function PremiumAds() {
     }
   };
 
+  if (!products || products.length === 0) return null;
+
   return (
     <section className="w-full py-2">
       <div className="flex items-center justify-between gap-4 mb-3 sm:mb-4">
-        <h2 className="text-lg sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
-          <span>Premium Ads</span>
-          <span className="inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-widest text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-950/60 px-2 py-0.5 rounded-md border border-amber-200 dark:border-amber-800/40">
-            <Sparkles size={11} className="fill-amber-500 text-amber-500 dark:fill-amber-400 dark:text-amber-400" /> Featured
-          </span>
-        </h2>
-        <Link href="/category/vehicles" className="flex items-center gap-1 text-primary dark:text-blue-400 text-xs sm:text-sm font-bold hover:underline transition-all whitespace-nowrap cursor-pointer shrink-0">
-          <span>View All</span> <ChevronRight className="w-4 h-4" />
+        <div>
+          <h2 className="text-lg sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+            {title}
+          </h2>
+          {subtitle && (
+            <p className="text-[11px] sm:text-xs font-semibold text-text-muted dark:text-slate-400">
+              {subtitle}
+            </p>
+          )}
+        </div>
+
+        <Link
+          href={`/category/${categorySlug}`}
+          className="flex items-center gap-1 text-primary dark:text-blue-400 text-xs sm:text-sm font-bold hover:underline transition-all whitespace-nowrap cursor-pointer shrink-0"
+        >
+          <span>View All</span>
+          <ChevronRight className="w-4 h-4" />
         </Link>
       </div>
 
       <div className="relative group/nav">
-        <div ref={scrollRef} className="flex gap-3 sm:gap-4 overflow-x-auto hide-scrollbar pb-3 pt-1 snap-x scroll-smooth">
-          {premiumAds.map((listing) => (
-            <div key={listing.id} className="snap-start shrink-0 w-[150px] sm:w-[210px] md:w-[250px]">
-              <ProductCard {...listing} />
+        {/* Scrollable Rail */}
+        <div
+          ref={scrollRef}
+          className="flex gap-3 sm:gap-4 overflow-x-auto hide-scrollbar pb-3 pt-1 snap-x scroll-smooth"
+        >
+          {products.map((product) => (
+            <div key={product.id} className="snap-start shrink-0 w-[150px] sm:w-[210px] md:w-[250px]">
+              <ProductCard {...product} />
             </div>
           ))}
         </div>
@@ -65,5 +79,3 @@ export default function PremiumAds() {
     </section>
   );
 }
-
-
