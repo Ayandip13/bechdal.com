@@ -546,7 +546,7 @@ export default function MainNavbar() {
 
       {/* ----------------- MOBILE SLIDE-IN MENU DRAWER ----------------- */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[100] flex md:hidden animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-[100] md:hidden animate-in fade-in duration-200">
 
           {/* Backdrop */}
           <div
@@ -555,10 +555,10 @@ export default function MainNavbar() {
           />
 
           {/* Drawer Menu Panel */}
-          <div className="relative w-full max-w-[280px] bg-white dark:bg-slate-800 h-full shadow-2xl flex flex-col z-10 animate-in slide-in-from-left duration-250 border-r border-slate-200 dark:border-slate-700">
+          <div className="fixed top-0 left-0 bottom-0 w-full max-w-[280px] sm:max-w-[320px] bg-white dark:bg-slate-800 h-full h-[100dvh] shadow-2xl flex flex-col z-10 animate-in slide-in-from-left duration-250 border-r border-slate-200 dark:border-slate-700 overflow-hidden">
 
             {/* Header */}
-            <div className="p-4 bg-primary dark:bg-slate-900 text-white flex items-center justify-between">
+            <div className="p-4 bg-primary dark:bg-slate-900 text-white flex items-center justify-between shrink-0">
               {isAuthenticated ? (
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-white/20 text-white font-extrabold flex items-center justify-center text-sm border border-white/30">
@@ -586,7 +586,7 @@ export default function MainNavbar() {
             </div>
 
             {/* Drawer Body Scroll */}
-            <div className="flex-1 overflow-y-auto py-2">
+            <div className="flex-1 overflow-y-auto min-h-0 py-2">
 
               {/* Theme Toggle section in mobile menu */}
               <div className="px-3 my-2">
