@@ -1,12 +1,15 @@
+"use client";
+
 import HeroSection from "@/components/hero/HeroSection";
 import QuickActions from "@/components/hero/QuickActions";
 import FeaturedListings from "@/components/product/FeaturedListings";
 import PremiumAds from "@/components/product/PremiumAds";
 import NearYou from "@/components/product/NearYou";
-import CategoryProductRail from "@/components/product/CategoryProductRail";
+import CategoryProductGrid from "@/components/product/CategoryProductGrid";
+import PromoBanner from "@/components/banner/PromoBanner";
 import VerifiedSellers from "@/components/sellers/VerifiedSellers";
 import FAQSection from "@/components/faq/FAQSection";
-import { featuredListings, premiumAds } from "@/constants/dummyData";
+import { Smartphone, Car, ShieldCheck, Tag } from "lucide-react";
 
 export default function Home() {
   const mobileListings = [
@@ -97,61 +100,90 @@ export default function Home() {
       badge: null,
       isVerifiedSeller: false,
     },
+    {
+      id: 304,
+      title: "Hyundai Creta SX 1.5 Petrol 2021",
+      price: "10,25,000",
+      originalPrice: "13,50,000",
+      discount: "24% off",
+      location: "Alipore, Kolkata",
+      postedTime: "5 days ago",
+      image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=600&auto=format&fit=crop",
+      badge: "Verified",
+      isVerifiedSeller: true,
+    },
   ];
 
   return (
-    <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 flex flex-col gap-4 sm:gap-6 pt-3 sm:pt-4">
+    <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 flex flex-col gap-5 sm:gap-7 pt-3 sm:pt-4">
       {/* 1. Compact Hero Banner Carousel */}
       <HeroSection />
 
-      {/* 2. Compact Quick Actions */}
+      {/* 2. Compact Quick Actions (2x2 grid on mobile) */}
       <QuickActions />
 
-      {/* 3. Slim Marketplace Trust Strip ("BechDal Promise") */}
-      <div className="bg-slate-900/90 dark:bg-slate-800/90 border border-slate-800 dark:border-slate-700/80 rounded-xl px-3.5 py-2.5 text-white flex flex-wrap items-center justify-between gap-2 shadow-2xs">
-        <div className="flex items-center gap-2 text-xs font-bold">
-          <span className="text-secondary dark:text-amber-400 font-black">⚡ Maximum Bachat</span>
-          <span className="text-slate-600 font-normal hidden sm:inline">•</span>
-          <span className="text-slate-300 hidden sm:inline">No Hidden Charges</span>
-          <span className="text-slate-600 font-normal hidden sm:inline">•</span>
-          <span className="text-slate-300 hidden sm:inline">No Platform Fees</span>
-        </div>
-        <div className="flex items-center gap-2.5 sm:gap-4 text-[10px] sm:text-xs font-extrabold text-secondary dark:text-amber-400">
-          <span>₹0 Listing Fee</span>
-          <span>0% Commission</span>
-          <span>100% Direct Deals</span>
-        </div>
-      </div>
-
-      {/* 4. Featured Listings Rail */}
+      {/* 3. Featured Listings (Grid) */}
       <FeaturedListings />
 
-      {/* 5. Premium Ads Rail */}
+      {/* 4. Interstitial Promo Banner 1: Trust & Brand */}
+      <PromoBanner
+        title="Sell Without Extra Fees. Maximum Bachat!"
+        subtitle="100% free to post listings. Zero platform fees and 0% brokerage on every deal."
+        ctaText="Start Selling Free"
+        ctaLink="/sell"
+        theme="dark"
+        badgeText="BechDal Promise"
+        icon="shield"
+      />
+
+      {/* 5. Premium Ads (Grid) */}
       <PremiumAds />
 
-      {/* 6. Near You Rail */}
-      <NearYou />
+      {/* 6. Interstitial Promo Banner 2: Category Promotion (Mobiles & Tech) */}
+      <PromoBanner
+        title="Upgrade Your Phone Without Overspending"
+        subtitle="Explore pre-owned smartphones and laptops from verified local sellers near you."
+        ctaText="Explore Mobiles"
+        ctaLink="/category/mobiles"
+        theme="blue"
+        badgeText="Trending Category"
+        icon="smartphone"
+      />
 
-      {/* 7. Category Discovery Rail: Mobiles & Electronics */}
-      <CategoryProductRail
+      {/* 7. Category Product Grid: Mobiles & Electronics */}
+      <CategoryProductGrid
         title="Trending Mobiles & Tech"
-        subtitle="Pre-owned smartphones, laptops, and gadgets near you"
+        subtitle="Top pre-owned gadgets and smartphones"
         categorySlug="mobiles"
         products={mobileListings}
       />
 
-      {/* 8. Category Discovery Rail: Vehicles & Bikes */}
-      <CategoryProductRail
+      {/* 8. Near You (Grid) */}
+      <NearYou />
+
+      {/* 9. Interstitial Promo Banner 3: Vehicles */}
+      <PromoBanner
+        title="Find Your Next Ride — Cars, Bikes & Scooters"
+        subtitle="Direct deals from verified vehicle owners across Kolkata and West Bengal."
+        ctaText="Explore Vehicles"
+        ctaLink="/category/vehicles"
+        theme="emerald"
+        badgeText="Direct Deals"
+        icon="car"
+      />
+
+      {/* 10. Category Product Grid: Vehicles & Bikes */}
+      <CategoryProductGrid
         title="Vehicles, Bikes & Cars"
-        subtitle="Direct deals from verified local owners"
+        subtitle="Inspected pre-owned vehicles from local sellers"
         categorySlug="vehicles"
         products={vehicleListings}
       />
 
-      {/* 9. Verified Sellers */}
+      {/* 11. Verified Sellers */}
       <VerifiedSellers />
 
-      {/* 10. FAQ */}
+      {/* 12. FAQ Section */}
       <FAQSection />
     </div>
   );
