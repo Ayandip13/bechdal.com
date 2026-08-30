@@ -27,9 +27,9 @@ export default function NearYou() {
         </Link>
       </div>
 
-      {/* Product Grid: 2 cols on mobile, 3 on tablet, 4 on desktop */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4">
-        {nearYouAds.map((listing) => (
+      {/* Product Grid: Exactly 1 row with 3 products */}
+      <div className="grid grid-cols-3 gap-2 sm:gap-4">
+        {nearYouAds.slice(0, 3).map((listing) => (
           <ProductCard key={listing.id} {...listing} />
         ))}
       </div>
