@@ -31,16 +31,12 @@ export default function AuthLayout({ children, backUrl = "/" }) {
         {/* Minimal Footer */}
         <div className="mt-6 text-center text-[11px] text-text-light dark:text-slate-500 font-medium">
           © 2026 BechDal.com •{" "}
-          <Link href="/" className="hover:underline">
+          <Link href="/terms" className="hover:underline">
             Terms
           </Link>{" "}
           •{" "}
-          <Link href="/" className="hover:underline">
+          <Link href="/privacy" className="hover:underline">
             Privacy
-          </Link>{" "}
-          •{" "}
-          <Link href="/" className="hover:underline">
-            Help
           </Link>
         </div>
       </div>

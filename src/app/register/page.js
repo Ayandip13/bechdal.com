@@ -210,11 +210,11 @@ export default function RegisterPage() {
               />
               <span className="text-xs text-text-muted dark:text-slate-300 font-medium leading-relaxed">
                 I agree to the{" "}
-                <Link href="/" className="font-bold text-primary dark:text-blue-400 hover:underline">
+                <Link href="/terms" target="_blank" className="font-bold text-primary dark:text-blue-400 hover:underline">
                   Terms of Use
                 </Link>{" "}
                 and{" "}
-                <Link href="/" className="font-bold text-primary dark:text-blue-400 hover:underline">
+                <Link href="/privacy" target="_blank" className="font-bold text-primary dark:text-blue-400 hover:underline">
                   Privacy Policy
                 </Link>
                 .

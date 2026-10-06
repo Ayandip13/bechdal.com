@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import FooterColumn from "./FooterColumn";
 import SocialLinks from "./SocialLinks";
 import { footerLinks } from "@/constants/dummyData";
@@ -43,11 +44,9 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} BechDal.com. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-sm text-gray-500">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <span>&bull;</span>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
-            <span>&bull;</span>
-            <a href="#" className="hover:text-white transition-colors">Sitemap</a>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
           </div>
         </div>
       </div>
