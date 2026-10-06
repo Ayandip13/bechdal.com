@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { Star, MapPin, CalendarDays } from "lucide-react";
 
 export default function SellerCard({
@@ -13,13 +16,20 @@ export default function SellerCard({
   onFollow,
   onViewProfile,
 }) {
+  const [imgSrc, setImgSrc] = useState(avatar);
+
+  useEffect(() => {
+    setImgSrc(avatar);
+  }, [avatar]);
+
   return (
     <div className="bg-white dark:bg-slate-800/90 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 p-4.5 shadow-xs hover:shadow-xl hover:border-primary/40 dark:hover:border-blue-400/60 hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 min-w-[280px] sm:min-w-[300px]">
       {/* Avatar */}
       <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600">
         <img
-          src={avatar}
+          src={imgSrc}
           alt={name}
+          onError={() => setImgSrc("/images/kolkata_properties.png")}
           className="w-full h-full object-cover"
         />
       </div>

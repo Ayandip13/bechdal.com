@@ -262,7 +262,7 @@ export const nearYouAds = [
     price: "35,000",
     location: "Dum Dum, Kolkata",
     postedTime: "Just now",
-    image: "https://images.unsplash.com/photo-1623861517329-a1b742880f08?q=80&w=600&auto=format&fit=crop",
+    image: "/images/yamaha_mt15.png",
     badge: null,
     isFeatured: false,
     isPremium: false,
@@ -310,7 +310,7 @@ export const verifiedSellers = [
   {
     id: 2,
     name: "Kolkata Properties",
-    avatar: "https://images.unsplash.com/photo-1560518884-ce58750a5656?q=80&w=200&auto=format&fit=crop",
+    avatar: "/images/kolkata_properties.png",
     isVerified: true,
     rating: 4.7,
     reviewsCount: 178,
@@ -322,7 +322,7 @@ export const verifiedSellers = [
   {
     id: 3,
     name: "Bike Zone",
-    avatar: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=200&auto=format&fit=crop",
+    avatar: "/images/bike_zone.png",
     isVerified: true,
     rating: 4.6,
     reviewsCount: 235,
@@ -346,7 +346,7 @@ export const verifiedSellers = [
   {
     id: 5,
     name: "Furniture Hub",
-    avatar: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=200&auto=format&fit=crop",
+    avatar: "/images/furniture_hub.png",
     isVerified: true,
     rating: 4.7,
     reviewsCount: 163,

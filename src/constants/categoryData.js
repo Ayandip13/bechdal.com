@@ -580,7 +580,7 @@ export const categoryProducts = {
       discount: "19% OFF",
       location: "Delhi NCR",
       postedTime: "12 hours ago",
-      image: "https://images.unsplash.com/photo-1623861517329-a1b742880f08?q=80&w=600&auto=format&fit=crop",
+      image: "/images/yamaha_mt15.png",
       badge: null,
       isPremium: false,
       isFeatured: false,

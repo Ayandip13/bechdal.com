@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Heart, MapPin, Clock, Star } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavorite } from "@/redux/wishlistSlice";
@@ -24,6 +25,12 @@ export default function ProductCard(props) {
     isFeatured,
   } = props;
 
+  const [imgSrc, setImgSrc] = useState(image);
+
+  useEffect(() => {
+    setImgSrc(image);
+  }, [image]);
+
   const dispatch = useDispatch();
   const wishlistItems = useSelector((state) => state.wishlist.items);
   const isFav = wishlistItems.some((item) => item.id === id);
@@ -44,8 +51,9 @@ export default function ProductCard(props) {
       {/* Image Container */}
       <div className="relative aspect-[4/3] max-h-[110px] sm:max-h-[150px] w-full overflow-hidden bg-slate-100 dark:bg-slate-900/60 border-b border-slate-100 dark:border-slate-700/60">
         <img
-          src={image}
+          src={imgSrc}
           alt={title}
+          onError={() => setImgSrc("/images/yamaha_mt15.png")}
           className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
           loading="lazy"
         />
