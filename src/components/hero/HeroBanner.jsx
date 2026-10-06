@@ -2,61 +2,102 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ArrowRight,
+  ShieldCheck,
+  Zap,
+  Sparkles,
+  Smartphone,
+  Car,
+  Home,
+  Tag,
+  CheckCircle2,
+  TrendingUp,
+} from "lucide-react";
 
 const bannerData = [
   {
-    tag: "BechDal Promise",
-    title: "Sell Your Old Stuff\nin Minutes",
-    subtitle: "Buy. Sell. Rent. Direct Local Deals.",
-    desc: "Maximum Bachat. No Hidden Charges. No Platform Fees.",
-    bgGradient: "from-orange-50 via-orange-100/30 to-blue-50/50",
-    ctaText: "Start Selling",
+    id: 1,
+    badgeIcon: ShieldCheck,
+    tag: "100% Free Marketplace",
+    title: "Sell Your Old Items\nIn Minutes, 0% Fee.",
+    subtitle: "Direct local deals in Kolkata & across India. No middleman brokerage.",
+    ctaText: "Start Selling Free",
     ctaLink: "/sell",
-    themeColor: "text-orange-700 bg-orange-50 border-orange-100",
-    buttonTheme: "bg-primary hover:bg-primary-dark",
-    emoji: "🤝",
-    visual: "📱"
+    gradient: "from-blue-900 via-indigo-900 to-slate-900",
+    accentColor: "from-blue-500 to-indigo-500",
+    badgeBg: "bg-blue-500/20 text-blue-300 border-blue-400/30",
+    buttonBg: "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-lg shadow-blue-600/30",
+    visual: {
+      title: "Quick Post Ad",
+      sub: "100% Free & Unlimited",
+      stat: "Instant Reach",
+      image: "/images/yamaha_mt15.png",
+      pill: "Verified Direct Deal",
+    },
   },
   {
-    tag: "Technology & Electronics",
-    title: "Upgrade Without\nOverspending",
-    subtitle: "Find great deals on pre-owned tech.",
-    desc: "Mobiles, Laptops, Electronics, and Office Equipment.",
-    bgGradient: "from-blue-50 via-indigo-50/30 to-slate-50",
-    ctaText: "Explore Electronics",
+    id: 2,
+    badgeIcon: Smartphone,
+    tag: "Mobiles & Tech Deals",
+    title: "Upgrade Your Gadgets\nWithout Overspending",
+    subtitle: "Save up to 50% on pre-owned laptops, iPhones, TVs & gaming consoles.",
+    ctaText: "Explore Tech Deals",
     ctaLink: "/category/electronics",
-    themeColor: "text-blue-700 bg-blue-50 border-blue-100",
-    buttonTheme: "bg-blue-600 hover:bg-blue-700",
-    emoji: "💻",
-    visual: "⚙️"
+    gradient: "from-slate-900 via-blue-950 to-indigo-950",
+    accentColor: "from-cyan-500 to-blue-500",
+    badgeBg: "bg-cyan-500/20 text-cyan-300 border-cyan-400/30",
+    buttonBg: "bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white shadow-lg shadow-cyan-600/30",
+    visual: {
+      title: "MacBook & Mobiles",
+      sub: "Verified Condition",
+      stat: "Save up to 50%",
+      image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=600&auto=format&fit=crop",
+      pill: "Under Warranty",
+    },
   },
   {
-    tag: "Lifestyle & Home",
-    title: "Everything You Need.\nFor Less.",
-    subtitle: "Save big on household items and clothing.",
-    desc: "Furniture, Fashion, Books, and Pet Products.",
-    bgGradient: "from-emerald-50 via-teal-50/30 to-slate-50",
-    ctaText: "Explore Categories",
-    ctaLink: "/category/furniture",
-    themeColor: "text-emerald-700 bg-emerald-50 border-emerald-100",
-    buttonTheme: "bg-emerald-600 hover:bg-emerald-700",
-    emoji: "🛋️",
-    visual: "👕"
-  },
-  {
-    tag: "Bikes, Cars & Property",
-    title: "From Bikes to\nBig Equipment",
-    subtitle: "No brokerages or middleman fee commissions.",
-    desc: "Vehicles, Agriculture, Construction Equipment, and Properties.",
-    bgGradient: "from-purple-50 via-pink-50/30 to-amber-50/50",
-    ctaText: "Explore More",
+    id: 3,
+    badgeIcon: Car,
+    tag: "Vehicles & Rides",
+    title: "Bikes & Cars Direct\nFrom Verified Owners",
+    subtitle: "No dealers or heavy commissions. Inspect in person & pay safely.",
+    ctaText: "Explore Vehicles",
     ctaLink: "/category/vehicles",
-    themeColor: "text-purple-700 bg-purple-50 border-purple-100",
-    buttonTheme: "bg-purple-600 hover:bg-purple-700",
-    emoji: "🚜",
-    visual: "🚗"
-  }
+    gradient: "from-amber-950 via-slate-900 to-red-950",
+    accentColor: "from-amber-500 to-orange-500",
+    badgeBg: "bg-amber-500/20 text-amber-300 border-amber-400/30",
+    buttonBg: "bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white shadow-lg shadow-amber-600/30",
+    visual: {
+      title: "Scooters & Bikes",
+      sub: "Test Drive Locally",
+      stat: "Top Condition",
+      image: "/images/honda_activa.png",
+      pill: "0% Brokerage",
+    },
+  },
+  {
+    id: 4,
+    badgeIcon: Home,
+    tag: "Homes & Living",
+    title: "Furnish Your Home\nFor Half The Price",
+    subtitle: "Explore sofa sets, teak tables, appliances, & rental properties nearby.",
+    ctaText: "Explore Furniture",
+    ctaLink: "/category/furniture",
+    gradient: "from-emerald-950 via-slate-900 to-teal-950",
+    accentColor: "from-emerald-500 to-teal-500",
+    badgeBg: "bg-emerald-500/20 text-emerald-300 border-emerald-400/30",
+    buttonBg: "bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-lg shadow-emerald-600/30",
+    visual: {
+      title: "Home Decor & Rentals",
+      sub: "Premium Quality",
+      stat: "Great Bachat",
+      image: "/images/furniture_hub.png",
+      pill: "Ready to Move",
+    },
+  },
 ];
 
 export default function HeroBanner() {
@@ -64,7 +105,6 @@ export default function HeroBanner() {
   const [isPaused, setIsPaused] = useState(false);
   const autoplayTimer = useRef(null);
 
-  // Swipe gesture tracking
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const minSwipeDistance = 50;
@@ -79,10 +119,9 @@ export default function HeroBanner() {
 
   const handleDotClick = (index) => {
     setCurrentIndex(index);
-    setIsPaused(true); // Permanent pause on interaction until refresh
+    setIsPaused(true);
   };
 
-  // Keyboard navigation
   const handleKeyDown = (e) => {
     if (e.key === "ArrowLeft") {
       handlePrev();
@@ -93,7 +132,6 @@ export default function HeroBanner() {
     }
   };
 
-  // Start Autoplay Loop
   useEffect(() => {
     if (isPaused) {
       if (autoplayTimer.current) clearInterval(autoplayTimer.current);
@@ -102,14 +140,13 @@ export default function HeroBanner() {
 
     autoplayTimer.current = setInterval(() => {
       handleNext();
-    }, 4500);
+    }, 5500);
 
     return () => {
       if (autoplayTimer.current) clearInterval(autoplayTimer.current);
     };
   }, [isPaused]);
 
-  // Touch handlers for mobile swiping
   const onTouchStart = (e) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
@@ -122,128 +159,154 @@ export default function HeroBanner() {
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
     const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-
-    if (isLeftSwipe) {
+    if (distance > minSwipeDistance) {
       handleNext();
       setIsPaused(true);
-    } else if (isRightSwipe) {
+    } else if (distance < -minSwipeDistance) {
       handlePrev();
       setIsPaused(true);
     }
   };
 
   return (
-    <div 
-      className="w-full relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xs border border-border/50 min-h-[115px] sm:min-h-[160px] md:min-h-[220px] flex items-center outline-none select-none"
+    <div
+      className="w-full relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 dark:border-slate-800 min-h-[220px] sm:min-h-[260px] md:min-h-[300px] flex items-center select-none bg-slate-900 outline-none"
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
       onKeyDown={handleKeyDown}
       tabIndex={0}
-      aria-label="Promotional Banners Carousel"
+      aria-label="Promotional Hero Banner Carousel"
     >
-      
-      {/* Slides container */}
+      {/* Slides */}
       {bannerData.map((banner, index) => {
         const isActive = index === currentIndex;
+        const BadgeIcon = banner.badgeIcon;
         return (
           <div
-            key={banner.id || index}
-            className={`absolute inset-0 w-full h-full p-3 sm:p-5 md:p-8 bg-gradient-to-r ${banner.bgGradient} dark:from-slate-800 dark:via-slate-800/90 dark:to-slate-900 flex flex-col justify-center transition-opacity duration-500 ease-in-out ${
+            key={banner.id}
+            className={`absolute inset-0 w-full h-full bg-gradient-to-r ${banner.gradient} text-white transition-opacity duration-700 ease-in-out flex items-center ${
               isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
             }`}
           >
-            {/* Background ambient glow */}
-            <div className="absolute right-0 bottom-0 w-36 h-36 sm:w-60 sm:h-60 bg-secondary/15 dark:bg-blue-500/10 rounded-full blur-xl translate-x-1/4 translate-y-1/4"></div>
+            {/* Ambient Background Decorative Glows */}
+            <div className={`absolute top-0 right-0 w-96 h-96 bg-gradient-to-br ${banner.accentColor} opacity-20 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none`} />
+            <div className="absolute bottom-0 left-1/3 w-64 h-64 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none" />
 
-            {/* Split Grid */}
-            <div className="relative z-10 flex items-center justify-between gap-2 w-full text-left">
+            {/* Container with Generous Padding to Avoid Arrow Overlap */}
+            <div className="w-full px-12 sm:px-16 md:px-20 lg:px-24 py-6 sm:py-8 flex items-center justify-between gap-6 relative z-10">
               
-              {/* Info Column */}
-              <div className="max-w-[85%] sm:max-w-md md:max-w-lg">
-                {/* Badge tag */}
-                <span className={`inline-block text-[8px] sm:text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 border rounded mb-0.5 sm:mb-1.5 ${banner.themeColor} dark:bg-slate-700/80 dark:text-amber-300 dark:border-slate-600`}>
-                  {banner.tag}
-                </span>
+              {/* Left Column: Text & CTA */}
+              <div className="max-w-xl flex flex-col items-start">
+                {/* Badge Pill */}
+                <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border backdrop-blur-md mb-3 ${banner.badgeBg}`}>
+                  <BadgeIcon size={14} />
+                  <span>{banner.tag}</span>
+                </div>
 
-                {/* Title */}
-                <h2 className="text-xs sm:text-lg md:text-2xl font-black text-slate-900 dark:text-white leading-tight mb-0.5 sm:mb-1.5 whitespace-pre-line">
+                {/* Main Headline */}
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight mb-2.5 text-white whitespace-pre-line drop-shadow-sm">
                   {banner.title}
                 </h2>
 
                 {/* Subtitle */}
-                <p className="text-text-muted dark:text-slate-300 text-[9px] sm:text-xs font-semibold mb-1.5 sm:mb-3 leading-tight truncate sm:whitespace-normal">
+                <p className="text-xs sm:text-sm text-slate-300 font-medium mb-5 leading-relaxed line-clamp-2 max-w-md">
                   {banner.subtitle}
                 </p>
 
                 {/* CTA Button */}
-                <Link 
+                <Link
                   href={banner.ctaLink}
                   onClick={() => setIsPaused(true)}
-                  className={`inline-flex items-center gap-1 text-white px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-md sm:rounded-lg text-[9px] sm:text-xs font-bold shadow-2xs hover:shadow transition-all group cursor-pointer ${banner.buttonTheme}`}
+                  className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer ${banner.buttonBg}`}
                 >
                   <span>{banner.ctaText}</span>
-                  <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
+                  <ArrowRight size={16} />
                 </Link>
               </div>
 
-              {/* Graphic / Visual Box (Desktop Only to maximize mobile text space) */}
-              <div className="hidden sm:flex justify-end pr-2 sm:pr-6 shrink-0">
-                <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white/50 dark:bg-slate-700/50 backdrop-blur-md border border-white/60 dark:border-slate-600 rounded-2xl shadow-2xs flex flex-col items-center justify-center p-2 relative overflow-hidden group">
-                  <div className="text-3xl md:text-5xl animate-bounce duration-1000 mb-1">{banner.emoji}</div>
-                  <div className="absolute -bottom-2 -left-2 w-7 h-7 sm:w-9 sm:h-9 bg-white/60 dark:bg-slate-600/60 rounded-full flex items-center justify-center text-xs sm:text-sm shadow-2xs">{banner.visual}</div>
-                  <div className="absolute -top-2 -right-2 w-7 h-7 sm:w-9 sm:h-9 bg-secondary/40 dark:bg-amber-500/40 rounded-full flex items-center justify-center text-xs sm:text-sm rotate-12">⭐</div>
+              {/* Right Column: Premium Visual Glass Card (Desktop & Tablet) */}
+              <div className="hidden sm:flex items-center justify-center shrink-0 pr-2">
+                <div className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl bg-white/10 dark:bg-slate-800/40 backdrop-blur-xl border border-white/20 dark:border-slate-700/50 p-3 shadow-2xl flex flex-col justify-between overflow-hidden group hover:border-white/40 transition-all duration-500">
+                  {/* Image Background Thumbnail */}
+                  <div className="w-full h-32 md:h-36 lg:h-40 rounded-xl overflow-hidden relative bg-slate-950">
+                    <img
+                      src={banner.visual.image}
+                      alt={banner.visual.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                    
+                    {/* Floating Pill on Image */}
+                    <div className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-slate-900/80 backdrop-blur-md text-[10px] font-bold text-amber-300 border border-amber-400/30 flex items-center gap-1">
+                      <Sparkles size={10} />
+                      <span>{banner.visual.pill}</span>
+                    </div>
+                  </div>
+
+                  {/* Card Bottom Meta */}
+                  <div className="pt-2 px-1 flex items-center justify-between">
+                    <div>
+                      <h4 className="text-xs font-bold text-white truncate max-w-[130px]">
+                        {banner.visual.title}
+                      </h4>
+                      <p className="text-[11px] text-slate-300 font-medium">
+                        {banner.visual.sub}
+                      </p>
+                    </div>
+                    <div className="px-2 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] font-extrabold uppercase tracking-wide">
+                      {banner.visual.stat}
+                    </div>
+                  </div>
                 </div>
               </div>
 
             </div>
-
           </div>
         );
       })}
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows (Sleek Glassmorphic Buttons) */}
       <button
         onClick={(e) => {
           e.stopPropagation();
           handlePrev();
           setIsPaused(true);
         }}
-        className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xs rounded-full shadow-2xs flex items-center justify-center text-text-muted dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 transition-all z-20 cursor-pointer border border-slate-100 dark:border-slate-700"
-        aria-label="Previous Slide"
+        className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all duration-200 z-20 cursor-pointer shadow-lg hover:scale-105 active:scale-95"
+        aria-label="Previous Banner"
       >
-        <ChevronLeft size={15} />
+        <ChevronLeft size={20} />
       </button>
+
       <button
         onClick={(e) => {
           e.stopPropagation();
           handleNext();
           setIsPaused(true);
         }}
-        className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xs rounded-full shadow-2xs flex items-center justify-center text-text-muted dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 transition-all z-20 cursor-pointer border border-slate-100 dark:border-slate-700"
-        aria-label="Next Slide"
+        className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all duration-200 z-20 cursor-pointer shadow-lg hover:scale-105 active:scale-95"
+        aria-label="Next Banner"
       >
-        <ChevronRight size={15} />
+        <ChevronRight size={20} />
       </button>
 
-      {/* Pagination Dots */}
-      <div className="absolute bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-20 bg-slate-900/10 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full backdrop-blur-xs">
+      {/* Pagination Indicators */}
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20 bg-slate-950/40 px-3 py-1 rounded-full backdrop-blur-md border border-white/10">
         {bannerData.map((_, index) => {
           const isActive = index === currentIndex;
           return (
             <button
               key={index}
               onClick={() => handleDotClick(index)}
-              className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all focus:outline-none cursor-pointer ${isActive ? "bg-primary w-3 sm:w-4" : "bg-slate-400/60 dark:bg-slate-500/60 hover:bg-slate-600"
-                }`}
+              className={`h-2 rounded-full transition-all duration-300 focus:outline-none cursor-pointer ${
+                isActive ? "w-6 bg-white shadow-sm" : "w-2 bg-white/40 hover:bg-white/70"
+              }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           );
         })}
       </div>
-
     </div>
   );
 }
