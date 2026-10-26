@@ -50,7 +50,6 @@ export default function MainNavbar() {
     { id: "fashion", name: "Fashion" },
     { id: "boats", name: "Boats & Watercraft" },
     { id: "gym-equipment", name: "Gym Equipment" },
-    { id: "jobs", name: "Jobs" },
     { id: "services", name: "Services" },
     { id: "pets", name: "Pets" },
     { id: "books", name: "Books" },

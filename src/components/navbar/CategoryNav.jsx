@@ -24,7 +24,6 @@ export default function CategoryNav() {
     { name: "Fashion", slug: "fashion", icon: Shirt },
     { name: "Boats", slug: "boats", icon: Sailboat },
     { name: "Gym Equipments", slug: "gym-equipment", icon: Dumbbell },
-    { name: "Jobs", slug: "jobs", icon: Briefcase },
     { name: "Services", slug: "services", icon: Wrench },
     { name: "Pets", slug: "pets", icon: Dog },
     { name: "Books", slug: "books", icon: BookOpen },

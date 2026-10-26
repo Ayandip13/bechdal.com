@@ -15,7 +15,6 @@ export default function PopularCategories() {
     { name: "Fashion", slug: "fashion", icon: Shirt, color: "text-indigo-500 dark:text-indigo-400" },
     { name: "Boats", slug: "boats", icon: Sailboat, color: "text-cyan-600 dark:text-cyan-400" },
     { name: "Gym Equipments", slug: "gym-equipment", icon: Dumbbell, color: "text-orange-600 dark:text-orange-400" },
-    { name: "Jobs", slug: "jobs", icon: Briefcase, color: "text-teal-600 dark:text-teal-400" },
     { name: "Services", slug: "services", icon: Wrench, color: "text-purple-600 dark:text-purple-400" },
     { name: "Books", slug: "books", icon: BookOpen, color: "text-emerald-600 dark:text-emerald-400" },
     { name: "Pets", slug: "pets", icon: Dog, color: "text-yellow-600 dark:text-yellow-400" },

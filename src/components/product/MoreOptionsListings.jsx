@@ -44,7 +44,7 @@ export default function MoreOptionsListings({ productTitle, currentProductPrice 
   if (alternatives.length === 0) return null;
 
   return (
-    <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-2xs">
+    <div className="bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 rounded-2xl p-4 sm:p-5 shadow-2xs transition-colors">
       
       {/* Header banner */}
       <div className="flex items-center justify-between gap-4 mb-4">
@@ -52,11 +52,11 @@ export default function MoreOptionsListings({ productTitle, currentProductPrice 
           <div className="bg-amber-500 text-white p-1.5 rounded-lg">
             <Tag size={14} className="fill-amber-500 text-white" />
           </div>
-          <h3 className="font-extrabold text-sm sm:text-base text-slate-800">
+          <h3 className="font-extrabold text-sm sm:text-base text-slate-800 dark:text-white">
             More Options / Alternative Listings
           </h3>
         </div>
-        <span className="text-[10px] text-primary bg-primary-light/10 px-2 py-0.5 rounded-full font-black uppercase tracking-wider hidden sm:inline-block">
+        <span className="text-[10px] text-primary dark:text-blue-400 bg-primary-light/10 dark:bg-blue-900/30 px-2 py-0.5 rounded-full font-black uppercase tracking-wider hidden sm:inline-block">
           Bachat Deals
         </span>
       </div>
@@ -67,30 +67,30 @@ export default function MoreOptionsListings({ productTitle, currentProductPrice 
           <Link
             key={item.id}
             href={`/product/${item.id}`}
-            className="bg-white border border-slate-100 hover:border-slate-300 rounded-xl p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 transition-all hover:shadow-2xs cursor-pointer group"
+            className="bg-white dark:bg-slate-900/80 border border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 rounded-xl p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 transition-all hover:shadow-2xs cursor-pointer group"
           >
             {/* Left: Thumbnail & Info */}
             <div className="flex items-center gap-3 min-w-0">
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-12 h-12 rounded-lg object-cover border border-slate-100 flex-shrink-0"
+                className="w-12 h-12 rounded-lg object-cover border border-slate-100 dark:border-slate-800 flex-shrink-0"
               />
               <div className="min-w-0 text-left">
-                <h4 className="text-xs font-bold text-slate-800 truncate leading-snug group-hover:text-primary transition-colors">
+                <h4 className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate leading-snug group-hover:text-primary dark:group-hover:text-blue-400 transition-colors">
                   {item.title}
                 </h4>
                 
                 {/* Meta details */}
                 <div className="flex items-center flex-wrap gap-2 mt-1">
-                  <span className="text-[9px] uppercase font-extrabold px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">
+                  <span className="text-[9px] uppercase font-extrabold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
                     {item.condition}
                   </span>
-                  <span className="text-[10px] text-text-muted font-semibold">
+                  <span className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold">
                     {item.location.split(",")[0]}
                   </span>
                   {item.isVerifiedSeller && (
-                    <span className="text-[10px] text-primary font-bold flex items-center gap-0.5">
+                    <span className="text-[10px] text-primary dark:text-blue-400 font-bold flex items-center gap-0.5">
                       <ShieldCheck size={11} /> Verified
                     </span>
                   )}
@@ -99,15 +99,15 @@ export default function MoreOptionsListings({ productTitle, currentProductPrice 
             </div>
 
             {/* Right: Price & Redirect */}
-            <div className="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto border-t sm:border-t-0 pt-2.5 sm:pt-0 border-slate-100">
+            <div className="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto border-t sm:border-t-0 pt-2.5 sm:pt-0 border-slate-100 dark:border-slate-800">
               <div className="flex flex-col text-left sm:text-right">
-                <span className="text-xs text-text-light font-medium">Alternative Price</span>
-                <span className="font-extrabold text-sm sm:text-base text-slate-900">
+                <span className="text-xs text-slate-400 dark:text-slate-500 font-medium">Alternative Price</span>
+                <span className="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white">
                   ₹{item.price.toString().replace("₹", "")}
                 </span>
               </div>
               
-              <div className="w-8 h-8 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all flex-shrink-0">
+              <div className="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 group-hover:bg-primary dark:group-hover:bg-primary group-hover:text-white dark:group-hover:text-white group-hover:border-primary transition-all flex-shrink-0">
                 <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
               </div>
             </div>

@@ -6,25 +6,25 @@ export default function ProductInfo({ data }) {
     <div className="flex flex-col gap-6">
       <div>
         {data.isFeatured && (
-          <div className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-600 px-3 py-1 text-xs font-semibold rounded-full mb-3 border border-blue-100">
+          <div className="inline-flex items-center gap-1.5 bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 px-3 py-1 text-xs font-semibold rounded-full mb-3 border border-blue-100 dark:border-blue-800/60">
             <CheckCircle2 className="w-3.5 h-3.5" />
             <span>Featured Listing</span>
           </div>
         )}
         
-        <h1 className="text-2xl sm:text-3xl font-bold text-text mb-3 leading-tight">
+        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 leading-tight">
           {data.title}
         </h1>
 
-        <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-sm text-text-muted mb-6">
+        <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-sm text-slate-500 dark:text-slate-400 mb-6">
           <div className="flex items-center gap-1">
             <div className="flex items-center text-amber-500">
               <Star className="w-4 h-4 fill-amber-500" />
             </div>
-            <span className="font-semibold text-text">{data.rating}</span>
+            <span className="font-semibold text-slate-800 dark:text-slate-200">{data.rating}</span>
             <span>({data.reviewsCount} Reviews)</span>
           </div>
-          <div className="w-1 h-1 bg-gray-300 rounded-full hidden sm:block"></div>
+          <div className="w-1 h-1 bg-gray-300 dark:bg-slate-600 rounded-full hidden sm:block"></div>
           <div className="flex items-center gap-1.5">
             <HeartIcon className="w-4 h-4" />
             <span>{data.interestedCount} Interested</span>
@@ -32,18 +32,18 @@ export default function ProductInfo({ data }) {
         </div>
 
         <div className="flex items-end gap-3 mb-4">
-          <span className="text-3xl font-bold text-text">₹{data.price}</span>
+          <span className="text-3xl font-bold text-slate-900 dark:text-white">₹{data.price}</span>
           {data.originalPrice && (
-            <span className="text-lg text-text-muted line-through mb-1">₹{data.originalPrice}</span>
+            <span className="text-lg text-slate-400 dark:text-slate-500 line-through mb-1">₹{data.originalPrice}</span>
           )}
           {data.discount && (
-            <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-bold mb-1.5 border border-green-200">
+            <span className="bg-green-100 dark:bg-emerald-950/50 text-green-700 dark:text-emerald-400 px-2 py-0.5 rounded text-xs font-bold mb-1.5 border border-green-200 dark:border-emerald-800/60">
               {data.discount}
             </span>
           )}
         </div>
 
-        <div className="flex flex-wrap items-center gap-4 text-sm text-text-muted pb-6 border-b border-border/50">
+        <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 dark:text-slate-400 pb-6 border-b border-slate-200/80 dark:border-slate-700/80">
           <div className="flex items-center gap-1.5">
             <MapPin className="w-4 h-4" />
             <span>{data.location}</span>
@@ -53,7 +53,7 @@ export default function ProductInfo({ data }) {
             <span>{data.postedTime}</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="text-gray-400">ID: {data.id}</span>
+            <span className="text-slate-400 dark:text-slate-500">ID: {data.id}</span>
           </div>
         </div>
       </div>

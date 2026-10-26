@@ -55,11 +55,11 @@ export default function ProductGallery({ images, productData }) {
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
-        className="relative aspect-[4/3] sm:aspect-square md:aspect-[4/3] lg:aspect-square xl:aspect-[4/3] w-full bg-gray-50 rounded-2xl overflow-hidden flex items-center justify-center border border-border/50 select-none"
+        className="relative aspect-[4/3] sm:aspect-square md:aspect-[4/3] lg:aspect-square xl:aspect-[4/3] w-full bg-slate-100 dark:bg-slate-900/70 rounded-2xl overflow-hidden flex items-center justify-center border border-slate-200/80 dark:border-slate-700/80 select-none"
       >
         {productData.badge && (
           <div className="absolute top-4 left-4 z-10">
-            <span className="bg-red-500 text-white px-3 py-1 text-xs font-bold rounded flex items-center uppercase tracking-wide">
+            <span className="bg-red-500 text-white px-3 py-1 text-xs font-bold rounded flex items-center uppercase tracking-wide shadow-xs">
               {productData.badge}
             </span>
           </div>
@@ -67,7 +67,8 @@ export default function ProductGallery({ images, productData }) {
         
         <button 
           onClick={handleFavoriteClick}
-          className="absolute top-4 right-4 z-10 bg-white shadow-sm p-2.5 rounded-full text-text-muted hover:text-red-500 transition-colors border border-border/50"
+          className="absolute top-4 right-4 z-10 bg-white/95 dark:bg-slate-800/95 shadow-sm p-2.5 rounded-full text-slate-500 dark:text-slate-300 hover:text-red-500 dark:hover:text-red-400 transition-colors border border-slate-200/80 dark:border-slate-700/80 cursor-pointer"
+          aria-label="Add to wishlist"
         >
           <Heart className={`w-5 h-5 ${isFav ? "fill-red-500 text-red-500" : ""}`} />
         </button>
@@ -81,14 +82,16 @@ export default function ProductGallery({ images, productData }) {
         {/* Navigation Arrows */}
         <button 
           onClick={prevImage}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-card border border-border/50 text-text-muted hover:text-primary transition-colors cursor-pointer"
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/95 dark:bg-slate-800/95 rounded-full p-2 shadow-card border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 transition-colors cursor-pointer"
+          aria-label="Previous image"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         
         <button 
           onClick={nextImage}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-card border border-border/50 text-text-muted hover:text-primary transition-colors cursor-pointer"
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/95 dark:bg-slate-800/95 rounded-full p-2 shadow-card border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 transition-colors cursor-pointer"
+          aria-label="Next image"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
@@ -100,8 +103,10 @@ export default function ProductGallery({ images, productData }) {
           <button
             key={index}
             onClick={() => setActiveIndex(index)}
-            className={`relative flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-all snap-start bg-gray-50 ${
-              activeIndex === index ? "border-primary" : "border-transparent hover:border-border"
+            className={`relative flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-all snap-start bg-slate-100 dark:bg-slate-900/60 ${
+              activeIndex === index
+                ? "border-primary dark:border-blue-500 shadow-xs"
+                : "border-transparent hover:border-slate-300 dark:hover:border-slate-700"
             }`}
           >
             <img src={img} alt={`Thumbnail ${index + 1}`} className="w-full h-full object-cover" />

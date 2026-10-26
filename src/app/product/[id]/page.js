@@ -80,7 +80,7 @@ export default async function ProductDetailsPage({ params }) {
         
         {/* Left Column - Gallery & Info */}
         <div className="w-full lg:w-[65%] flex flex-col gap-6">
-          <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-subtle border border-border/50">
+          <div className="bg-white dark:bg-slate-800/90 rounded-2xl p-4 sm:p-6 shadow-subtle border border-slate-200/80 dark:border-slate-700/80 transition-colors">
             <ProductGallery images={data.images} productData={data} />
           </div>
 
@@ -93,7 +93,7 @@ export default async function ProductDetailsPage({ params }) {
 
         {/* Right Column - Product Details, Actions, Seller */}
         <div className="w-full lg:w-[35%] flex flex-col gap-6 lg:sticky lg:top-4">
-          <div className="bg-white rounded-2xl p-6 shadow-subtle border border-border/50">
+          <div className="bg-white dark:bg-slate-800/90 rounded-2xl p-6 shadow-subtle border border-slate-200/80 dark:border-slate-700/80 transition-colors">
             <ProductInfo data={data} />
             <ProductActions />
           </div>
@@ -118,8 +118,8 @@ export default async function ProductDetailsPage({ params }) {
       {/* Similar Products */}
       <div className="mt-8">
         <div className="flex items-center justify-between gap-4 mb-6">
-          <h2 className="text-xl font-bold text-text">Similar Products</h2>
-          <button className="flex items-center gap-1 text-primary text-sm font-semibold hover:text-primary-dark transition-colors whitespace-nowrap">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white">Similar Products</h2>
+          <button className="flex items-center gap-1 text-primary dark:text-blue-400 text-sm font-semibold hover:text-primary-dark dark:hover:text-blue-300 transition-colors whitespace-nowrap">
             View All <ChevronRight className="w-4 h-4" />
           </button>
         </div>
@@ -137,7 +137,7 @@ export default async function ProductDetailsPage({ params }) {
       {/* Recently Viewed */}
       <div className="mt-4">
         <div className="flex items-center justify-between gap-4 mb-6">
-          <h2 className="text-xl font-bold text-text">Recently Viewed</h2>
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white">Recently Viewed</h2>
         </div>
         <div className="relative group/recent">
           <div className="flex gap-4 overflow-x-auto hide-scrollbar pb-4 snap-x">
@@ -151,7 +151,7 @@ export default async function ProductDetailsPage({ params }) {
       </div>
 
       {/* Sticky Bottom Actions for Mobile/Tablet */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 p-3.5 shadow-[0_-4px_10px_rgba(0,0,0,0.06)] flex items-center justify-between gap-3 px-4">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 p-3.5 shadow-[0_-4px_10px_rgba(0,0,0,0.15)] flex items-center justify-between gap-3 px-4">
         <button className="flex-1 btn-primary gap-2 h-11">
           <MessageSquare className="w-5 h-5 flex-shrink-0" />
           <span>Chat</span>
