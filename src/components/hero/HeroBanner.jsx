@@ -9,20 +9,22 @@ import {
   ShieldCheck,
   Smartphone,
   Car,
+  Home,
+  Dumbbell,
   Sparkles,
 } from "lucide-react";
-import HeroIllustrationScene from "./HeroIllustrationScene";
+import HeroVisualScene from "./HeroVisualScene";
 
 const bannerData = [
   {
     id: 1,
     badgeIcon: ShieldCheck,
-    tag: "Direct Local Deals",
+    tag: "Instant Local Deals",
     title: "Sell Your Old Items in Minutes",
-    subtitle: "Direct local deals. Zero platform fees.",
+    subtitle: "Direct local deals. Zero platform fees. Get instant cash in hand.",
     ctaText: "Start Selling Free",
     ctaLink: "/sell",
-    gradient: "from-blue-900 via-indigo-900 to-slate-900",
+    gradient: "from-slate-950 via-blue-950 to-indigo-950",
     accentColor: "from-blue-500 to-indigo-500",
     badgeBg: "bg-blue-500/20 text-blue-300 border-blue-400/30",
     buttonBg: "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-lg shadow-blue-600/30",
@@ -32,10 +34,10 @@ const bannerData = [
     badgeIcon: Smartphone,
     tag: "Mobiles & Tech Deals",
     title: "Smart Deals. Maximum Bachat.",
-    subtitle: "Discover mobiles, laptops and electronics.",
+    subtitle: "Certified MacBooks, iPhones, Smart TVs & audio up to 50% off.",
     ctaText: "Explore Electronics",
     ctaLink: "/category/electronics",
-    gradient: "from-slate-900 via-blue-950 to-indigo-950",
+    gradient: "from-slate-950 via-slate-900 to-cyan-950",
     accentColor: "from-cyan-500 to-blue-500",
     badgeBg: "bg-cyan-500/20 text-cyan-300 border-cyan-400/30",
     buttonBg: "bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white shadow-lg shadow-cyan-600/30",
@@ -43,28 +45,54 @@ const bannerData = [
   {
     id: 3,
     badgeIcon: Car,
-    tag: "Vehicles & Properties",
-    title: "Your Next Find Is Here",
-    subtitle: "Discover cars, bikes and properties near you.",
-    ctaText: "Explore Listings",
+    tag: "Cars & Bikes Super-Hub",
+    title: "Your Dream Ride, Zero Brokerage",
+    subtitle: "Discover inspected cars and superbikes. Inspect & test drive locally.",
+    ctaText: "Explore Vehicles",
     ctaLink: "/category/vehicles",
-    gradient: "from-amber-950 via-slate-900 to-red-950",
-    accentColor: "from-amber-500 to-orange-500",
+    gradient: "from-slate-950 via-neutral-950 to-amber-950",
+    accentColor: "from-red-500 to-amber-500",
     badgeBg: "bg-amber-500/20 text-amber-300 border-amber-400/30",
-    buttonBg: "bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white shadow-lg shadow-amber-600/30",
+    buttonBg: "bg-gradient-to-r from-amber-600 to-red-600 hover:from-amber-500 hover:to-red-500 text-white shadow-lg shadow-amber-600/30",
   },
   {
     id: 4,
-    badgeIcon: Sparkles,
-    tag: "All-in-One Marketplace",
-    title: "More Choices. Less Spending.",
-    subtitle: "Explore furniture, pets, agriculture and equipment.",
-    ctaText: "Explore Categories",
-    ctaLink: "/search",
-    gradient: "from-emerald-950 via-slate-900 to-teal-950",
+    badgeIcon: Home,
+    tag: "Homes & Living Deals",
+    title: "Upgrade Living for Half Price",
+    subtitle: "Designer sofa sets, teak dining & verified rental properties nearby.",
+    ctaText: "Explore Furniture",
+    ctaLink: "/category/furniture",
+    gradient: "from-slate-950 via-slate-900 to-emerald-950",
     accentColor: "from-emerald-500 to-teal-500",
     badgeBg: "bg-emerald-500/20 text-emerald-300 border-emerald-400/30",
     buttonBg: "bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-lg shadow-emerald-600/30",
+  },
+  {
+    id: 5,
+    badgeIcon: Dumbbell,
+    tag: "Fitness & Strength Hub",
+    title: "Level Up Your Fitness at Home",
+    subtitle: "Cast iron dumbbells, benches & cardio gear at unbeatable prices.",
+    ctaText: "Explore Gym Gear",
+    ctaLink: "/category/gym-equipment",
+    gradient: "from-slate-950 via-zinc-900 to-orange-950",
+    accentColor: "from-orange-500 to-red-500",
+    badgeBg: "bg-orange-500/20 text-orange-300 border-orange-400/30",
+    buttonBg: "bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white shadow-lg shadow-orange-600/30",
+  },
+  {
+    id: 6,
+    badgeIcon: Sparkles,
+    tag: "Streetwear & Lifestyle",
+    title: "Trending Styles. Unbeatable Bachat.",
+    subtitle: "Trending sneakers, luxury watches & designer apparel nearby.",
+    ctaText: "Explore Fashion",
+    ctaLink: "/category/fashion",
+    gradient: "from-slate-950 via-purple-950 to-slate-900",
+    accentColor: "from-fuchsia-500 to-pink-500",
+    badgeBg: "bg-fuchsia-500/20 text-fuchsia-300 border-fuchsia-400/30",
+    buttonBg: "bg-gradient-to-r from-fuchsia-600 to-pink-600 hover:from-fuchsia-500 hover:to-pink-500 text-white shadow-lg shadow-fuchsia-600/30",
   },
 ];
 
@@ -108,7 +136,7 @@ export default function HeroBanner() {
 
     autoplayTimer.current = setInterval(() => {
       handleNext();
-    }, 5500);
+    }, 4800);
 
     return () => {
       if (autoplayTimer.current) clearInterval(autoplayTimer.current);
@@ -138,7 +166,7 @@ export default function HeroBanner() {
 
   return (
     <div
-      className="w-full relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 dark:border-slate-800 min-h-[210px] xs:min-h-[230px] sm:min-h-[270px] md:min-h-[300px] flex items-center select-none bg-slate-900 outline-none"
+      className="w-full relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-slate-800 min-h-[240px] xs:min-h-[260px] sm:min-h-[290px] md:min-h-[320px] lg:min-h-[350px] flex items-center select-none bg-slate-950 outline-none group"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={onTouchStart}
@@ -161,22 +189,22 @@ export default function HeroBanner() {
           >
             {/* Ambient Background Decorative Glows */}
             <div
-              className={`absolute top-0 right-0 w-80 sm:w-96 h-80 sm:h-96 bg-gradient-to-br ${banner.accentColor} opacity-20 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none`}
+              className={`absolute top-0 right-1/4 w-80 sm:w-96 h-80 sm:h-96 bg-gradient-to-br ${banner.accentColor} opacity-20 rounded-full blur-3xl pointer-events-none`}
             />
-            <div className="absolute bottom-0 left-1/3 w-48 sm:w-64 h-48 sm:h-64 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute bottom-0 left-10 w-48 sm:w-64 h-48 sm:h-64 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none" />
 
             {/* Container with Generous Padding to Avoid Arrow Overlap */}
-            <div className="w-full px-11 xs:px-13 sm:px-16 md:px-20 lg:px-24 py-5 sm:py-7 md:py-8 flex items-center justify-between gap-3 sm:gap-6 relative z-10">
+            <div className="w-full px-10 xs:px-12 sm:px-16 md:px-20 lg:px-24 py-5 sm:py-7 md:py-8 flex items-center justify-between gap-4 sm:gap-8 relative z-10">
               {isActive && (
                 <div
                   key={`slide-inner-${banner.id}-${currentIndex}`}
-                  className="w-full flex items-center justify-between gap-3 sm:gap-6"
+                  className="w-full flex items-center justify-between gap-4 sm:gap-8"
                 >
                   {/* Left Column: Text & CTA with Staggered Entrance Animations */}
                   <div className="flex-1 min-w-0 max-w-xl flex flex-col items-start pr-1 sm:pr-4">
                     {/* Badge Pill */}
                     <div
-                      className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider border backdrop-blur-md mb-2 sm:mb-3 animate-hero-fade-up ${banner.badgeBg}`}
+                      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider border backdrop-blur-md mb-2 sm:mb-3 animate-hero-fade-up ${banner.badgeBg}`}
                       style={{ animationDelay: "100ms", animationFillMode: "both" }}
                     >
                       <BadgeIcon size={13} />
@@ -185,7 +213,7 @@ export default function HeroBanner() {
 
                     {/* Main Headline */}
                     <h2
-                      className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug sm:leading-tight mb-1.5 sm:mb-2.5 text-white drop-shadow-sm animate-hero-fade-up"
+                      className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug sm:leading-tight mb-2 sm:mb-3 text-white drop-shadow-sm animate-hero-fade-up"
                       style={{ animationDelay: "200ms", animationFillMode: "both" }}
                     >
                       {banner.title}
@@ -193,7 +221,7 @@ export default function HeroBanner() {
 
                     {/* Subtitle */}
                     <p
-                      className="text-[11px] xs:text-xs sm:text-sm text-slate-200 dark:text-slate-300 font-medium mb-3.5 sm:mb-5 leading-relaxed line-clamp-2 max-w-md animate-hero-fade-up"
+                      className="text-[11px] xs:text-xs sm:text-sm text-slate-200 dark:text-slate-300 font-medium mb-4 sm:mb-6 leading-relaxed line-clamp-2 max-w-md animate-hero-fade-up"
                       style={{ animationDelay: "300ms", animationFillMode: "both" }}
                     >
                       {banner.subtitle}
@@ -203,7 +231,7 @@ export default function HeroBanner() {
                     <Link
                       href={banner.ctaLink}
                       onClick={() => setIsPaused(true)}
-                      className={`inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer animate-hero-fade-up ${banner.buttonBg}`}
+                      className={`inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer animate-hero-fade-up ${banner.buttonBg}`}
                       style={{ animationDelay: "400ms", animationFillMode: "both" }}
                     >
                       <span>{banner.ctaText}</span>
@@ -211,12 +239,12 @@ export default function HeroBanner() {
                     </Link>
                   </div>
 
-                  {/* Right Column: Layered Animated Illustration Scene */}
+                  {/* Right Column: Real Commercial Photographic Showcase with Floating Stickers */}
                   <div
-                    className="shrink-0 flex items-center justify-center max-w-[45%] sm:max-w-none animate-hero-slide-right"
+                    className="shrink-0 flex items-center justify-center max-w-[48%] sm:max-w-[50%] animate-hero-slide-right"
                     style={{ animationDelay: "250ms", animationFillMode: "both" }}
                   >
-                    <HeroIllustrationScene slideId={banner.id} />
+                    <HeroVisualScene slideId={banner.id} />
                   </div>
                 </div>
               )}
@@ -250,8 +278,8 @@ export default function HeroBanner() {
         <ChevronRight size={18} className="sm:w-5 sm:h-5" />
       </button>
 
-      {/* Pagination Indicators */}
-      <div className="absolute bottom-2.5 sm:bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 sm:gap-2 z-20 bg-slate-950/40 px-2.5 sm:px-3 py-1 rounded-full backdrop-blur-md border border-white/10">
+      {/* Pagination Indicators (6 Dots with Active Expansion) */}
+      <div className="absolute bottom-2.5 sm:bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 sm:gap-2 z-20 bg-slate-950/50 px-3 py-1 rounded-full backdrop-blur-md border border-white/10">
         {bannerData.map((_, index) => {
           const isActive = index === currentIndex;
           return (
@@ -259,7 +287,7 @@ export default function HeroBanner() {
               key={index}
               onClick={() => handleDotClick(index)}
               className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 focus:outline-none cursor-pointer ${
-                isActive ? "w-5 sm:w-7 bg-white shadow-sm" : "w-1.5 sm:w-2 bg-white/40 hover:bg-white/70"
+                isActive ? "w-6 sm:w-8 bg-white shadow-sm" : "w-1.5 sm:w-2 bg-white/40 hover:bg-white/70"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
