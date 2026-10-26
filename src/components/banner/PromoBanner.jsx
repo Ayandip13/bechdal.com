@@ -9,6 +9,11 @@ import {
   AnimatedGadgetActionIcon,
   AnimatedActionArrow,
 } from "@/components/common/ActionAnimatedIcons";
+import {
+  FloatingTechOutlines,
+  FloatingVehicleOutlines,
+  FloatingCommerceOutlines,
+} from "./FloatingBannerOutlines";
 
 export default function PromoBanner({
   title,
@@ -65,7 +70,12 @@ export default function PromoBanner({
   const currentTheme = themeStyles[theme] || themeStyles.blue;
 
   return (
-    <div className={`w-full rounded-2xl p-4 sm:p-6 border ${currentTheme.bg} shadow-sm relative overflow-hidden my-2`}>
+    <div className={`w-full rounded-2xl p-4 sm:p-6 border ${currentTheme.bg} shadow-sm relative overflow-hidden my-2 group`}>
+      {/* Floating Outline SVG Accessories Scene */}
+      {(icon === "smartphone" || theme === "blue") && <FloatingTechOutlines />}
+      {(icon === "car" || theme === "emerald") && <FloatingVehicleOutlines />}
+      {(icon === "shield" || theme === "dark") && <FloatingCommerceOutlines />}
+
       <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-6">
         <div className="flex items-start gap-3">
           {IconComponent && (

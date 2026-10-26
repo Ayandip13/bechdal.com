@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import AnimatedCategoryIcon from "./AnimatedCategoryIcon";
+import { AnimatedActionArrow } from "@/components/common/ActionAnimatedIcons";
 
 export default function PopularCategories() {
   const categories = [
@@ -25,8 +26,9 @@ export default function PopularCategories() {
     <section className="w-full py-2">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl sm:text-2xl font-black text-text dark:text-white tracking-tight">Popular Categories</h2>
-        <Link href="/search" className="text-primary dark:text-blue-400 font-bold text-xs sm:text-sm flex items-center hover:underline transition-all">
-          View All Categories <ChevronRight size={16} className="ml-0.5" />
+        <Link href="/search" className="text-primary dark:text-blue-400 font-extrabold text-xs sm:text-sm flex items-center gap-1 hover:underline transition-all group">
+          <span>View All Categories</span>
+          <AnimatedActionArrow size={14} />
         </Link>
       </div>
 

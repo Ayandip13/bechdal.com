@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import ProductCard from "../cards/ProductCard";
 import { nearYouAds } from "@/constants/dummyData";
+import { AnimatedExploreActionIcon, AnimatedActionArrow } from "@/components/common/ActionAnimatedIcons";
 
 export default function NearYou() {
   return (
@@ -20,10 +21,10 @@ export default function NearYou() {
         </div>
         <Link
           href="/category/mobiles"
-          className="hidden sm:flex items-center gap-1 text-primary dark:text-blue-400 text-xs sm:text-sm font-bold hover:underline transition-all whitespace-nowrap cursor-pointer shrink-0"
+          className="hidden sm:flex items-center gap-1.5 text-primary dark:text-blue-400 text-xs sm:text-sm font-extrabold hover:underline transition-all whitespace-nowrap cursor-pointer shrink-0 group"
         >
           <span>View All</span>
-          <ArrowRight className="w-4 h-4" />
+          <AnimatedActionArrow size={14} />
         </Link>
       </div>
 
@@ -38,10 +39,11 @@ export default function NearYou() {
       <div className="mt-4 text-center">
         <Link
           href="/category/mobiles"
-          className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 text-xs font-bold rounded-xl border border-slate-200/80 dark:border-slate-700/80 transition-all cursor-pointer w-full sm:w-auto"
+          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200/80 dark:hover:bg-slate-700/80 text-slate-800 dark:text-slate-100 text-xs sm:text-sm font-extrabold rounded-xl border border-slate-200/80 dark:border-slate-700/80 transition-all cursor-pointer w-full sm:w-auto shadow-2xs group btn-shimmer hover:scale-102 active:scale-98"
         >
+          <AnimatedExploreActionIcon size={16} />
           <span>View All Nearby Deals</span>
-          <ArrowRight className="w-4 h-4 text-primary dark:text-blue-400" />
+          <AnimatedActionArrow size={14} className="text-primary dark:text-blue-400" />
         </Link>
       </div>
     </section>

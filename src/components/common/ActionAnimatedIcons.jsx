@@ -412,3 +412,44 @@ export function AnimatedActionArrow({ size = 15, className = "" }) {
     </svg>
   );
 }
+
+// 10. Property Action Icon: Cozy house with chimney smoke puff
+export function AnimatedPropertyActionIcon({ size = 18, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`shrink-0 ${className}`}
+    >
+      <style>{`
+        @keyframes houseChimneyPuff {
+          0% { transform: translateY(0) scale(0.6); opacity: 0; }
+          50% { transform: translateY(-2.5px) scale(1); opacity: 0.8; }
+          100% { transform: translateY(-5px) scale(1.4); opacity: 0; }
+        }
+        @keyframes housePopAction {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.04); }
+        }
+        .anim-chimney-puff { animation: houseChimneyPuff 1.4s ease-out infinite; transform-origin: 18px 4px; }
+        .anim-house-pop { animation: housePopAction 1.8s ease-in-out infinite; transform-origin: bottom center; }
+      `}</style>
+      {/* Chimney smoke puff */}
+      <circle cx="18" cy="4" r="1.5" fill="#f43f5e" className="anim-chimney-puff" />
+      <g className="anim-house-pop">
+        {/* Roof */}
+        <path d="M3 10.5L12 3l9 7.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        {/* House Walls */}
+        <path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.8" />
+        {/* Chimney */}
+        <path d="M17 7.5V4h2v5.2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        {/* Door */}
+        <rect x="9.5" y="14" width="5" height="7" rx="1" fill="#f43f5e" fillOpacity="0.8" />
+        <circle cx="13.5" cy="17.5" r="0.75" fill="#ffffff" />
+      </g>
+    </svg>
+  );
+}

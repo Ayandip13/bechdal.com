@@ -22,6 +22,11 @@ import {
   Printer
 } from "lucide-react";
 
+import {
+  FloatingTechOutlines,
+  FloatingVehicleOutlines,
+} from "@/components/banner/FloatingBannerOutlines";
+
 const ICON_MAP = {
   Tv,
   Smartphone,
@@ -49,6 +54,14 @@ export default function CategoryHero({ category, totalCount }) {
       {/* Dynamic Ambient Background Elements */}
       <div className="absolute top-0 right-0 -mt-12 -mr-12 w-64 h-64 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/3 -mb-12 w-64 h-64 rounded-full bg-secondary/15 blur-3xl pointer-events-none" />
+
+      {/* Floating Outline SVG Accessories Scene */}
+      {(category?.slug === "mobiles" || category?.slug === "electronics") && (
+        <FloatingTechOutlines className="opacity-60" />
+      )}
+      {category?.slug === "vehicles" && (
+        <FloatingVehicleOutlines className="opacity-60" />
+      )}
 
       <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div className="max-w-2xl">

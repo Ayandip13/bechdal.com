@@ -40,7 +40,7 @@ export default function LoadMoreButton({ currentCount, totalCount, onLoadMore, h
         type="button"
         disabled={isLoading}
         onClick={handleClick}
-        className="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-slate-850 dark:bg-slate-800 border border-border dark:border-slate-700 hover:border-primary dark:hover:border-blue-400 text-slate-800 dark:text-slate-100 hover:text-primary dark:hover:text-blue-400 text-xs sm:text-sm font-bold rounded-xl shadow-subtle hover:shadow-card transition-all disabled:opacity-50 cursor-pointer group"
+        className="inline-flex items-center gap-2.5 px-6 py-3 bg-white dark:bg-slate-800 border border-border dark:border-slate-700 hover:border-primary dark:hover:border-blue-400 text-slate-800 dark:text-slate-100 hover:text-primary dark:hover:text-blue-400 text-xs sm:text-sm font-extrabold rounded-xl shadow-subtle hover:shadow-card transition-all disabled:opacity-50 cursor-pointer group btn-shimmer hover:scale-102 active:scale-95"
       >
         {isLoading ? (
           <>
@@ -50,7 +50,7 @@ export default function LoadMoreButton({ currentCount, totalCount, onLoadMore, h
         ) : (
           <>
             <span>Load More Listings</span>
-            <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+            <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-200 text-primary dark:text-blue-400" />
           </>
         )}
       </button>

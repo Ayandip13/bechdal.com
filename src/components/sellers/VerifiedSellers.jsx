@@ -4,6 +4,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import SellerCard from "./SellerCard";
+import { AnimatedActionArrow } from "@/components/common/ActionAnimatedIcons";
 import { verifiedSellers } from "@/constants/dummyData";
 
 export default function VerifiedSellers() {
@@ -70,8 +71,9 @@ export default function VerifiedSellers() {
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <Link href="/sellers" className="flex items-center gap-1 text-primary dark:text-blue-400 text-xs sm:text-sm font-bold hover:underline transition-all whitespace-nowrap cursor-pointer">
-            View All Sellers <ChevronRight className="w-4 h-4" />
+          <Link href="/sellers" className="flex items-center gap-1.5 text-primary dark:text-blue-400 text-xs sm:text-sm font-extrabold hover:underline transition-all whitespace-nowrap cursor-pointer group">
+            <span>View All Sellers</span>
+            <AnimatedActionArrow size={14} />
           </Link>
 
           {/* Header Arrow Controls for Desktop */}

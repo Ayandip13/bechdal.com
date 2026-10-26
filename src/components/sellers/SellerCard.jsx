@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Star, MapPin, CalendarDays, Check } from "lucide-react";
+import { Star, MapPin, CalendarDays, Check, UserPlus } from "lucide-react";
 
 export default function SellerCard({
   id = 1,
@@ -81,13 +81,23 @@ export default function SellerCard({
           <button 
             type="button"
             onClick={handleFollowClick}
-            className={`px-3 py-1 text-xs font-medium rounded-full transition-all cursor-pointer ${
+            className={`inline-flex items-center gap-1 px-3 py-1 text-xs font-bold rounded-full transition-all duration-150 cursor-pointer active:scale-90 hover:scale-105 select-none ${
               isFollowing
                 ? "bg-primary text-white border border-primary dark:bg-blue-600 shadow-xs"
                 : "text-primary dark:text-blue-400 border border-primary/30 dark:border-blue-400/40 hover:bg-primary/5 dark:hover:bg-blue-400/10"
             }`}
           >
-            {isFollowing ? "Following" : "Follow"}
+            {isFollowing ? (
+              <>
+                <Check size={12} className="stroke-[3] animate-pulse" />
+                <span>Following</span>
+              </>
+            ) : (
+              <>
+                <UserPlus size={12} />
+                <span>Follow</span>
+              </>
+            )}
           </button>
         </div>
       </div>
