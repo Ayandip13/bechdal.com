@@ -1,18 +1,23 @@
+import Link from "next/link";
 import { CheckCircle2, Star } from "lucide-react";
 
 export default function SellerCard({ seller }) {
+  const sellerId = seller?.id || 1;
+
   return (
     <div className="bg-white dark:bg-slate-800/90 rounded-2xl p-5 border border-slate-200/80 dark:border-slate-700/80 shadow-subtle flex flex-col gap-5 transition-colors">
       <div className="flex items-start justify-between">
-        <div className="flex items-center gap-4">
+        <Link href={`/seller/${sellerId}`} className="flex items-center gap-4 group">
           <img
             src={seller.avatar}
             alt={seller.name}
-            className="w-14 h-14 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm"
+            className="w-14 h-14 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm group-hover:scale-105 transition-transform"
           />
           <div>
             <div className="flex items-center gap-1.5 mb-1">
-              <h3 className="font-bold text-slate-900 dark:text-white text-base">{seller.name}</h3>
+              <h3 className="font-bold text-slate-900 dark:text-white text-base group-hover:text-primary dark:group-hover:text-blue-400 transition-colors">
+                {seller.name}
+              </h3>
               {seller.isVerified && (
                 <CheckCircle2 className="w-4 h-4 text-blue-500 dark:text-blue-400" />
               )}
@@ -30,11 +35,11 @@ export default function SellerCard({ seller }) {
               Member since {seller.memberSince}
             </p>
           </div>
-        </div>
+        </Link>
         
-        <button className="text-primary dark:text-blue-400 text-xs font-semibold hover:underline cursor-pointer">
+        <Link href={`/seller/${sellerId}`} className="text-primary dark:text-blue-400 text-xs font-semibold hover:underline cursor-pointer">
           View Profile
-        </button>
+        </Link>
       </div>
 
       <div className="grid grid-cols-2 gap-4 py-4 border-t border-b border-slate-200/80 dark:border-slate-700/80">

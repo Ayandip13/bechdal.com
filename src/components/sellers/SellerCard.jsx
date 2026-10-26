@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Star, MapPin, CalendarDays } from "lucide-react";
+import Link from "next/link";
+import { Star, MapPin, CalendarDays, Check } from "lucide-react";
 
 export default function SellerCard({
+  id = 1,
   avatar,
   name,
   isVerified,
@@ -17,27 +19,38 @@ export default function SellerCard({
   onViewProfile,
 }) {
   const [imgSrc, setImgSrc] = useState(avatar);
+  const [isFollowing, setIsFollowing] = useState(false);
 
   useEffect(() => {
     setImgSrc(avatar);
   }, [avatar]);
 
+  const handleFollowClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsFollowing((prev) => !prev);
+    if (onFollow) onFollow(!isFollowing);
+  };
+
   return (
-    <div className="bg-white dark:bg-slate-800/90 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 p-4.5 shadow-xs hover:shadow-xl hover:border-primary/40 dark:hover:border-blue-400/60 hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 min-w-[280px] sm:min-w-[300px]">
+    <Link
+      href={`/seller/${id}`}
+      className="bg-white dark:bg-slate-800/90 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 p-4.5 shadow-xs hover:shadow-xl hover:border-primary/40 dark:hover:border-blue-400/60 hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 min-w-[280px] sm:min-w-[300px] cursor-pointer group block"
+    >
       {/* Avatar */}
-      <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600">
+      <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 relative">
         <img
           src={imgSrc}
           alt={name}
           onError={() => setImgSrc("/images/kolkata_properties.png")}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
       </div>
 
       {/* Details */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-1.5 mb-1">
-          <h3 className="font-semibold text-text dark:text-slate-100 truncate text-sm sm:text-base">
+          <h3 className="font-semibold text-text dark:text-slate-100 group-hover:text-primary dark:group-hover:text-blue-400 truncate text-sm sm:text-base transition-colors">
             {name}
           </h3>
           {isVerified && (
@@ -57,33 +70,28 @@ export default function SellerCard({
 
         <div className="text-xs text-text-muted dark:text-slate-400 mb-2 flex flex-col gap-0.5">
           <span>{totalListings} Listings</span>
-          {/* Reusable parts hidden in the compact screenshot version but available for other views */}
-          {location && joinedSince && (
-            <div className="hidden flex-col gap-0.5 mt-0.5">
-              <span className="flex items-center gap-1"><MapPin className="w-3 h-3"/> {location}</span>
-              <span className="flex items-center gap-1"><CalendarDays className="w-3 h-3"/> {joinedSince}</span>
-            </div>
+          {location && (
+            <span className="text-[11px] text-slate-400 truncate flex items-center gap-1">
+              <MapPin className="w-2.5 h-2.5 shrink-0" /> {location}
+            </span>
           )}
         </div>
 
         <div className="flex gap-2">
           <button 
-            onClick={onFollow}
-            className="px-3 py-1 text-xs font-medium text-primary dark:text-blue-400 border border-primary/30 dark:border-blue-400/40 rounded-full hover:bg-primary/5 dark:hover:bg-blue-400/10 transition-colors cursor-pointer"
+            type="button"
+            onClick={handleFollowClick}
+            className={`px-3 py-1 text-xs font-medium rounded-full transition-all cursor-pointer ${
+              isFollowing
+                ? "bg-primary text-white border border-primary dark:bg-blue-600 shadow-xs"
+                : "text-primary dark:text-blue-400 border border-primary/30 dark:border-blue-400/40 hover:bg-primary/5 dark:hover:bg-blue-400/10"
+            }`}
           >
-            Follow
+            {isFollowing ? "Following" : "Follow"}
           </button>
-          {onViewProfile && (
-            <button 
-              onClick={onViewProfile}
-              className="px-3 py-1 text-xs font-medium text-text dark:text-slate-200 border border-border dark:border-slate-600 rounded-full hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors hidden cursor-pointer"
-            >
-              Profile
-            </button>
-          )}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
