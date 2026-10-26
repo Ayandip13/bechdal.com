@@ -12,7 +12,14 @@ import {
   Dog, 
   Package, 
   Sparkles,
-  Layers
+  Layers,
+  Sailboat,
+  Dumbbell,
+  Briefcase,
+  ShoppingBag,
+  Leaf,
+  Hammer,
+  Printer
 } from "lucide-react";
 
 const ICON_MAP = {
@@ -25,6 +32,13 @@ const ICON_MAP = {
   BookOpen,
   Wrench,
   Dog,
+  Sailboat,
+  Dumbbell,
+  Briefcase,
+  ShoppingBag,
+  Leaf,
+  Hammer,
+  Printer,
 };
 
 export default function CategoryHero({ category, totalCount }) {

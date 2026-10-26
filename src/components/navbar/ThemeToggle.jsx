@@ -2,27 +2,24 @@
 
 import { useTheme } from "@/context/ThemeContext";
 import { Sun, Moon } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function ThemeToggle({ className = "", showLabel = false, compact = false }) {
-  const { theme, toggleTheme, mounted } = useTheme();
+  const { theme, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  const isDark = theme === "dark";
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  if (!mounted) {
-    return (
-      <div 
-        className={`rounded-full bg-slate-200/60 dark:bg-slate-700/60 animate-pulse ${
-          compact ? "w-8 h-8" : showLabel ? "w-full h-10" : "w-9 h-9"
-        } ${className}`} 
-      />
-    );
-  }
+  const isDark = mounted && theme === "dark";
 
   if (showLabel) {
     return (
       <button
         type="button"
         onClick={toggleTheme}
+        suppressHydrationWarning
         aria-label="Toggle dark and light theme"
         className={`flex items-center justify-between w-full px-3.5 py-2.5 text-xs font-semibold rounded-xl transition-all duration-200 cursor-pointer select-none border ${
           isDark
@@ -53,6 +50,7 @@ export default function ThemeToggle({ className = "", showLabel = false, compact
     <button
       type="button"
       onClick={toggleTheme}
+      suppressHydrationWarning
       aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
       title={`Switch to ${isDark ? "Light" : "Lighter Dark"} theme`}
       className={`relative inline-flex items-center justify-center rounded-full transition-all duration-300 focus:outline-none cursor-pointer group ${
@@ -82,3 +80,4 @@ export default function ThemeToggle({ className = "", showLabel = false, compact
     </button>
   );
 }
+

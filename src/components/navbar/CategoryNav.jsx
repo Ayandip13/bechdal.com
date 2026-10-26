@@ -1,163 +1,157 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import { 
   Menu, Monitor, Smartphone, Car, Home, Shirt, Armchair, 
-  Briefcase, Wrench, Dog, BookOpen, LayoutGrid, ShoppingBag, 
-  Leaf, Hammer, Printer
+  Briefcase, Wrench, Dog, BookOpen, ShoppingBag, 
+  Leaf, Hammer, Printer, Sailboat, Dumbbell, ChevronLeft, ChevronRight
 } from "lucide-react";
 
 export default function CategoryNav() {
-  const [showMoreDropdown, setShowMoreDropdown] = useState(false);
-  const desktopScrollRef = useRef(null);
-  const mobileScrollRef = useRef(null);
+  const pathname = usePathname();
+  const scrollRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
 
-  useEffect(() => {
-    const el = desktopScrollRef.current;
-    if (!el) return;
-
-    const onWheel = (e) => {
-      if (el.scrollWidth > el.clientWidth) {
-        e.preventDefault();
-        el.scrollLeft += e.deltaY * 0.95;
-      }
-    };
-
-    el.addEventListener("wheel", onWheel, { passive: false });
-    return () => el.removeEventListener("wheel", onWheel);
-  }, []);
-
-  useEffect(() => {
-    const el = mobileScrollRef.current;
-    if (!el) return;
-
-    const onWheel = (e) => {
-      if (el.scrollWidth > el.clientWidth) {
-        e.preventDefault();
-        el.scrollLeft += e.deltaY * 0.95;
-      }
-    };
-
-    el.addEventListener("wheel", onWheel, { passive: false });
-    return () => el.removeEventListener("wheel", onWheel);
-  }, []);
-
-  const mainCategories = [
+  const categories = [
     { name: "Electronics", slug: "electronics", icon: Monitor },
     { name: "Mobiles", slug: "mobiles", icon: Smartphone },
     { name: "Vehicles", slug: "vehicles", icon: Car },
     { name: "Properties", slug: "properties", icon: Home },
     { name: "Furniture", slug: "furniture", icon: Armchair },
     { name: "Fashion", slug: "fashion", icon: Shirt },
+    { name: "Boats", slug: "boats", icon: Sailboat },
+    { name: "Gym Equipments", slug: "gym-equipment", icon: Dumbbell },
     { name: "Jobs", slug: "jobs", icon: Briefcase },
     { name: "Services", slug: "services", icon: Wrench },
     { name: "Pets", slug: "pets", icon: Dog },
     { name: "Books", slug: "books", icon: BookOpen },
-  ];
-
-  const moreCategories = [
     { name: "Pet Products", slug: "pet-products", icon: ShoppingBag },
     { name: "Agriculture", slug: "agricultural-products", icon: Leaf },
     { name: "Construction Equipment", slug: "construction-equipment", icon: Hammer },
     { name: "Office Equipment", slug: "office-equipment", icon: Printer },
   ];
 
-  const allCategories = [...mainCategories, ...moreCategories];
+  const updateScrollState = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 6);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 6);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    updateScrollState();
+
+    const handleScroll = () => updateScrollState();
+    el.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", updateScrollState);
+
+    const onWheel = (e) => {
+      if (el.scrollWidth > el.clientWidth) {
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+          e.preventDefault();
+          el.scrollLeft += e.deltaY * 0.95;
+        }
+      }
+    };
+
+    el.addEventListener("wheel", onWheel, { passive: false });
+
+    return () => {
+      el.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateScrollState);
+      el.removeEventListener("wheel", onWheel);
+    };
+  }, [updateScrollState]);
+
+  const handleScroll = (direction) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const scrollAmount = direction === "left" ? -280 : 280;
+    el.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  };
 
   return (
     <div className="bg-white dark:bg-slate-800/90 border-b border-border dark:border-slate-700/80 shadow-xs transition-colors duration-200">
-      
-      {/* ----------------- DESKTOP LAYOUT ----------------- */}
-      <div className="hidden md:block max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between gap-4">
-        {/* All Categories Link */}
-        <Link
-          href="/category/electronics"
-          className="flex items-center gap-1.5 text-primary dark:text-blue-400 font-bold text-xs hover:text-primary-dark transition-colors whitespace-nowrap mr-2 select-none h-8"
-        >
-          <Menu size={15} />
-          All Categories
-        </Link>
-
-        {/* Categories List */}
-        <div ref={desktopScrollRef} className="flex items-center gap-5 overflow-x-auto overflow-y-hidden hide-scrollbar flex-1 scroll-smooth">
-          {mainCategories.map((cat, index) => {
-            const Icon = cat.icon;
-            return (
-              <Link 
-                key={index} 
-                href={`/category/${cat.slug}`} 
-                className="flex items-center gap-1.5 text-text-muted dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 text-[11px] sm:text-xs font-semibold transition-colors whitespace-nowrap py-1 border-b-2 border-transparent hover:border-primary dark:hover:border-blue-400 h-8"
-              >
-                <Icon size={13} className="opacity-80" />
-                {cat.name}
-              </Link>
-            );
-          })}
-
-          {/* More Categories Dropdown */}
-          <div 
-            className="relative"
-            onMouseEnter={() => setShowMoreDropdown(true)}
-            onMouseLeave={() => setShowMoreDropdown(false)}
-          >
-            <button 
-              className="flex items-center gap-1.5 text-text-muted dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 text-[11px] sm:text-xs font-semibold transition-colors whitespace-nowrap py-1 cursor-pointer focus:outline-none h-8"
-            >
-              <LayoutGrid size={13} className="opacity-80" />
-              <span>More</span>
-            </button>
-
-            {showMoreDropdown && (
-              <div className="absolute top-[28px] right-0 bg-white dark:bg-slate-800 border border-border dark:border-slate-700 rounded-xl shadow-lg py-2 w-56 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                <div className="px-3 pb-1 border-b border-slate-100 dark:border-slate-700 text-[9px] uppercase tracking-wider font-extrabold text-text-muted dark:text-slate-400">
-                  More Categories
-                </div>
-                {moreCategories.map((cat, index) => {
-                  const Icon = cat.icon;
-                  return (
-                    <Link
-                      key={index}
-                      href={`/category/${cat.slug}`}
-                      className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-text-muted dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
-                      onClick={() => setShowMoreDropdown(false)}
-                    >
-                      <Icon size={13} className="text-text-muted dark:text-slate-400 opacity-80" />
-                      <span>{cat.name}</span>
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* ----------------- MOBILE LAYOUT (Horizontally Scrollable) ----------------- */}
-      <div className="relative block md:hidden w-full overflow-hidden">
+      <div className="relative max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 group">
         
-        {/* Scroll Container */}
-        <div ref={mobileScrollRef} className="overflow-x-auto overflow-y-hidden whitespace-nowrap hide-scrollbar flex items-center gap-3.5 px-4 py-2.5 w-full scroll-smooth">
-          {allCategories.map((cat, index) => {
+        {/* Left Scroll Arrow (Desktop) */}
+        {canScrollLeft && (
+          <button
+            onClick={() => handleScroll("left")}
+            aria-label="Scroll left"
+            className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white/95 dark:bg-slate-700/95 border border-slate-200 dark:border-slate-600 shadow-md items-center justify-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-600 hover:text-primary transition-all cursor-pointer"
+          >
+            <ChevronLeft size={16} />
+          </button>
+        )}
+
+        {/* Left Fade Gradient */}
+        {canScrollLeft && (
+          <div className="hidden sm:block absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-white dark:from-slate-800/90 to-transparent pointer-events-none z-10" />
+        )}
+
+        {/* Single Scroll Container (same as mobile view) */}
+        <div 
+          ref={scrollRef} 
+          className="overflow-x-auto overflow-y-hidden whitespace-nowrap hide-scrollbar flex items-center gap-2 sm:gap-2.5 py-2.5 w-full scroll-smooth select-none"
+        >
+          {/* All Categories Pill */}
+          <Link
+            href="/category/electronics"
+            className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap shadow-3xs shrink-0 select-none ${
+              pathname === "/category/electronics" || pathname === "/search"
+                ? "bg-primary text-white dark:bg-blue-600 shadow-sm"
+                : "bg-primary/10 dark:bg-blue-500/15 text-primary dark:text-blue-400 border border-primary/25 dark:border-blue-500/30 hover:bg-primary hover:text-white dark:hover:bg-blue-600 dark:hover:text-white"
+            }`}
+          >
+            <Menu size={13} className="shrink-0" />
+            <span>All Categories</span>
+          </Link>
+
+          {/* Category Pills */}
+          {categories.map((cat) => {
             const Icon = cat.icon;
+            const isActive = pathname === `/category/${cat.slug}`;
             return (
               <Link 
-                key={index} 
+                key={cat.slug} 
                 href={`/category/${cat.slug}`} 
-                className="flex items-center gap-1 bg-slate-50 dark:bg-slate-700/60 border border-slate-200/60 dark:border-slate-600 px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-blue-400 transition-colors whitespace-nowrap shadow-3xs"
+                className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap shadow-3xs shrink-0 select-none ${
+                  isActive
+                    ? "bg-primary text-white border border-primary dark:bg-blue-600 dark:border-blue-500 shadow-sm"
+                    : "bg-slate-50 dark:bg-slate-700/60 border border-slate-200/70 dark:border-slate-600/70 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-blue-400 hover:border-primary/40 dark:hover:border-blue-500/40 hover:bg-white dark:hover:bg-slate-700"
+                }`}
               >
-                <Icon size={12} className="opacity-85 text-slate-500 dark:text-slate-400" />
+                <Icon size={13} className={`shrink-0 ${isActive ? "opacity-100" : "opacity-80"}`} />
                 <span>{cat.name}</span>
               </Link>
             );
           })}
         </div>
 
-        {/* Subtle right-side fade indicator for scroll direction */}
-        <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white dark:from-slate-800 to-transparent pointer-events-none"></div>
+        {/* Right Fade Gradient */}
+        {canScrollRight && (
+          <div className="absolute right-0 top-0 bottom-0 w-10 sm:w-12 bg-gradient-to-l from-white dark:from-slate-800/90 to-transparent pointer-events-none z-10" />
+        )}
+
+        {/* Right Scroll Arrow (Desktop) */}
+        {canScrollRight && (
+          <button
+            onClick={() => handleScroll("right")}
+            aria-label="Scroll right"
+            className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-white/95 dark:bg-slate-700/95 border border-slate-200 dark:border-slate-600 shadow-md items-center justify-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-600 hover:text-primary transition-all cursor-pointer"
+          >
+            <ChevronRight size={16} />
+          </button>
+        )}
 
       </div>
-
     </div>
   );
 }

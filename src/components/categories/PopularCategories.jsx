@@ -2,7 +2,7 @@ import Link from "next/link";
 import { 
   Smartphone, Monitor, Car, Home, Armchair, Shirt, 
   Briefcase, Wrench, Dog, BookOpen, ShoppingBag, Leaf, 
-  Hammer, Printer, ChevronRight 
+  Hammer, Printer, ChevronRight, Sailboat, Dumbbell
 } from "lucide-react";
 
 export default function PopularCategories() {
@@ -13,6 +13,8 @@ export default function PopularCategories() {
     { name: "Properties", slug: "properties", icon: Home, color: "text-orange-500 dark:text-orange-400" },
     { name: "Furniture", slug: "furniture", icon: Armchair, color: "text-amber-700 dark:text-amber-400" },
     { name: "Fashion", slug: "fashion", icon: Shirt, color: "text-indigo-500 dark:text-indigo-400" },
+    { name: "Boats", slug: "boats", icon: Sailboat, color: "text-cyan-600 dark:text-cyan-400" },
+    { name: "Gym Equipments", slug: "gym-equipment", icon: Dumbbell, color: "text-orange-600 dark:text-orange-400" },
     { name: "Jobs", slug: "jobs", icon: Briefcase, color: "text-teal-600 dark:text-teal-400" },
     { name: "Services", slug: "services", icon: Wrench, color: "text-purple-600 dark:text-purple-400" },
     { name: "Books", slug: "books", icon: BookOpen, color: "text-emerald-600 dark:text-emerald-400" },

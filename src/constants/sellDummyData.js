@@ -231,6 +231,36 @@ export const sellCategories = [
       "Other Office Items"
     ],
   },
+  {
+    id: "boats",
+    name: "Boats & Watercraft",
+    icon: "Sailboat",
+    description: "Speedboats, Fishing Boats, Jet Skis, Kayaks & Marine Parts",
+    subcategories: [
+      "Speedboats & Motorboats",
+      "Fishing Boats",
+      "Jet Skis",
+      "Kayaks & Canoes",
+      "Yachts & Sailboats",
+      "Outboard Motors & Marine Parts",
+      "Other Boats & Watercraft",
+    ],
+  },
+  {
+    id: "gym-equipment",
+    name: "Gym & Fitness Equipment",
+    icon: "Dumbbell",
+    description: "Treadmills, Dumbbells, Bench Press, Home Gyms & Exercise Machines",
+    subcategories: [
+      "Treadmills",
+      "Dumbbells & Barbells",
+      "Exercise Bikes",
+      "Benches & Racks",
+      "Home Gym Stations",
+      "Cross Trainers & Ellipticals",
+      "Other Fitness Equipment",
+    ],
+  },
 ];
 
 export const dynamicSpecifications = {
