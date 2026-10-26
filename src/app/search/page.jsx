@@ -240,12 +240,12 @@ function SearchPageContent() {
       <Breadcrumb items={[{ label: "Search Results", href: null }]} />
 
       {/* Page Title / Header Info */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
         <div>
-          <h2 className="text-xl md:text-2xl font-black text-slate-800 flex items-center gap-2">
-            Search Results for <span className="text-primary font-black">"{query || "All Products"}"</span>
+          <h2 className="text-xl md:text-2xl font-black text-slate-800 dark:text-slate-100 flex items-center gap-2">
+            Search Results for <span className="text-primary dark:text-blue-400 font-black">"{query || "All Products"}"</span>
           </h2>
-          <p className="text-xs text-text-muted mt-1 font-bold">
+          <p className="text-xs text-text-muted dark:text-slate-400 mt-1 font-bold">
             Found {sortedProducts.length} listings in {categoryInfo.title}
           </p>
         </div>
@@ -254,9 +254,9 @@ function SearchPageContent() {
         <div className="flex items-center gap-3 justify-between md:justify-end">
           <button
             onClick={() => setIsMobileDrawerOpen(true)}
-            className="lg:hidden inline-flex items-center gap-2 px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-text hover:bg-slate-100 transition-colors"
+            className="lg:hidden inline-flex items-center gap-2 px-3.5 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
           >
-            <SlidersHorizontal size={14} className="text-primary" />
+            <SlidersHorizontal size={14} className="text-primary dark:text-blue-400" />
             <span>Filters</span>
             {activeFilterCount > 0 && (
               <span className="bg-primary text-white text-[9px] font-extrabold px-1.5 py-0.5 rounded-full">
@@ -266,7 +266,7 @@ function SearchPageContent() {
           </button>
           
           <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold text-text-muted hidden sm:inline">Sort By:</span>
+            <span className="text-xs font-semibold text-text-muted dark:text-slate-400 hidden sm:inline">Sort By:</span>
             <SortDropdown selected={selectedSort} onChange={setSelectedSort} />
           </div>
         </div>
@@ -309,7 +309,7 @@ function SearchPageContent() {
                 <div className="flex justify-center mt-6">
                   <button
                     onClick={() => setVisibleCount(prev => prev + 8)}
-                    className="px-6 py-2.5 bg-slate-100 border border-border text-xs font-bold text-text hover:bg-slate-200 transition-colors rounded-xl cursor-pointer"
+                    className="px-6 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-blue-400 text-xs font-bold text-slate-800 dark:text-slate-100 hover:text-primary dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-700/80 transition-all rounded-xl shadow-xs cursor-pointer"
                   >
                     Load More Results
                   </button>

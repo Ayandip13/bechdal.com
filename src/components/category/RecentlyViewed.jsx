@@ -8,11 +8,11 @@ export default function RecentlyViewed() {
   const recentProducts = [...nearYouAds, ...featuredListings].slice(0, 6);
 
   return (
-    <div className="mt-8 bg-white rounded-2xl p-6 border border-border/70 shadow-subtle">
+    <div className="mt-8 bg-white dark:bg-slate-800/90 rounded-2xl p-6 border border-border/70 dark:border-slate-700/80 shadow-subtle transition-colors">
       <div className="flex items-center justify-between gap-4 mb-6">
         <div>
-          <h2 className="text-lg sm:text-xl font-bold text-text">Recently Viewed Listings</h2>
-          <p className="text-xs text-text-muted mt-0.5">Based on your recent browsing history</p>
+          <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">Recently Viewed Listings</h2>
+          <p className="text-xs text-text-muted dark:text-slate-400 mt-0.5">Based on your recent browsing history</p>
         </div>
       </div>
       

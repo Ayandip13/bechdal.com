@@ -103,9 +103,9 @@ export default function CategoryNav() {
         >
           {/* All Categories Pill */}
           <Link
-            href="/category/electronics"
+            href="/search"
             className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap shadow-3xs shrink-0 select-none ${
-              pathname === "/category/electronics" || pathname === "/search"
+              pathname === "/search"
                 ? "bg-primary text-white dark:bg-blue-600 shadow-sm"
                 : "bg-primary/10 dark:bg-blue-500/15 text-primary dark:text-blue-400 border border-primary/25 dark:border-blue-500/30 hover:bg-primary hover:text-white dark:hover:bg-blue-600 dark:hover:text-white"
             }`}

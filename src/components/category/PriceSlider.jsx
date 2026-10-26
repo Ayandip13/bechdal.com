@@ -38,27 +38,27 @@ export default function PriceSlider({ minPrice, maxPrice, onChange, categorySlug
   }, [categorySlug]);
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 pt-1">
       <div className="flex items-center gap-2">
         <div className="relative flex-1">
-          <span className="absolute left-2.5 top-2 text-xs text-text-muted">₹</span>
+          <span className="absolute left-2.5 top-2 text-xs text-text-muted dark:text-slate-400 font-semibold select-none">₹</span>
           <input
             type="number"
             placeholder="Min"
             value={minPrice}
             onChange={(e) => onChange(e.target.value, maxPrice)}
-            className="w-full pl-6 pr-2 py-1.5 text-xs bg-slate-50 border border-border rounded-lg focus:outline-none focus:ring-1 focus:ring-primary text-text font-medium"
+            className="w-full pl-6 pr-2 py-1.5 text-xs bg-slate-50 dark:bg-slate-700/80 border border-border dark:border-slate-600 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-400 font-medium transition-colors"
           />
         </div>
-        <span className="text-xs text-text-muted font-medium">to</span>
+        <span className="text-xs text-text-muted dark:text-slate-400 font-medium select-none">to</span>
         <div className="relative flex-1">
-          <span className="absolute left-2.5 top-2 text-xs text-text-muted">₹</span>
+          <span className="absolute left-2.5 top-2 text-xs text-text-muted dark:text-slate-400 font-semibold select-none">₹</span>
           <input
             type="number"
             placeholder="Max"
             value={maxPrice}
             onChange={(e) => onChange(minPrice, e.target.value)}
-            className="w-full pl-6 pr-2 py-1.5 text-xs bg-slate-50 border border-border rounded-lg focus:outline-none focus:ring-1 focus:ring-primary text-text font-medium"
+            className="w-full pl-6 pr-2 py-1.5 text-xs bg-slate-50 dark:bg-slate-700/80 border border-border dark:border-slate-600 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-400 font-medium transition-colors"
           />
         </div>
       </div>
@@ -71,10 +71,10 @@ export default function PriceSlider({ minPrice, maxPrice, onChange, categorySlug
               key={idx}
               type="button"
               onClick={() => onChange(preset.min, preset.max)}
-              className={`text-[11px] font-medium py-1 px-2 rounded-md border transition-all text-center truncate cursor-pointer ${
+              className={`text-[11px] font-semibold py-1.5 px-2 rounded-lg border transition-all text-center truncate cursor-pointer select-none ${
                 isActive
                   ? "bg-primary text-white border-primary shadow-xs"
-                  : "bg-slate-50 text-text-muted border-border hover:bg-slate-100 hover:text-text"
+                  : "bg-slate-50 dark:bg-slate-700/70 text-slate-700 dark:text-slate-200 border-border dark:border-slate-600/80 hover:bg-slate-100 dark:hover:bg-slate-600 hover:text-primary dark:hover:text-blue-400"
               }`}
             >
               {preset.label}

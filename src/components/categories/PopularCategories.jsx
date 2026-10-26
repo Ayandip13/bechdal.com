@@ -29,7 +29,7 @@ export default function PopularCategories() {
     <section className="w-full py-2">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl sm:text-2xl font-black text-text dark:text-white tracking-tight">Popular Categories</h2>
-        <Link href="/category/electronics" className="text-primary dark:text-blue-400 font-bold text-xs sm:text-sm flex items-center hover:underline transition-all">
+        <Link href="/search" className="text-primary dark:text-blue-400 font-bold text-xs sm:text-sm flex items-center hover:underline transition-all">
           View All Categories <ChevronRight size={16} className="ml-0.5" />
         </Link>
       </div>

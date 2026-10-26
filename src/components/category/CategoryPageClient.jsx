@@ -304,9 +304,9 @@ export default function CategoryPageClient({ categorySlug, initialCategory, init
         </div>
 
         {/* Results Counter & Sort Dropdown */}
-        <div className="flex items-center justify-between sm:justify-end gap-4 w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-t-0 border-border">
-          <span className="text-xs text-text-muted font-medium">
-            Showing <strong className="text-text">{sortedProducts.length}</strong> results
+        <div className="flex items-center justify-between sm:justify-end gap-4 w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-t-0 border-border dark:border-slate-700">
+          <span className="text-xs text-text-muted dark:text-slate-400 font-medium">
+            Showing <strong className="text-slate-900 dark:text-white">{sortedProducts.length}</strong> results
           </span>
 
           <SortDropdown selectedSort={selectedSort} onSortChange={setSelectedSort} />
@@ -316,48 +316,48 @@ export default function CategoryPageClient({ categorySlug, initialCategory, init
       {/* Active Filter Chips */}
       {activeFilterCount > 0 && (
         <div className="flex flex-wrap items-center gap-2 pt-1">
-          <span className="text-xs text-text-muted font-semibold mr-1">Active Filters:</span>
+          <span className="text-xs text-text-muted dark:text-slate-400 font-semibold mr-1">Active Filters:</span>
           {searchQuery && (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 border border-primary/20 text-primary text-xs font-semibold rounded-full">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 dark:bg-blue-500/15 border border-primary/20 dark:border-blue-500/30 text-primary dark:text-blue-400 text-xs font-semibold rounded-full">
               Search: "{searchQuery}"
-              <X className="w-3 h-3 cursor-pointer hover:text-primary-dark" onClick={() => setSearchQuery("")} />
+              <X className="w-3 h-3 cursor-pointer hover:text-primary-dark dark:hover:text-blue-300" onClick={() => setSearchQuery("")} />
             </span>
           )}
           {filters.subcategories.map((sub) => (
-            <span key={sub} className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 border border-slate-200 text-text text-xs font-medium rounded-full">
+            <span key={sub} className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 text-xs font-medium rounded-full">
               {sub}
-              <X className="w-3 h-3 cursor-pointer text-text-muted hover:text-text" onClick={() => handleFilterChange("subcategories", filters.subcategories.filter((s) => s !== sub))} />
+              <X className="w-3 h-3 cursor-pointer text-text-muted dark:text-slate-400 hover:text-text dark:hover:text-white" onClick={() => handleFilterChange("subcategories", filters.subcategories.filter((s) => s !== sub))} />
             </span>
           ))}
           {filters.locations.map((loc) => (
-            <span key={loc} className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 border border-slate-200 text-text text-xs font-medium rounded-full">
+            <span key={loc} className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 text-xs font-medium rounded-full">
               {loc}
-              <X className="w-3 h-3 cursor-pointer text-text-muted hover:text-text" onClick={() => handleFilterChange("locations", filters.locations.filter((l) => l !== loc))} />
+              <X className="w-3 h-3 cursor-pointer text-text-muted dark:text-slate-400 hover:text-text dark:hover:text-white" onClick={() => handleFilterChange("locations", filters.locations.filter((l) => l !== loc))} />
             </span>
           ))}
           {filters.conditions.map((cond) => (
-            <span key={cond} className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 border border-slate-200 text-text text-xs font-medium rounded-full">
+            <span key={cond} className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 text-xs font-medium rounded-full">
               {cond}
-              <X className="w-3 h-3 cursor-pointer text-text-muted hover:text-text" onClick={() => handleFilterChange("conditions", filters.conditions.filter((c) => c !== cond))} />
+              <X className="w-3 h-3 cursor-pointer text-text-muted dark:text-slate-400 hover:text-text dark:hover:text-white" onClick={() => handleFilterChange("conditions", filters.conditions.filter((c) => c !== cond))} />
             </span>
           ))}
           {filters.brands.map((brand) => (
-            <span key={brand} className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 border border-slate-200 text-text text-xs font-medium rounded-full">
+            <span key={brand} className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 text-xs font-medium rounded-full">
               {brand}
-              <X className="w-3 h-3 cursor-pointer text-text-muted hover:text-text" onClick={() => handleFilterChange("brands", filters.brands.filter((b) => b !== brand))} />
+              <X className="w-3 h-3 cursor-pointer text-text-muted dark:text-slate-400 hover:text-text dark:hover:text-white" onClick={() => handleFilterChange("brands", filters.brands.filter((b) => b !== brand))} />
             </span>
           ))}
           {filters.verifiedSeller && (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-full">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-semibold rounded-full">
               Verified Sellers
-              <X className="w-3 h-3 cursor-pointer hover:text-emerald-900" onClick={() => handleFilterChange("verifiedSeller", false)} />
+              <X className="w-3 h-3 cursor-pointer hover:text-emerald-900 dark:hover:text-emerald-100" onClick={() => handleFilterChange("verifiedSeller", false)} />
             </span>
           )}
 
           <button
             type="button"
             onClick={handleResetFilters}
-            className="text-xs font-bold text-primary hover:underline ml-2"
+            className="text-xs font-bold text-primary dark:text-blue-400 hover:underline ml-2"
           >
             Clear All
           </button>
