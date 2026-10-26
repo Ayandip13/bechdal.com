@@ -3,6 +3,7 @@
 import { useState } from "react";
 import FAQAccordion from "./FAQAccordion";
 import { faqData } from "@/constants/dummyData";
+import { AnimatedSupportActionIcon, AnimatedActionArrow } from "@/components/common/ActionAnimatedIcons";
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0); // First one open by default
@@ -19,8 +20,10 @@ export default function FAQSection() {
           <p className="text-text-muted dark:text-slate-300 mb-6 text-xs sm:text-sm leading-relaxed">
             Have questions about buying, selling, or safety on BechDal? We've got answers. If you can't find what you're looking for, our support team is always here to help.
           </p>
-          <button className="px-5 py-2.5 bg-primary text-white text-xs sm:text-sm font-bold rounded-xl hover:bg-primary-dark transition-all shadow-md cursor-pointer">
-            Contact Support
+          <button className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 hover:from-blue-500 hover:to-indigo-500 text-white text-xs sm:text-sm font-extrabold rounded-xl transition-all shadow-md shadow-blue-600/25 cursor-pointer group btn-shimmer hover:scale-105 active:scale-95">
+            <AnimatedSupportActionIcon size={18} />
+            <span>Contact Support</span>
+            <AnimatedActionArrow size={14} />
           </button>
         </div>
 

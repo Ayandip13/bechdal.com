@@ -100,7 +100,7 @@ export default function CategoryNav() {
           {/* All Categories Pill */}
           <Link
             href="/search"
-            className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap shadow-3xs shrink-0 select-none group hover:scale-[1.03] active:scale-[0.98] ${
+            className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap shadow-3xs shrink-0 select-none group funky-press ${
               pathname === "/search"
                 ? "bg-primary text-white dark:bg-blue-600 shadow-sm"
                 : "bg-primary/10 dark:bg-blue-500/15 text-primary dark:text-blue-400 border border-primary/25 dark:border-blue-500/30 hover:bg-primary hover:text-white dark:hover:bg-blue-600 dark:hover:text-white"
@@ -118,7 +118,7 @@ export default function CategoryNav() {
                 key={cat.slug} 
                 href={`/category/${cat.slug}`} 
                 style={{ animationDelay: `${idx * 40}ms` }}
-                className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap shadow-3xs shrink-0 select-none group hover:scale-[1.03] active:scale-[0.98] ${
+                className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap shadow-3xs shrink-0 select-none group funky-press ${
                   isActive
                     ? "bg-primary text-white border border-primary dark:bg-blue-600 dark:border-blue-500 shadow-sm"
                     : "bg-slate-50 dark:bg-slate-700/60 border border-slate-200/70 dark:border-slate-600/70 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-blue-400 hover:border-primary/40 dark:hover:border-blue-500/40 hover:bg-white dark:hover:bg-slate-700"

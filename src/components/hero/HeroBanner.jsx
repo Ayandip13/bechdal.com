@@ -14,6 +14,16 @@ import {
   Sparkles,
 } from "lucide-react";
 import HeroVisualScene from "./HeroVisualScene";
+import {
+  AnimatedSellActionIcon,
+  AnimatedExploreActionIcon,
+  AnimatedCarActionIcon,
+  AnimatedGadgetActionIcon,
+  AnimatedFurnitureActionIcon,
+  AnimatedFitnessActionIcon,
+  AnimatedFashionActionIcon,
+  AnimatedActionArrow,
+} from "@/components/common/ActionAnimatedIcons";
 
 const bannerData = [
   {
@@ -227,15 +237,21 @@ export default function HeroBanner() {
                       {banner.subtitle}
                     </p>
 
-                    {/* CTA Button */}
+                    {/* CTA Button with Micro-Animated Action SVGs & Shimmer */}
                     <Link
                       href={banner.ctaLink}
                       onClick={() => setIsPaused(true)}
-                      className={`inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer animate-hero-fade-up ${banner.buttonBg}`}
+                      className={`inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer animate-hero-fade-up group btn-shimmer ${banner.buttonBg}`}
                       style={{ animationDelay: "400ms", animationFillMode: "both" }}
                     >
+                      {banner.id === 1 && <AnimatedSellActionIcon size={18} />}
+                      {banner.id === 2 && <AnimatedGadgetActionIcon size={18} />}
+                      {banner.id === 3 && <AnimatedCarActionIcon size={18} />}
+                      {banner.id === 4 && <AnimatedFurnitureActionIcon size={18} />}
+                      {banner.id === 5 && <AnimatedFitnessActionIcon size={18} />}
+                      {banner.id === 6 && <AnimatedFashionActionIcon size={18} />}
                       <span>{banner.ctaText}</span>
-                      <ArrowRight size={15} />
+                      <AnimatedActionArrow size={15} />
                     </Link>
                   </div>
 

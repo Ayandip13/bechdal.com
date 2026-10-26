@@ -35,7 +35,7 @@ export default function SortDropdown({ selectedSort, onSortChange }) {
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex items-center justify-between gap-2 px-3 py-2 bg-white dark:bg-slate-800 border border-border dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-700/60 transition-colors shadow-xs"
+        className="inline-flex items-center justify-between gap-2 px-3 py-2 bg-white dark:bg-slate-800 border border-border dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-700/60 transition-colors shadow-xs funky-press cursor-pointer"
       >
         <ArrowUpDown className="w-3.5 h-3.5 text-text-muted dark:text-slate-400 shrink-0" />
         <span className="hidden sm:inline text-text-muted dark:text-slate-400 font-normal">Sort:</span>

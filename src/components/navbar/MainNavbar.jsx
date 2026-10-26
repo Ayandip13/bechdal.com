@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { categoryDetails, categoryProducts, popularSearchTags } from "@/constants/categoryData";
 import ThemeToggle from "./ThemeToggle";
 import { useAuth } from "@/context/AuthContext";
+import AnimatedSellButton from "@/components/common/AnimatedSellButton";
 
 
 export default function MainNavbar() {
@@ -242,7 +243,7 @@ export default function MainNavbar() {
               {/* Search button */}
               <button
                 type="submit"
-                className="flex-shrink-0 bg-secondary hover:bg-secondary-dark px-5 text-slate-900 font-bold hover:text-white transition-colors flex items-center justify-center h-[38px] cursor-pointer"
+                className="flex-shrink-0 bg-secondary hover:bg-secondary-dark px-5 text-slate-900 font-bold hover:text-white transition-all flex items-center justify-center h-[38px] cursor-pointer funky-press"
               >
                 <Search size={16} />
               </button>
@@ -392,31 +393,25 @@ export default function MainNavbar() {
               </Link>
             )}
 
-            <Link href="/wishlist" className="flex flex-col items-center hover:text-primary dark:hover:text-blue-400 transition-colors relative">
+            <Link href="/wishlist" className="flex flex-col items-center hover:text-primary dark:hover:text-blue-400 transition-colors relative funky-press">
               <Heart size={18} />
               {wishlistItems.length > 0 && (
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full border border-white dark:border-slate-800 font-extrabold">
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full border border-white dark:border-slate-800 font-extrabold animate-pulse">
                   {wishlistItems.length}
                 </span>
               )}
               <span className="text-[10px] font-bold mt-0.5">Wishlist</span>
             </Link>
 
-            <Link href="/inbox" className="flex flex-col items-center hover:text-primary dark:hover:text-blue-400 transition-colors relative">
+            <Link href="/inbox" className="flex flex-col items-center hover:text-primary dark:hover:text-blue-400 transition-colors relative funky-press">
               <Inbox size={18} />
               <span className="absolute top-0 right-1.5 bg-red-500 w-2 h-2 rounded-full border border-white dark:border-slate-800"></span>
               <span className="text-[10px] font-bold mt-0.5">Chat</span>
             </Link>
           </div>
 
-          {/* Sell Button */}
-          <Link href="/sell" className="flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg font-bold shadow-xs hover:shadow transition-all whitespace-nowrap">
-            <PlusCircle size={16} />
-            <div className="flex flex-col text-left">
-              <span className="text-xs leading-none">Sell Now</span>
-              <span className="text-[8px] font-medium opacity-90 tracking-wide mt-0.5">Post Free Ad</span>
-            </div>
-          </Link>
+          {/* Funky Animated Quick-Commerce Sell Button */}
+          <AnimatedSellButton />
 
         </div>
       </div>
@@ -478,14 +473,8 @@ export default function MainNavbar() {
               </Link>
             )}
 
-            {/* Compact Sell CTA */}
-            <Link
-              href="/sell"
-              className="flex items-center gap-1 bg-primary hover:bg-primary-dark text-white px-2.5 py-1 rounded-lg text-xs font-extrabold shadow-2xs transition-all whitespace-nowrap shrink-0"
-            >
-              <PlusCircle size={14} />
-              <span>Sell</span>
-            </Link>
+            {/* Compact Funky Sell CTA */}
+            <AnimatedSellButton compact />
           </div>
 
         </div>

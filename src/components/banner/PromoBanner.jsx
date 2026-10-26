@@ -2,6 +2,13 @@
 
 import Link from "next/link";
 import { ArrowRight, Tag, ShieldCheck, Smartphone, Car, Armchair, Tractor } from "lucide-react";
+import {
+  AnimatedSellActionIcon,
+  AnimatedExploreActionIcon,
+  AnimatedCarActionIcon,
+  AnimatedGadgetActionIcon,
+  AnimatedActionArrow,
+} from "@/components/common/ActionAnimatedIcons";
 
 export default function PromoBanner({
   title,
@@ -85,10 +92,18 @@ export default function PromoBanner({
 
         <Link
           href={ctaLink}
-          className={`inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer self-start sm:self-auto min-h-[38px] ${currentTheme.button}`}
+          className={`inline-flex items-center justify-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all shrink-0 cursor-pointer self-start sm:self-auto min-h-[38px] group btn-shimmer hover:scale-105 active:scale-95 shadow-md ${currentTheme.button}`}
         >
+          {ctaText?.toLowerCase().includes("sell") && <AnimatedSellActionIcon size={16} />}
+          {ctaText?.toLowerCase().includes("mobile") && <AnimatedGadgetActionIcon size={16} />}
+          {ctaText?.toLowerCase().includes("vehicle") && <AnimatedCarActionIcon size={16} />}
+          {!ctaText?.toLowerCase().includes("sell") &&
+            !ctaText?.toLowerCase().includes("mobile") &&
+            !ctaText?.toLowerCase().includes("vehicle") && (
+              <AnimatedExploreActionIcon size={16} />
+            )}
           <span>{ctaText}</span>
-          <ArrowRight size={14} />
+          <AnimatedActionArrow size={14} />
         </Link>
       </div>
     </div>

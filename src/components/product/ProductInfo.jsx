@@ -1,18 +1,25 @@
-import { CheckCircle2, Star, MapPin, Clock } from "lucide-react";
+"use client";
+
+import { Star, MapPin, Clock } from "lucide-react";
 import SpecificationList from "./SpecificationList";
+import AnimatedHeartButton from "@/components/common/AnimatedHeartButton";
+import { FeaturedBadge, VerifiedBadge, DiscountBadge } from "@/components/common/FunkyBadges";
 
 export default function ProductInfo({ data }) {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 select-none">
       <div>
-        {data.isFeatured && (
-          <div className="inline-flex items-center gap-1.5 bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 px-3 py-1 text-xs font-semibold rounded-full mb-3 border border-blue-100 dark:border-blue-800/60">
-            <CheckCircle2 className="w-3.5 h-3.5" />
-            <span>Featured Listing</span>
+        {/* Top Badges & Wishlist Action */}
+        <div className="flex items-center justify-between mb-3 gap-2">
+          <div className="flex items-center gap-2">
+            {data.isFeatured && <FeaturedBadge text="Featured Listing" />}
+            {data.isVerifiedSeller && <VerifiedBadge text="Verified Seller" showText />}
           </div>
-        )}
+          {/* Funky Animated Heart Button with Particle Burst */}
+          <AnimatedHeartButton product={data} size="sm" />
+        </div>
         
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 leading-tight">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-3 leading-tight tracking-tight">
           {data.title}
         </h1>
 
@@ -21,52 +28,45 @@ export default function ProductInfo({ data }) {
             <div className="flex items-center text-amber-500">
               <Star className="w-4 h-4 fill-amber-500" />
             </div>
-            <span className="font-semibold text-slate-800 dark:text-slate-200">{data.rating}</span>
-            <span>({data.reviewsCount} Reviews)</span>
+            <span className="font-bold text-slate-800 dark:text-slate-200">{data.rating || "4.8"}</span>
+            <span>({data.reviewsCount || "34"} Reviews)</span>
           </div>
           <div className="w-1 h-1 bg-gray-300 dark:bg-slate-600 rounded-full hidden sm:block"></div>
-          <div className="flex items-center gap-1.5">
-            <HeartIcon className="w-4 h-4" />
-            <span>{data.interestedCount} Interested</span>
+          <div className="flex items-center gap-1.5 text-xs font-semibold text-rose-500">
+            <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping inline-block" />
+            <span>{data.interestedCount || "28"} People Interested</span>
           </div>
         </div>
 
+        {/* Price Section with Animated Bachat Badge */}
         <div className="flex items-end gap-3 mb-4">
-          <span className="text-3xl font-bold text-slate-900 dark:text-white">₹{data.price}</span>
+          <span className="text-3xl font-black text-slate-900 dark:text-white">₹{data.price}</span>
           {data.originalPrice && (
             <span className="text-lg text-slate-400 dark:text-slate-500 line-through mb-1">₹{data.originalPrice}</span>
           )}
           {data.discount && (
-            <span className="bg-green-100 dark:bg-emerald-950/50 text-green-700 dark:text-emerald-400 px-2 py-0.5 rounded text-xs font-bold mb-1.5 border border-green-200 dark:border-emerald-800/60">
-              {data.discount}
-            </span>
+            <div className="mb-1.5">
+              <DiscountBadge discount={data.discount} />
+            </div>
           )}
         </div>
 
         <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 dark:text-slate-400 pb-6 border-b border-slate-200/80 dark:border-slate-700/80">
-          <div className="flex items-center gap-1.5">
-            <MapPin className="w-4 h-4" />
-            <span>{data.location}</span>
+          <div className="flex items-center gap-1.5 group">
+            <MapPin className="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors" />
+            <span className="font-medium">{data.location}</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <Clock className="w-4 h-4" />
-            <span>{data.postedTime}</span>
+            <Clock className="w-4 h-4 text-slate-400" />
+            <span className="font-medium">{data.postedTime}</span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <span className="text-slate-400 dark:text-slate-500">ID: {data.id}</span>
+          <div className="flex items-center gap-1.5 ml-auto">
+            <span className="text-xs text-slate-400 dark:text-slate-500 font-mono">ID: {data.id}</span>
           </div>
         </div>
       </div>
 
       <SpecificationList features={data.keyFeatures} />
     </div>
-  );
-}
-
-function HeartIcon(props) {
-  return (
-    <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-    </svg>
   );
 }

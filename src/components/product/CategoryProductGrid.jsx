@@ -3,6 +3,12 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import ProductCard from "../cards/ProductCard";
+import {
+  AnimatedExploreActionIcon,
+  AnimatedCarActionIcon,
+  AnimatedGadgetActionIcon,
+  AnimatedActionArrow,
+} from "@/components/common/ActionAnimatedIcons";
 
 export default function CategoryProductGrid({ title, subtitle, categorySlug, products = [] }) {
   if (!products || products.length === 0) return null;
@@ -24,10 +30,10 @@ export default function CategoryProductGrid({ title, subtitle, categorySlug, pro
 
         <Link
           href={`/category/${categorySlug}`}
-          className="hidden sm:flex items-center gap-1 text-primary dark:text-blue-400 text-xs sm:text-sm font-bold hover:underline transition-all whitespace-nowrap cursor-pointer shrink-0"
+          className="hidden sm:flex items-center gap-1.5 text-primary dark:text-blue-400 text-xs sm:text-sm font-extrabold hover:underline transition-all whitespace-nowrap cursor-pointer shrink-0 group"
         >
           <span>View All</span>
-          <ArrowRight className="w-4 h-4" />
+          <AnimatedActionArrow size={14} />
         </Link>
       </div>
 
@@ -38,14 +44,19 @@ export default function CategoryProductGrid({ title, subtitle, categorySlug, pro
         ))}
       </div>
 
-      {/* Bottom Button */}
+      {/* Bottom Explore Button */}
       <div className="mt-3 text-center">
         <Link
           href={`/category/${categorySlug}`}
-          className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 text-xs font-bold rounded-xl border border-slate-200/80 dark:border-slate-700/80 transition-all cursor-pointer w-full sm:w-auto"
+          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200/80 dark:hover:bg-slate-700/80 text-slate-800 dark:text-slate-100 text-xs sm:text-sm font-extrabold rounded-xl border border-slate-200/80 dark:border-slate-700/80 transition-all cursor-pointer w-full sm:w-auto shadow-2xs group btn-shimmer hover:scale-102 active:scale-98"
         >
+          {categorySlug === "vehicles" && <AnimatedCarActionIcon size={16} />}
+          {categorySlug === "mobiles" && <AnimatedGadgetActionIcon size={16} />}
+          {categorySlug !== "vehicles" && categorySlug !== "mobiles" && (
+            <AnimatedExploreActionIcon size={16} />
+          )}
           <span>Explore {title}</span>
-          <ArrowRight className="w-4 h-4 text-primary dark:text-blue-400" />
+          <AnimatedActionArrow size={14} className="text-primary dark:text-blue-400" />
         </Link>
       </div>
     </section>
