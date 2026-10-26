@@ -107,49 +107,63 @@
     animation: heroSlideRight 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  /* Category Icon Micro-Animations */
-  .anim-icon-tilt {
-    animation: iconTilt 3.6s ease-in-out infinite;
-  }
-  .anim-icon-glow {
-    animation: iconGlow 3.2s ease-in-out infinite;
-  }
-  .anim-icon-drive {
-    animation: iconDrive 3s ease-in-out infinite;
-  }
-  .anim-icon-pop {
-    animation: iconPop 4s ease-in-out infinite;
-  }
-  .anim-icon-sofa {
-    animation: iconSofa 3.5s ease-in-out infinite;
-  }
-  .anim-icon-sway {
-    animation: iconSway 3.8s ease-in-out infinite;
-  }
-  .anim-icon-bob {
-    animation: iconBob 3.2s ease-in-out infinite;
-  }
-  .anim-icon-lift {
-    animation: iconLift 3.4s ease-in-out infinite;
-  }
-  .anim-icon-tools {
-    animation: iconTools 4s ease-in-out infinite;
-  }
-  .anim-icon-pet {
-    animation: iconPet 3.5s ease-in-out infinite;
-  }
-  .anim-icon-flip {
-    animation: iconFlip 3.6s ease-in-out infinite;
-  }
-  .anim-icon-leaf {
-    animation: iconLeaf 4.2s ease-in-out infinite;
-  }
-  .anim-icon-excavator {
-    animation: iconExcavator 3.8s ease-in-out infinite;
-  }
-  .anim-icon-printer {
-    animation: iconPrinter 3.2s ease-in-out infinite;
-  }
+  /* Category Icon Multi-Part Micro-Animations */
+  .anim-laptop-bounce { animation: laptopBounce 1.8s ease-in-out infinite; }
+  .anim-screen-glow { animation: screenGlow 1.4s ease-in-out infinite; }
+  .anim-code-scan { animation: codeScan 1.2s steps(2, start) infinite; }
+  .anim-wifi-radiate { animation: wifiPulse 1.4s ease-out infinite; }
+
+  .anim-phone-vibe { animation: phoneVibe 1.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite; }
+  .anim-badge-spring { animation: badgePop 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
+
+  .anim-car-ride { animation: carRide 0.9s ease-in-out infinite; }
+  .anim-wheel-spin { animation: wheelSpin 0.7s linear infinite; }
+  .anim-exhaust { animation: exhaustPuff 0.9s ease-out infinite; }
+  .anim-headlight-flash { animation: headlightBeam 1.2s ease-in-out infinite; }
+
+  .anim-house-pop { animation: housePop 1.6s ease-in-out infinite; }
+  .anim-smoke-puff { animation: smokeRise 1.3s ease-out infinite; }
+  .anim-window-glow { animation: windowGlow 1.4s ease-in-out infinite; }
+
+  .anim-sofa-squash { animation: sofaSquash 1.3s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
+  .anim-sparkle-float { animation: sparklePop 1.5s ease-in-out infinite; }
+
+  .anim-hanger-swing { animation: hangerSwing 1.5s ease-in-out infinite; }
+
+  .anim-boat-heave { animation: boatHeave 1.4s ease-in-out infinite; }
+  .anim-wave-flow { animation: waveSlide 1.2s linear infinite; }
+  .anim-flag-flutter { animation: flagFlutter 0.7s ease-in-out infinite; }
+
+  .anim-dumbbell-curl { animation: dumbbellCurl 1.2s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+  .anim-energy-spark { animation: sparklePop 1.2s ease-out infinite; }
+
+  .anim-gear-turn { animation: gearTurn 2.2s linear infinite; }
+  .anim-wrench-ratchet { animation: wrenchRatchet 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
+
+  .anim-dog-bob { animation: dogBob 1.4s ease-in-out infinite; }
+  .anim-ear-left { animation: earWiggleL 1.3s ease-in-out infinite; }
+  .anim-ear-right { animation: earWiggleR 1.3s ease-in-out infinite 0.15s; }
+  .anim-tongue-pant { animation: tonguePant 0.65s ease-in-out infinite; }
+  .anim-tail-wag { animation: tailWag 0.75s ease-in-out infinite; }
+
+  .anim-book-float { animation: bookFloat 1.6s ease-in-out infinite; }
+  .anim-page-flip-left { animation: pageFlipL 1.3s ease-in-out infinite; }
+
+  .anim-bone-drop { animation: boneBounce 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
+
+  .anim-plant-breeze { animation: plantBreeze 1.6s ease-in-out infinite; }
+
+  .anim-excavator-dig { animation: excavatorArm 1.8s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+  .anim-machinery-idle { animation: carRide 0.8s ease-in-out infinite; }
+
+  .anim-paper-in { animation: paperFeedIn 1.3s ease-in-out infinite; }
+  .anim-paper-out { animation: paperFeedOut 1.3s ease-in-out infinite; }
+  .anim-led-flash { animation: ledFlash 0.5s steps(2, start) infinite; }
+
+  .anim-tile-1 { animation: tilePop 1.4s ease-in-out infinite; }
+  .anim-tile-2 { animation: tilePop 1.4s ease-in-out infinite 0.2s; }
+  .anim-tile-3 { animation: tilePop 1.4s ease-in-out infinite 0.4s; }
+  .anim-tile-4 { animation: tilePop 1.4s ease-in-out infinite 0.6s; }
 }
 
 /* ==========================================================================
@@ -207,149 +221,207 @@
   }
 }
 
-/* Category Micro-Keyframes */
-@keyframes iconTilt {
-  0%, 100% {
-    transform: rotate(0deg) translateY(0);
-  }
-  25% {
-    transform: rotate(-6deg) translateY(-1px);
-  }
-  75% {
-    transform: rotate(6deg) translateY(-1px);
-  }
+/* Category Micro-Keyframes (Lively & Responsive) */
+@keyframes laptopBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-2px) scale(1.02); }
 }
 
-@keyframes iconGlow {
-  0%, 100% {
-    filter: drop-shadow(0 0 1px rgba(59, 130, 246, 0.3));
-    transform: translateY(0);
-  }
-  50% {
-    filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.75));
-    transform: translateY(-1.5px);
-  }
+@keyframes screenGlow {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.4)); opacity: 0.85; }
+  50% { filter: drop-shadow(0 0 7px rgba(99, 102, 241, 0.95)); opacity: 1; }
 }
 
-@keyframes iconDrive {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(2.5px);
-  }
+@keyframes codeScan {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
 }
 
-@keyframes iconPop {
-  0%, 100% {
-    transform: scale(1) translateY(0);
-  }
-  50% {
-    transform: scale(1.08) translateY(-2px);
-  }
+@keyframes wifiPulse {
+  0% { transform: scale(0.7); opacity: 0; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+  100% { transform: scale(1.3); opacity: 0; }
 }
 
-@keyframes iconSofa {
-  0%, 100% {
-    transform: scaleY(1);
-  }
-  50% {
-    transform: scaleY(0.92) translateY(1px);
-  }
+@keyframes phoneVibe {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  10% { transform: rotate(-8deg) scale(1.06); }
+  20% { transform: rotate(8deg) scale(1.06); }
+  30% { transform: rotate(-6deg) scale(1.04); }
+  40% { transform: rotate(6deg) scale(1.04); }
+  50%, 90% { transform: rotate(0deg) scale(1); }
 }
 
-@keyframes iconSway {
-  0%, 100% {
-    transform: rotate(0deg);
-    transform-origin: top center;
-  }
-  25% {
-    transform: rotate(-7deg);
-    transform-origin: top center;
-  }
-  75% {
-    transform: rotate(7deg);
-    transform-origin: top center;
-  }
+@keyframes badgePop {
+  0%, 100% { transform: scale(0.85); }
+  50% { transform: scale(1.3); }
 }
 
-@keyframes iconBob {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-2px) rotate(-3deg);
-  }
+@keyframes carRide {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-2px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-1.5px); }
 }
 
-@keyframes iconLift {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-3px) rotate(4deg);
-  }
+@keyframes wheelSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-@keyframes iconTools {
-  0%, 100% {
-    transform: rotate(0deg);
-  }
-  30% {
-    transform: rotate(-10deg);
-  }
-  60% {
-    transform: rotate(8deg);
-  }
+@keyframes exhaustPuff {
+  0% { transform: translateX(0) scale(0.5); opacity: 0.9; }
+  100% { transform: translateX(-6px) scale(1.4); opacity: 0; }
 }
 
-@keyframes iconPet {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-  }
-  50% {
-    transform: scale(1.06) rotate(3deg);
-  }
+@keyframes headlightBeam {
+  0%, 100% { opacity: 0.3; transform: scaleX(0.85); }
+  50% { opacity: 0.95; transform: scaleX(1.2); }
 }
 
-@keyframes iconFlip {
-  0%, 100% {
-    transform: perspective(300px) rotateY(0deg);
-  }
-  50% {
-    transform: perspective(300px) rotateY(-20deg);
-  }
+@keyframes housePop {
+  0%, 100% { transform: scale(1) translateY(0); }
+  35% { transform: scale(1.08) translateY(-3px); }
+  65% { transform: scale(0.97) translateY(0.5px); }
 }
 
-@keyframes iconLeaf {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-    transform-origin: bottom center;
-  }
-  50% {
-    transform: scale(1.1) rotate(3deg);
-    transform-origin: bottom center;
-  }
+@keyframes smokeRise {
+  0% { transform: translateY(0) scale(0.6); opacity: 0.85; }
+  100% { transform: translateY(-7px) scale(1.5); opacity: 0; }
 }
 
-@keyframes iconExcavator {
-  0%, 100% {
-    transform: rotate(0deg);
-    transform-origin: bottom left;
-  }
-  50% {
-    transform: rotate(-7deg);
-    transform-origin: bottom left;
-  }
+@keyframes windowGlow {
+  0%, 100% { opacity: 0.6; fill: #fbbf24; }
+  50% { opacity: 1; fill: #fef08a; filter: drop-shadow(0 0 3px #f59e0b); }
 }
 
-@keyframes iconPrinter {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-2px);
-  }
+@keyframes sofaSquash {
+  0%, 100% { transform: scale(1, 1); }
+  35% { transform: scale(1.08, 0.90) translateY(1.5px); }
+  60% { transform: scale(0.96, 1.05) translateY(-2px); }
+}
+
+@keyframes hangerSwing {
+  0%, 100% { transform: rotate(0deg); transform-origin: top center; }
+  25% { transform: rotate(-14deg); transform-origin: top center; }
+  75% { transform: rotate(14deg); transform-origin: top center; }
+}
+
+@keyframes boatHeave {
+  0%, 100% { transform: rotate(-4deg) translateY(0); }
+  50% { transform: rotate(5deg) translateY(-3px); }
+}
+
+@keyframes waveSlide {
+  0% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  100% { transform: translateX(-3px); }
+}
+
+@keyframes flagFlutter {
+  0%, 100% { transform: scaleX(1) skewY(0deg); }
+  50% { transform: scaleX(0.7) skewY(-5deg); }
+}
+
+@keyframes dumbbellCurl {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  35% { transform: translateY(-5px) rotate(-12deg) scale(1.06); }
+  65% { transform: translateY(-5px) rotate(-12deg) scale(1.06); }
+  85% { transform: translateY(-1px) rotate(2deg); }
+}
+
+@keyframes sparklePop {
+  0%, 100% { transform: scale(0.4) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1.3) rotate(45deg); opacity: 1; }
+}
+
+@keyframes gearTurn {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes wrenchRatchet {
+  0%, 100% { transform: rotate(0deg); transform-origin: 10px 22px; }
+  40% { transform: rotate(-24deg); transform-origin: 10px 22px; }
+  60% { transform: rotate(10deg); transform-origin: 10px 22px; }
+}
+
+@keyframes dogBob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-2px) rotate(2deg); }
+}
+
+@keyframes earWiggleL {
+  0%, 100% { transform: rotate(0deg); transform-origin: 8px 14px; }
+  35% { transform: rotate(-15deg); transform-origin: 8px 14px; }
+  70% { transform: rotate(5deg); transform-origin: 8px 14px; }
+}
+
+@keyframes earWiggleR {
+  0%, 100% { transform: rotate(0deg); transform-origin: 24px 14px; }
+  35% { transform: rotate(15deg); transform-origin: 24px 14px; }
+  70% { transform: rotate(-5deg); transform-origin: 24px 14px; }
+}
+
+@keyframes tonguePant {
+  0%, 100% { transform: scaleY(1); transform-origin: top center; }
+  50% { transform: scaleY(1.5) translateY(1px); transform-origin: top center; }
+}
+
+@keyframes tailWag {
+  0%, 100% { transform: rotate(-22deg); transform-origin: 16px 26px; }
+  50% { transform: rotate(22deg); transform-origin: 16px 26px; }
+}
+
+@keyframes bookFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-3px) rotate(2deg); }
+}
+
+@keyframes pageFlipL {
+  0%, 100% { transform: perspective(300px) rotateY(0deg); transform-origin: 16px 16px; opacity: 1; }
+  50% { transform: perspective(300px) rotateY(-85deg); transform-origin: 16px 16px; opacity: 0.6; }
+}
+
+@keyframes boneBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  40% { transform: translateY(-5px) rotate(-14deg) scale(1.15); }
+  70% { transform: translateY(1.5px) rotate(4deg) scale(0.95); }
+}
+
+@keyframes plantBreeze {
+  0%, 100% { transform: rotate(0deg) scale(1); transform-origin: bottom center; }
+  35% { transform: rotate(7deg) scale(1.08); transform-origin: bottom center; }
+  70% { transform: rotate(-6deg) scale(1.04); transform-origin: bottom center; }
+}
+
+@keyframes excavatorArm {
+  0%, 100% { transform: rotate(0deg); transform-origin: 16px 16px; }
+  35% { transform: rotate(-20deg); transform-origin: 16px 16px; }
+  65% { transform: rotate(14deg); transform-origin: 16px 16px; }
+}
+
+@keyframes paperFeedIn {
+  0% { transform: translateY(-3px); opacity: 0.3; }
+  50% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(2px); opacity: 0.6; }
+}
+
+@keyframes paperFeedOut {
+  0% { transform: translateY(-1px); opacity: 0.6; }
+  50% { transform: translateY(3px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.8; }
+}
+
+@keyframes ledFlash {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; filter: drop-shadow(0 0 3px #22c55e); }
+}
+
+@keyframes tilePop {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  40% { transform: scale(1.22) rotate(6deg); }
+  70% { transform: scale(0.92) rotate(-3deg); }
 }
 
 /* Reduced motion preference */
