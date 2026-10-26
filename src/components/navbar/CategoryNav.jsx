@@ -3,11 +3,8 @@
 import Link from "next/link";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
-import { 
-  Menu, Monitor, Smartphone, Car, Home, Shirt, Armchair, 
-  Briefcase, Wrench, Dog, BookOpen, ShoppingBag, 
-  Leaf, Hammer, Printer, Sailboat, Dumbbell, ChevronLeft, ChevronRight
-} from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import AnimatedCategoryIcon from "@/components/categories/AnimatedCategoryIcon";
 
 export default function CategoryNav() {
   const pathname = usePathname();
@@ -16,21 +13,21 @@ export default function CategoryNav() {
   const [canScrollRight, setCanScrollRight] = useState(false);
 
   const categories = [
-    { name: "Electronics", slug: "electronics", icon: Monitor },
-    { name: "Mobiles", slug: "mobiles", icon: Smartphone },
-    { name: "Vehicles", slug: "vehicles", icon: Car },
-    { name: "Properties", slug: "properties", icon: Home },
-    { name: "Furniture", slug: "furniture", icon: Armchair },
-    { name: "Fashion", slug: "fashion", icon: Shirt },
-    { name: "Boats", slug: "boats", icon: Sailboat },
-    { name: "Gym Equipments", slug: "gym-equipment", icon: Dumbbell },
-    { name: "Services", slug: "services", icon: Wrench },
-    { name: "Pets", slug: "pets", icon: Dog },
-    { name: "Books", slug: "books", icon: BookOpen },
-    { name: "Pet Products", slug: "pet-products", icon: ShoppingBag },
-    { name: "Agriculture", slug: "agricultural-products", icon: Leaf },
-    { name: "Construction Equipment", slug: "construction-equipment", icon: Hammer },
-    { name: "Office Equipment", slug: "office-equipment", icon: Printer },
+    { name: "Electronics", slug: "electronics" },
+    { name: "Mobiles", slug: "mobiles" },
+    { name: "Vehicles", slug: "vehicles" },
+    { name: "Properties", slug: "properties" },
+    { name: "Furniture", slug: "furniture" },
+    { name: "Fashion", slug: "fashion" },
+    { name: "Boats", slug: "boats" },
+    { name: "Gym Equipments", slug: "gym-equipment" },
+    { name: "Services", slug: "services" },
+    { name: "Pets", slug: "pets" },
+    { name: "Books", slug: "books" },
+    { name: "Pet Products", slug: "pet-products" },
+    { name: "Agriculture", slug: "agricultural-products" },
+    { name: "Construction Equipment", slug: "construction-equipment" },
+    { name: "Office Equipment", slug: "office-equipment" },
   ];
 
   const updateScrollState = useCallback(() => {
@@ -103,31 +100,31 @@ export default function CategoryNav() {
           {/* All Categories Pill */}
           <Link
             href="/search"
-            className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap shadow-3xs shrink-0 select-none ${
+            className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap shadow-3xs shrink-0 select-none group hover:scale-[1.03] active:scale-[0.98] ${
               pathname === "/search"
                 ? "bg-primary text-white dark:bg-blue-600 shadow-sm"
                 : "bg-primary/10 dark:bg-blue-500/15 text-primary dark:text-blue-400 border border-primary/25 dark:border-blue-500/30 hover:bg-primary hover:text-white dark:hover:bg-blue-600 dark:hover:text-white"
             }`}
           >
-            <Menu size={13} className="shrink-0" />
+            <AnimatedCategoryIcon slug="all" size="xs" />
             <span>All Categories</span>
           </Link>
 
           {/* Category Pills */}
-          {categories.map((cat) => {
-            const Icon = cat.icon;
+          {categories.map((cat, idx) => {
             const isActive = pathname === `/category/${cat.slug}`;
             return (
               <Link 
                 key={cat.slug} 
                 href={`/category/${cat.slug}`} 
-                className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap shadow-3xs shrink-0 select-none ${
+                style={{ animationDelay: `${idx * 40}ms` }}
+                className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap shadow-3xs shrink-0 select-none group hover:scale-[1.03] active:scale-[0.98] ${
                   isActive
                     ? "bg-primary text-white border border-primary dark:bg-blue-600 dark:border-blue-500 shadow-sm"
                     : "bg-slate-50 dark:bg-slate-700/60 border border-slate-200/70 dark:border-slate-600/70 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-blue-400 hover:border-primary/40 dark:hover:border-blue-500/40 hover:bg-white dark:hover:bg-slate-700"
                 }`}
               >
-                <Icon size={13} className={`shrink-0 ${isActive ? "opacity-100" : "opacity-80"}`} />
+                <AnimatedCategoryIcon slug={cat.slug} size="sm" />
                 <span>{cat.name}</span>
               </Link>
             );

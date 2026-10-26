@@ -26,7 +26,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -47,12 +47,12 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className={`${inter.variable} font-sans bg-background text-text transition-colors duration-200 overflow-x-hidden max-w-full`} suppressHydrationWarning>
+      <body className={`${inter.variable} font-sans bg-background text-text transition-colors duration-200 overflow-x-clip max-w-full`} suppressHydrationWarning>
         <ThemeProvider>
           <AuthProvider>
             <ReduxProvider>
               <Navbar />
-              <main className="min-h-screen pt-4 pb-12 overflow-x-hidden">{children}</main>
+              <main className="min-h-screen pt-4 pb-12 overflow-x-clip">{children}</main>
               <Footer />
             </ReduxProvider>
           </AuthProvider>
