@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import {
   MapPin, Search, ChevronDown, User, ClipboardList, Heart,
-  Inbox, PlusCircle, Menu, X, ArrowRight, Clock, Sparkles, Check, HelpCircle, LogOut
+  Inbox, PlusCircle, Menu, X, ArrowRight, Clock, TrendingUp, ShieldCheck, Check, HelpCircle, LogOut
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -256,7 +256,7 @@ export default function MainNavbar() {
                 {!searchQuery.trim() ? (
                   <div className="p-4">
                     <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider font-extrabold text-text-muted dark:text-slate-400 mb-2.5">
-                      <Sparkles size={12} className="text-secondary" /> Popular Searches
+                      <TrendingUp size={12} className="text-secondary" /> Popular Searches
                     </div>
                     <div className="flex flex-wrap gap-1.5">
                       {popularSearchTags.slice(0, 8).map((tag, idx) => (
@@ -621,7 +621,7 @@ export default function MainNavbar() {
               {/* Marketing Value Proposition Banner */}
               <div className="mx-3 my-2.5 p-3 rounded-xl bg-orange-50 dark:bg-slate-700/50 border border-orange-100 dark:border-slate-600 flex flex-col">
                 <span className="text-[10px] uppercase tracking-wider font-extrabold text-orange-700 dark:text-amber-400 flex items-center gap-1">
-                  <Sparkles size={11} className="fill-orange-500 text-orange-500 dark:fill-amber-400 dark:text-amber-400" /> Value Proposition
+                  <ShieldCheck size={11} className="text-orange-500 dark:text-amber-400" /> Value Proposition
                 </span>
                 <h4 className="text-xs font-black text-slate-800 dark:text-slate-100 mt-1">Maximum Bachat</h4>
                 <p className="text-[10px] text-text-muted dark:text-slate-300 mt-0.5 font-bold leading-normal">

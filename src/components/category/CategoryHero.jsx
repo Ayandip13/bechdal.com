@@ -11,7 +11,6 @@ import {
   Wrench, 
   Dog, 
   Package, 
-  Sparkles,
   Layers,
   Sailboat,
   Dumbbell,
@@ -66,7 +65,7 @@ export default function CategoryHero({ category, totalCount }) {
       <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-xs font-semibold text-secondary mb-3 uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
+            <Layers className="w-3.5 h-3.5" />
             Category Marketplace
           </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white mb-2">

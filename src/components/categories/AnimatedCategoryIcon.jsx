@@ -182,16 +182,13 @@ export default function AnimatedCategoryIcon({ slug, size = "sm", className = ""
       );
 
     // -------------------------------------------------------------
-    // 5. Furniture — Sofa squash bounce with cozy sparkle
+    // 5. Furniture — Sofa squash bounce
     // -------------------------------------------------------------
     case "furniture":
       return (
         <div className={`relative shrink-0 flex items-center justify-center ${dimensionClass} ${className}`}>
           <svg viewBox="0 0 32 32" fill="none" className="w-full h-full anim-sofa-squash" style={{ transformOrigin: "bottom center" }}>
-            {/* Floating Sparkle above sofa */}
-            <g className="anim-sparkle-float" style={{ transformOrigin: "24px 7px" }}>
-              <polygon points="24,4 25,6 27,7 25,8 24,10 23,8 21,7 23,6" fill="#fbbf24" />
-            </g>
+
 
             {/* Sofa Backrest */}
             <rect x="6" y="10" width="20" height="10" rx="3" fill="#b45309" />
@@ -219,10 +216,7 @@ export default function AnimatedCategoryIcon({ slug, size = "sm", className = ""
       return (
         <div className={`relative shrink-0 flex items-center justify-center ${dimensionClass} ${className}`}>
           <svg viewBox="0 0 32 32" fill="none" className="w-full h-full anim-hanger-swing" style={{ transformOrigin: "16px 6px" }}>
-            {/* Sparkle on clothes */}
-            <g className="anim-sparkle-float" style={{ transformOrigin: "19px 15px" }}>
-              <polygon points="19,13 20,15 22,15.5 20,16 19,18 18,16 16,15.5 18,15" fill="#fde047" />
-            </g>
+
 
             {/* Hanger Hook */}
             <path d="M16 6C17 6 18 7 17.5 8.5C17 10 16 10.5 16 11.5" stroke="#f59e0b" strokeWidth="1.5" strokeLinecap="round" />
@@ -284,13 +278,7 @@ export default function AnimatedCategoryIcon({ slug, size = "sm", className = ""
       return (
         <div className={`relative shrink-0 flex items-center justify-center ${dimensionClass} ${className}`}>
           <svg viewBox="0 0 32 32" fill="none" className="w-full h-full">
-            {/* Workout Power Burst on peak lift */}
-            <g className="anim-energy-spark" style={{ transformOrigin: "26px 8px" }}>
-              <polygon points="26,5 27,7 29,8 27,9 26,11 25,9 23,8 25,7" fill="#fde047" />
-            </g>
-            <g className="anim-energy-spark" style={{ transformOrigin: "6px 8px", animationDelay: "200ms" }}>
-              <polygon points="6,6 7,7.5 8.5,8 7,8.5 6,10 5,8.5 3.5,8 5,7.5" fill="#f97316" />
-            </g>
+
 
             {/* Lifting Dumbbell */}
             <g className="anim-dumbbell-curl" style={{ transformOrigin: "16px 16px" }}>
@@ -381,10 +369,7 @@ export default function AnimatedCategoryIcon({ slug, size = "sm", className = ""
       return (
         <div className={`relative shrink-0 flex items-center justify-center ${dimensionClass} ${className}`}>
           <svg viewBox="0 0 32 32" fill="none" className="w-full h-full anim-book-float">
-            {/* Magic Star rising from book */}
-            <g className="anim-sparkle-float" style={{ transformOrigin: "16px 5px" }}>
-              <polygon points="16,2 17,4 19,5 17,6 16,8 15,6 13,5 15,4" fill="#fbbf24" />
-            </g>
+
 
             {/* Book Spine & Outer Cover */}
             <path d="M16 9V24M16 24C13 22 7 22 5 24V9C7 7 13 7 16 9C19 7 25 7 27 9V24C25 22 19 22 16 24Z" fill="#059669" stroke="#047857" strokeWidth="1.5" />
@@ -431,7 +416,7 @@ export default function AnimatedCategoryIcon({ slug, size = "sm", className = ""
       );
 
     // -------------------------------------------------------------
-    // 13. Agriculture — Sprouting leaf swaying in breeze with dew sparkle
+    // 13. Agriculture — Sprouting leaf swaying in breeze
     // -------------------------------------------------------------
     case "agriculture":
     case "agricultural-products":
@@ -439,10 +424,7 @@ export default function AnimatedCategoryIcon({ slug, size = "sm", className = ""
       return (
         <div className={`relative shrink-0 flex items-center justify-center ${dimensionClass} ${className}`}>
           <svg viewBox="0 0 32 32" fill="none" className="w-full h-full">
-            {/* Dewdrop / Sun Sparkle at tip of leaf */}
-            <g className="anim-sparkle-float" style={{ transformOrigin: "24px 13px" }}>
-              <polygon points="24,10 25,12 27,13 25,14 24,16 23,14 21,13 23,12" fill="#86efac" />
-            </g>
+
 
             {/* Soil Mound */}
             <path d="M8 25C11 23 21 23 24 25H8Z" fill="#78350f" />

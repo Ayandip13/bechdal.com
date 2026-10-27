@@ -9,7 +9,7 @@ import React from "react";
  * Features crisp vector geometries and lightweight CSS keyframe loops.
  */
 
-// 1. Sell Action Icon: Vibrating price tag with glowing Rupee coin & sparkle
+// 1. Sell Action Icon: Vibrating price tag with glowing Rupee coin
 export function AnimatedSellActionIcon({ size = 18, className = "" }) {
   return (
     <svg
@@ -25,12 +25,7 @@ export function AnimatedSellActionIcon({ size = 18, className = "" }) {
           0%, 100% { transform: rotate(0deg); }
           50% { transform: rotate(-8deg) scale(1.05); }
         }
-        @keyframes coinGleam {
-          0%, 100% { opacity: 0.4; transform: scale(0.9); }
-          50% { opacity: 1; transform: scale(1.2); }
-        }
         .anim-sell-tag { animation: sellTagTilt 1.8s ease-in-out infinite; transform-origin: top right; }
-        .anim-coin-gleam { animation: coinGleam 1.4s ease-in-out infinite; }
       `}</style>
       <g className="anim-sell-tag">
         {/* Tag Body */}
@@ -54,12 +49,6 @@ export function AnimatedSellActionIcon({ size = 18, className = "" }) {
           strokeLinejoin="round"
         />
       </g>
-      {/* Sparkle Star */}
-      <path
-        d="M19 3l.8 1.8L21.6 5.6l-1.8.8L19 8.2l-.8-1.8-1.8-.8 1.8-.8L19 3z"
-        fill="#facc15"
-        className="anim-coin-gleam"
-      />
     </svg>
   );
 }

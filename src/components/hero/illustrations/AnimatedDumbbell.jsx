@@ -38,22 +38,9 @@ export default function AnimatedDumbbell({ className = "", animate = true }) {
             75% { transform: translateY(-2px) rotate(3deg); }
             100% { transform: translateY(8px) rotate(-10deg); }
           }
-          @keyframes powerSparkleBurst {
-            0%, 40% { transform: scale(0.4); opacity: 0; }
-            50% { transform: scale(1.3); opacity: 1; }
-            65%, 100% { transform: scale(0.6); opacity: 0; }
-          }
 
           .anim-dumbbell-lift { animation: ${animate ? "dumbbellCurlSmooth 3.2s ease-in-out infinite" : "none"}; transform-origin: 70px 40px; }
-          .anim-dumbbell-spark { animation: ${animate ? "powerSparkleBurst 3.2s ease-in-out infinite" : "none"}; transform-origin: 70px 15px; }
         `}</style>
-
-        {/* Sparkle at Apex of Curl */}
-        <path
-          d="M70 5 L 72 10 L 77 12 L 72 14 L 70 19 L 68 14 L 63 12 L 68 10 Z"
-          fill="#facc15"
-          className="anim-dumbbell-spark"
-        />
 
         {/* Dumbbell Assembly */}
         <g className="anim-dumbbell-lift">

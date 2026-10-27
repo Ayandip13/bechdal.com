@@ -11,7 +11,7 @@ import SortDropdown from "@/components/category/SortDropdown";
 import EmptyState from "@/components/category/EmptyState";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import MoreOptionsListings from "@/components/product/MoreOptionsListings";
-import { SlidersHorizontal, Search, Star, Sparkles } from "lucide-react";
+import { SlidersHorizontal, Search, Star } from "lucide-react";
 
 function SearchPageContent() {
   const searchParams = useSearchParams();

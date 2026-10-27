@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Sparkles, ShieldCheck, Zap } from "lucide-react";
+import { ShieldCheck, Zap } from "lucide-react";
 
 /**
  * HeroIllustrationScene
@@ -145,7 +145,7 @@ export default function HeroIllustrationScene({ slideId }) {
             <div className="w-full h-20 xs:h-24 sm:h-30 rounded-lg sm:rounded-xl bg-gradient-to-b from-blue-600 via-indigo-600 to-purple-700 p-1 flex flex-col justify-between relative overflow-hidden">
               <div className="w-4 h-0.5 bg-black/60 rounded-full mx-auto" />
               <div className="text-center py-1">
-                <Sparkles size={12} className="text-amber-300 mx-auto animate-pulse" />
+                <Zap size={12} className="text-amber-300 mx-auto animate-pulse" />
                 <span className="block text-[7px] sm:text-[8px] font-black text-white mt-0.5">iPhone 15</span>
                 <span className="text-[6px] sm:text-[7px] text-blue-200">₹42,999</span>
               </div>
@@ -284,7 +284,7 @@ export default function HeroIllustrationScene({ slideId }) {
 
           {/* Floating Pill Banner (Desktop & Tablet) */}
           <div className="absolute -bottom-2 sm:bottom-1 left-1/2 -translate-x-1/2 z-20 bg-emerald-950/95 border border-emerald-400/50 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-2xl backdrop-blur-md whitespace-nowrap animate-pulse-glow hidden sm:flex items-center gap-1.5">
-            <Sparkles size={11} className="text-amber-300" />
+            <ShieldCheck size={11} className="text-amber-300" />
             <span className="text-[8px] sm:text-[9px] font-black text-white">10,000+ Verified Ads Across India</span>
           </div>
         </div>

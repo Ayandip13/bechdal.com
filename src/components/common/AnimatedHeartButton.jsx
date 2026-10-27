@@ -7,7 +7,7 @@ import { toggleFavorite } from "@/redux/wishlistSlice";
 /**
  * AnimatedHeartButton
  * Funky quick-commerce animated wishlist button.
- * Triggers a spring pop bounce and colorful particle sparkles on press.
+ * Triggers a spring pop bounce on press.
  * Strictly prevents parent link navigation.
  */
 export default function AnimatedHeartButton({ product, size = "sm", className = "" }) {

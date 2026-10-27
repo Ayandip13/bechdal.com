@@ -15,7 +15,6 @@ import {
   ChevronRight,
   ArrowLeft,
   Search,
-  Sparkles,
   Award,
 } from "lucide-react";
 
@@ -130,7 +129,7 @@ Address: BechDal Legal Cell, Kolkata, West Bengal, India.`,
           </div>
           <div className="relative z-10 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-xs font-semibold tracking-wide uppercase mb-4 border border-white/20">
-              <Sparkles size={14} className="text-amber-400" />
+              <FileCheck size={14} className="text-amber-400" />
               <span>User Agreement</span>
             </div>
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">

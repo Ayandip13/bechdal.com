@@ -14,7 +14,6 @@ import {
   CheckCircle2, 
   Search, 
   SlidersHorizontal,
-  Sparkles,
   Clock,
   ThumbsUp,
   Package,
@@ -516,7 +515,7 @@ export default function SellerProfileClient({ seller, products = [] }) {
 
           <div className="bg-emerald-50/70 dark:bg-emerald-950/20 rounded-2xl p-6 border border-emerald-100 dark:border-emerald-800/40 flex flex-col gap-4">
             <h3 className="text-base font-bold text-slate-900 dark:text-emerald-100 flex items-center gap-2">
-              <Sparkles className="text-emerald-600 dark:text-emerald-400" size={18} />
+              <CheckCircle2 className="text-emerald-600 dark:text-emerald-400" size={18} />
               Tips for Safe Transacting
             </h3>
 

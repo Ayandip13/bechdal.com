@@ -7,7 +7,7 @@ import { Zap, ShieldCheck } from "lucide-react";
  * AnimatedEquipmentScene (Hero Slide 4)
  * Real animated SVG equipment & machinery scene:
  * - A heavy-duty agricultural farm tractor chugs along with spinning lugged wheels & rhythmic exhaust smoke.
- * - An iconic cast-iron dumbbell executes a smooth, controlled lifting curl motion with power sparkles.
+ * - An iconic cast-iron dumbbell executes a smooth, controlled lifting curl motion.
  * - A kettlebell with weight markings and a rotating industrial gear establish a versatile commercial hub.
  */
 export default function AnimatedEquipmentScene() {
@@ -70,13 +70,6 @@ export default function AnimatedEquipmentScene() {
               50% { transform: translateY(-16px) rotate(14deg); }
               75% { transform: translateY(-4px) rotate(4deg); }
               100% { transform: translateY(14px) rotate(-12deg); }
-            }
-            /* Power Spark Burst at Peak of Lift */
-            @keyframes powerGleam {
-              0%, 40% { transform: scale(0.4); opacity: 0; }
-              50% { transform: scale(1.3); opacity: 1; }
-              65%, 100% { transform: scale(0.6); opacity: 0; }
-            }
             /* Farm Tractor Chugging Forward Motion */
             @keyframes tractorChug {
               0%, 100% { transform: translateX(0) translateY(0); }
@@ -102,7 +95,6 @@ export default function AnimatedEquipmentScene() {
             }
 
             .anim-dumbbell-curl { animation: dumbbellLiftCurl 3.2s ease-in-out infinite; transform-origin: 105px 125px; }
-            .anim-power-spark { animation: powerGleam 3.2s ease-in-out infinite; transform-origin: 105px 105px; }
             .anim-tractor-group { animation: tractorChug 3.8s ease-in-out infinite; }
             .anim-tr-rear-wheel { animation: tractorWheelSpin 1.6s linear infinite; transform-origin: 226px 186px; }
             .anim-tr-front-wheel { animation: tractorWheelSpin 1.1s linear infinite; transform-origin: 326px 198px; }
@@ -187,14 +179,6 @@ export default function AnimatedEquipmentScene() {
 
           {/* 5. Gym Equipment Showcase (Dumbbell executing controlled lifting motion!) */}
           <g>
-            {/* Power Sparkles Burst at Apex of Curl */}
-            <path
-              d="M105 78 L 107 83 L 112 85 L 107 87 L 105 92 L 103 87 L 98 85 L 103 83 Z"
-              fill="#facc15"
-              className="anim-power-spark"
-            />
-            <circle cx="120" cy="80" r="2" fill="#38bdf8" className="anim-power-spark" />
-
             {/* Lifting Cast-Iron Hex Dumbbell */}
             <g className="anim-dumbbell-curl">
               {/* Chrome Knurled Handle Grip */}

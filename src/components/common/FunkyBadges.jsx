@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Sparkles, ShieldCheck, Flame, Zap, Check } from "lucide-react";
+import { Award, ShieldCheck, Flame, Zap, Check } from "lucide-react";
 
 /**
  * FunkyBadges
@@ -40,7 +40,7 @@ export function VerifiedBadge({ text = "Verified", showText = false, className =
   );
 }
 
-// 3. Bachat / Discount Badge with Savings Sparkle
+// 3. Bachat / Discount Badge
 export function DiscountBadge({ discount = "25% OFF", className = "" }) {
   return (
     <span
@@ -52,13 +52,13 @@ export function DiscountBadge({ discount = "25% OFF", className = "" }) {
   );
 }
 
-// 4. Featured / Premium Listing Badge with Golden Sparkle
+// 4. Featured / Premium Listing Badge with Award Icon
 export function FeaturedBadge({ text = "Featured", className = "" }) {
   return (
     <span
       className={`inline-flex items-center gap-1 bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 px-1.5 py-0.5 text-[8px] sm:text-[9px] font-black rounded-md shadow-sm uppercase tracking-wider select-none ${className}`}
     >
-      <Sparkles size={9} className="fill-slate-950 shrink-0 animate-pulse" />
+      <Award size={9} className="fill-slate-950 shrink-0" />
       <span>{text}</span>
     </span>
   );

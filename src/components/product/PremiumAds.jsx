@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Award } from "lucide-react";
 import ProductCard from "../cards/ProductCard";
 import { premiumAds } from "@/constants/dummyData";
 import { AnimatedExploreActionIcon, AnimatedActionArrow } from "@/components/common/ActionAnimatedIcons";
@@ -14,7 +14,7 @@ export default function PremiumAds() {
         <h2 className="text-lg sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
           <span>Premium Ads</span>
           <span className="inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-widest text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-950/60 px-2 py-0.5 rounded-md border border-amber-200 dark:border-amber-800/40">
-            <Sparkles size={11} className="fill-amber-500 text-amber-500 dark:fill-amber-400 dark:text-amber-400" /> Featured
+            <Award size={11} className="text-amber-500 dark:text-amber-400" /> Featured
           </span>
         </h2>
         <Link

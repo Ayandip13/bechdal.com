@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import Link from "next/link";
 import { categoryProducts } from "@/constants/categoryData";
-import { Sparkles, ArrowRight, ShieldCheck, Tag } from "lucide-react";
+import { ArrowRight, ShieldCheck, Tag } from "lucide-react";
 
 export default function MoreOptionsListings({ productTitle, currentProductPrice }) {
   

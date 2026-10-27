@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Sparkles, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 
 /**
  * AnimatedLivingScene (Hero Slide 2)
@@ -257,7 +257,7 @@ export default function AnimatedLivingScene() {
 
         <div className="absolute bottom-1 sm:bottom-2 right-2 sm:right-4 z-20 bg-slate-950/90 border border-amber-400/50 px-3 py-1.5 rounded-xl shadow-xl backdrop-blur-md flex items-center gap-1.5">
           <div className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center">
-            <Sparkles size={12} className="fill-amber-400 text-amber-400" />
+            <ShieldCheck size={12} className="text-amber-400" />
           </div>
           <div className="text-left">
             <span className="block text-[10px] sm:text-[11px] font-black text-white leading-tight">Teak & Velvet</span>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { verifiedSellers } from "@/constants/dummyData";
 import SellerCard from "@/components/sellers/SellerCard";
 import Breadcrumb from "@/components/common/Breadcrumb";
-import { ShieldCheck, Award, Sparkles } from "lucide-react";
+import { ShieldCheck, Award } from "lucide-react";
 
 export const metadata = {
   title: "Verified Sellers & Business Accounts | BechDal",

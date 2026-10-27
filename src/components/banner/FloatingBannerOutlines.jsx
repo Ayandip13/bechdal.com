@@ -124,7 +124,7 @@ export function FloatingTechOutlines({ className = "" }) {
         </svg>
       </div>
 
-      {/* Ambient Micro-Sparkles */}
+      {/* Ambient Glowing Dots */}
       <span className="absolute left-[36%] top-2 w-1 h-1 rounded-full bg-cyan-300 opacity-60 animate-ping" />
       <span className="absolute left-[65%] bottom-2 w-1.5 h-1.5 rounded-full bg-blue-300 opacity-50 anim-ring-pulse" />
     </div>
