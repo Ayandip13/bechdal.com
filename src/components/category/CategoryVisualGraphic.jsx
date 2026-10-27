@@ -22,7 +22,7 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
   // 1. PROPERTIES
   if (categorySlug === "properties" || categorySlug === "real-estate" || categorySlug === "property") {
     return (
-      <div className="relative w-48 h-32 xs:w-56 xs:h-36 sm:w-64 sm:h-40 md:w-72 md:h-44 shrink-0 select-none">
+      <div className="relative w-28 h-20 xs:w-36 xs:h-24 sm:w-52 sm:h-34 md:w-64 md:h-42 lg:w-72 lg:h-46 shrink-0 select-none">
         <style>{`
           @keyframes villaFloat {
             0%, 100% { transform: translateY(0px); }
@@ -127,7 +127,7 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
           </g>
 
           {/* Floating Trust Badge 1: 0% Brokerage */}
-          <g transform="translate(182, 90)">
+          <g transform="translate(182, 90)" className="hidden sm:inline">
             <rect width="84" height="26" rx="13" fill="#0f172a" fillOpacity="0.9" stroke="#10b981" strokeWidth="1.5" />
             <circle cx="14" cy="13" r="7" fill="#10b981" />
             <path d="M11 13 L13.5 15.5 L17.5 10.5" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -135,7 +135,7 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
           </g>
 
           {/* Floating Trust Badge 2: Direct Owners */}
-          <g transform="translate(14, 24)">
+          <g transform="translate(14, 24)" className="hidden sm:inline">
             <rect width="90" height="24" rx="12" fill="#0f172a" fillOpacity="0.9" stroke="#f59e0b" strokeWidth="1.4" />
             <circle cx="13" cy="12" r="5" fill="#f59e0b" />
             <text x="25" y="16" fill="#fde047" fontSize="9.5" fontWeight="800" fontFamily="sans-serif">Direct Owners</text>
@@ -148,7 +148,7 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
   // 2. FURNITURE & HOME LIVING
   if (categorySlug === "furniture" || categorySlug === "home-decor") {
     return (
-      <div className="relative w-48 h-32 xs:w-56 xs:h-36 sm:w-64 sm:h-40 md:w-72 md:h-44 shrink-0 select-none">
+      <div className="relative w-28 h-20 xs:w-36 xs:h-24 sm:w-52 sm:h-34 md:w-64 md:h-42 lg:w-72 lg:h-46 shrink-0 select-none">
         <style>{`
           @keyframes armchairFloat {
             0%, 100% { transform: translateY(0px); }
@@ -244,14 +244,14 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
           </g>
 
           {/* Floating Badge 1: Save Up to 60% */}
-          <g transform="translate(176, 20)">
+          <g transform="translate(176, 20)" className="hidden sm:inline">
             <rect width="94" height="25" rx="12.5" fill="#0f172a" fillOpacity="0.92" stroke="#34d399" strokeWidth="1.4" />
             <circle cx="14" cy="12.5" r="5.5" fill="#10b981" />
             <text x="26" y="16.5" fill="#a7f3d0" fontSize="9.5" fontWeight="800" fontFamily="sans-serif">Save Up to 60%</text>
           </g>
 
           {/* Floating Badge 2: Teak & Velvet */}
-          <g transform="translate(12, 85)">
+          <g transform="translate(12, 85)" className="hidden sm:inline">
             <rect width="86" height="23" rx="11.5" fill="#0f172a" fillOpacity="0.9" stroke="#10b981" strokeWidth="1.2" />
             <text x="12" y="15.5" fill="#6ee7b7" fontSize="9" fontWeight="800" fontFamily="sans-serif">★ Teak & Velvet</text>
           </g>
@@ -263,7 +263,7 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
   // 3. FASHION & LIFESTYLE
   if (categorySlug === "fashion" || categorySlug === "clothing" || categorySlug === "lifestyle") {
     return (
-      <div className="relative w-48 h-32 xs:w-56 xs:h-36 sm:w-64 sm:h-40 md:w-72 md:h-44 shrink-0 select-none">
+      <div className="relative w-28 h-20 xs:w-36 xs:h-24 sm:w-52 sm:h-34 md:w-64 md:h-42 lg:w-72 lg:h-46 shrink-0 select-none">
         <style>{`
           @keyframes hangerSway {
             0%, 100% { transform: rotate(0deg); }
@@ -351,14 +351,14 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
           </g>
 
           {/* Floating Badge 1: Trending Styles */}
-          <g transform="translate(162, 14)">
+          <g transform="translate(162, 14)" className="hidden sm:inline">
             <rect width="98" height="25" rx="12.5" fill="#0f172a" fillOpacity="0.92" stroke="#ec4899" strokeWidth="1.4" />
             <circle cx="14" cy="12.5" r="5" fill="#ec4899" />
             <text x="26" y="16.5" fill="#fbcfe8" fontSize="9.5" fontWeight="800" fontFamily="sans-serif">Trending Styles</text>
           </g>
 
           {/* Floating Badge 2: Original Brands */}
-          <g transform="translate(10, 142)">
+          <g transform="translate(10, 142)" className="hidden sm:inline">
             <rect width="90" height="23" rx="11.5" fill="#0f172a" fillOpacity="0.9" stroke="#a855f7" strokeWidth="1.2" />
             <text x="12" y="15.5" fill="#e9d5ff" fontSize="9" fontWeight="800" fontFamily="sans-serif">✓ 100% Original</text>
           </g>
@@ -375,7 +375,7 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
     categorySlug === "sports"
   ) {
     return (
-      <div className="relative w-48 h-32 xs:w-56 xs:h-36 sm:w-64 sm:h-40 md:w-72 md:h-44 shrink-0 select-none">
+      <div className="relative w-28 h-20 xs:w-36 xs:h-24 sm:w-52 sm:h-34 md:w-64 md:h-42 lg:w-72 lg:h-46 shrink-0 select-none">
         <style>{`
           @keyframes barbellBounce {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -471,14 +471,14 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
           </g>
 
           {/* Floating Badge 1: Commercial Grade */}
-          <g transform="translate(154, 18)">
+          <g transform="translate(154, 18)" className="hidden sm:inline">
             <rect width="105" height="25" rx="12.5" fill="#0f172a" fillOpacity="0.92" stroke="#06b6d4" strokeWidth="1.4" />
             <circle cx="14" cy="12.5" r="5" fill="#06b6d4" />
             <text x="26" y="16.5" fill="#a5f3fc" fontSize="9.5" fontWeight="800" fontFamily="sans-serif">Commercial Grade</text>
           </g>
 
           {/* Floating Badge 2: Tested Gear */}
-          <g transform="translate(14, 142)">
+          <g transform="translate(14, 142)" className="hidden sm:inline">
             <rect width="94" height="23" rx="11.5" fill="#0f172a" fillOpacity="0.9" stroke="#3b82f6" strokeWidth="1.2" />
             <text x="12" y="15.5" fill="#bfdbfe" fontSize="9" fontWeight="800" fontFamily="sans-serif">★ Gym & Sound</text>
           </g>
@@ -490,7 +490,7 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
   // 5. VEHICLES
   if (categorySlug === "vehicles" || categorySlug === "cars" || categorySlug === "bikes") {
     return (
-      <div className="relative w-48 h-32 xs:w-56 xs:h-36 sm:w-64 sm:h-40 md:w-72 md:h-44 shrink-0 select-none">
+      <div className="relative w-28 h-20 xs:w-36 xs:h-24 sm:w-52 sm:h-34 md:w-64 md:h-42 lg:w-72 lg:h-46 shrink-0 select-none">
         <style>{`
           @keyframes carChassis {
             0%, 100% { transform: translateY(0px); }
@@ -578,14 +578,14 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
           </g>
 
           {/* Floating Badge 1: 0% Brokerage */}
-          <g transform="translate(162, 18)">
+          <g transform="translate(162, 18)" className="hidden sm:inline">
             <rect width="98" height="25" rx="12.5" fill="#0f172a" fillOpacity="0.92" stroke="#f43f5e" strokeWidth="1.4" />
             <circle cx="14" cy="12.5" r="5" fill="#f43f5e" />
             <text x="26" y="16.5" fill="#fecdd3" fontSize="9.5" fontWeight="800" fontFamily="sans-serif">0% Brokerage</text>
           </g>
 
           {/* Floating Badge 2: Verified RC */}
-          <g transform="translate(12, 38)">
+          <g transform="translate(12, 38)" className="hidden sm:inline">
             <rect width="90" height="23" rx="11.5" fill="#0f172a" fillOpacity="0.9" stroke="#10b981" strokeWidth="1.2" />
             <text x="12" y="15.5" fill="#6ee7b7" fontSize="9" fontWeight="800" fontFamily="sans-serif">✓ Verified RC</text>
           </g>
@@ -597,7 +597,7 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
   // 6. MOBILES & ELECTRONICS
   if (categorySlug === "mobiles" || categorySlug === "electronics") {
     return (
-      <div className="relative w-48 h-32 xs:w-56 xs:h-36 sm:w-64 sm:h-40 md:w-72 md:h-44 shrink-0 select-none">
+      <div className="relative w-28 h-20 xs:w-36 xs:h-24 sm:w-52 sm:h-34 md:w-64 md:h-42 lg:w-72 lg:h-46 shrink-0 select-none">
         <style>{`
           @keyframes phoneFloat {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -677,14 +677,14 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
           </g>
 
           {/* Floating Badge 1: 32-Pt Inspected */}
-          <g transform="translate(156, 12)">
+          <g transform="translate(156, 12)" className="hidden sm:inline">
             <rect width="105" height="25" rx="12.5" fill="#0f172a" fillOpacity="0.92" stroke="#38bdf8" strokeWidth="1.4" />
             <circle cx="14" cy="12.5" r="5" fill="#38bdf8" />
             <text x="26" y="16.5" fill="#bae6fd" fontSize="9.5" fontWeight="800" fontFamily="sans-serif">32-Pt Inspected</text>
           </g>
 
           {/* Floating Badge 2: Verified Seller */}
-          <g transform="translate(10, 42)">
+          <g transform="translate(10, 42)" className="hidden sm:inline">
             <rect width="94" height="23" rx="11.5" fill="#0f172a" fillOpacity="0.9" stroke="#10b981" strokeWidth="1.2" />
             <text x="12" y="15.5" fill="#a7f3d0" fontSize="9" fontWeight="800" fontFamily="sans-serif">✓ Verified Seller</text>
           </g>
@@ -700,7 +700,7 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
     categorySlug === "agriculture"
   ) {
     return (
-      <div className="relative w-48 h-32 xs:w-56 xs:h-36 sm:w-64 sm:h-40 md:w-72 md:h-44 shrink-0 select-none">
+      <div className="relative w-28 h-20 xs:w-36 xs:h-24 sm:w-52 sm:h-34 md:w-64 md:h-42 lg:w-72 lg:h-46 shrink-0 select-none">
         <style>{`
           @keyframes tractorBob {
             0%, 100% { transform: translateY(0px); }
@@ -775,14 +775,14 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
           </g>
 
           {/* Floating Badge 1: Direct Farmers */}
-          <g transform="translate(156, 14)">
+          <g transform="translate(156, 14)" className="hidden sm:inline">
             <rect width="105" height="25" rx="12.5" fill="#0f172a" fillOpacity="0.92" stroke="#eab308" strokeWidth="1.4" />
             <circle cx="14" cy="12.5" r="5" fill="#eab308" />
             <text x="26" y="16.5" fill="#fef08a" fontSize="9.5" fontWeight="800" fontFamily="sans-serif">Farmer Direct</text>
           </g>
 
           {/* Floating Badge 2: Heavy Duty */}
-          <g transform="translate(14, 142)">
+          <g transform="translate(14, 142)" className="hidden sm:inline">
             <rect width="94" height="23" rx="11.5" fill="#0f172a" fillOpacity="0.9" stroke="#16a34a" strokeWidth="1.2" />
             <text x="12" y="15.5" fill="#86efac" fontSize="9" fontWeight="800" fontFamily="sans-serif">★ Heavy Machinery</text>
           </g>
@@ -793,7 +793,7 @@ export default function CategoryVisualGraphic({ slug, title, IconComponent }) {
 
   // 8. DEFAULT / FALLBACK (Pets, Services, Books, Jobs, etc.)
   return (
-    <div className="relative w-40 h-28 xs:w-48 xs:h-32 sm:w-56 sm:h-36 md:w-64 md:h-40 shrink-0 select-none flex items-center justify-center">
+    <div className="relative w-24 h-18 xs:w-32 xs:h-22 sm:w-44 sm:h-30 md:w-56 md:h-38 lg:w-64 lg:h-42 shrink-0 select-none flex items-center justify-center">
       <style>{`
         @keyframes orbitalRotate {
           0% { transform: rotate(0deg); }

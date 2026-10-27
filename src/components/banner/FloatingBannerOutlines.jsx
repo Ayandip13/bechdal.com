@@ -66,7 +66,7 @@ export function FloatingTechOutlines({ className = "" }) {
       </svg>
 
       {/* Accessory 1: Modern Smartwatch Outline with Pulsing Activity Ring & Heartbeat (Responsive on Mobile) */}
-      <div className="absolute right-2 sm:right-auto sm:left-[42%] md:left-[45%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-tech-1 opacity-45 sm:opacity-75 hover:opacity-100 transition-opacity block">
+      <div className="absolute left-[38%] sm:left-[42%] md:left-[45%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-tech-1 opacity-35 sm:opacity-75 hover:opacity-100 transition-opacity hidden xs:block">
         <svg width="60" height="60" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[66px] sm:h-[66px]">
           <path d="M26 6V16h16V6c0-1.1-.9-2-2-2H28c-1.1 0-2 .9-2 2z" stroke="url(#neonCyanGlow)" strokeWidth="1.6" strokeDasharray="2 2" />
           <path d="M26 52v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V52" stroke="url(#neonCyanGlow)" strokeWidth="1.6" strokeDasharray="2 2" />
@@ -78,7 +78,7 @@ export function FloatingTechOutlines({ className = "" }) {
       </div>
 
       {/* Accessory 2: Wireless TWS Earbuds & Open Charging Case (Middle-Right) */}
-      <div className="absolute right-16 sm:right-auto sm:left-[57%] md:left-[60%] top-2 sm:top-[10%] anim-tech-2 opacity-40 sm:opacity-75 hover:opacity-100 transition-opacity hidden xs:block">
+      <div className="absolute left-[54%] sm:left-[57%] md:left-[60%] top-2 sm:top-[10%] anim-tech-2 opacity-35 sm:opacity-75 hover:opacity-100 transition-opacity hidden sm:block">
         <svg width="54" height="54" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[60px] sm:h-[60px]">
           <circle cx="32" cy="14" r="7" stroke="#38bdf8" strokeWidth="1.2" strokeDasharray="3 3" className="anim-audio-wave" />
           <g transform="translate(18, 8) rotate(-14)">
@@ -200,7 +200,7 @@ export function FloatingVehicleOutlines({ className = "" }) {
       </div>
 
       {/* 2. Speeding Modern Sports Car Outline (Responsive on Mobile) */}
-      <div className="absolute right-2 sm:right-auto sm:left-[39%] md:left-[41%] bottom-1 sm:bottom-2 anim-car-drive opacity-65 sm:opacity-85 hover:opacity-100 transition-opacity block">
+      <div className="absolute left-[36%] sm:left-[39%] md:left-[41%] bottom-1 sm:bottom-2 anim-car-drive opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
         <svg width="64" height="34" viewBox="0 0 72 38" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[72px] sm:h-[38px]">
           {/* Speed Dust / Motion Lines */}
           <line x1="2" y1="20" x2="10" y2="20" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
@@ -236,7 +236,7 @@ export function FloatingVehicleOutlines({ className = "" }) {
       </div>
 
       {/* 3. Sporty Motorbike / Scooter Silhouette (Beside the Car, Clear of Button) */}
-      <div className="absolute right-20 sm:right-auto sm:left-[56%] md:left-[58%] bottom-2 sm:bottom-3 anim-bike-bounce opacity-50 sm:opacity-80 hover:opacity-100 transition-opacity hidden xs:block">
+      <div className="absolute left-[52%] sm:left-[56%] md:left-[58%] bottom-2 sm:bottom-3 anim-bike-bounce opacity-45 sm:opacity-80 hover:opacity-100 transition-opacity hidden sm:block">
         <svg width="56" height="36" viewBox="0 0 56 36" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Bike Frame & Tank */}
           <path d="M12 28l10-14h10l8 14" stroke="#38bdf8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -341,7 +341,7 @@ export function FloatingCommerceOutlines({ className = "" }) {
       `}</style>
 
       {/* 1. Stack of Rupee Banknotes / Instant Cash Deal (Responsive on Mobile) */}
-      <div className="absolute right-2 sm:right-auto sm:left-[39%] md:left-[42%] bottom-1 anim-cash-flutter opacity-45 sm:opacity-80 hover:opacity-100 transition-opacity block">
+      <div className="absolute left-[36%] sm:left-[39%] md:left-[42%] bottom-1 anim-cash-flutter opacity-35 sm:opacity-80 hover:opacity-100 transition-opacity hidden xs:block">
         <svg width="60" height="42" viewBox="0 0 68 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[68px] sm:h-[48px]">
           {/* Bottom Bill */}
           <rect x="4" y="16" width="52" height="26" rx="4" stroke="#facc15" strokeWidth="1.4" strokeOpacity="0.4" fill="currentColor" fillOpacity="0.04" />
@@ -358,7 +358,7 @@ export function FloatingCommerceOutlines({ className = "" }) {
       </div>
 
       {/* 2. Cute Savings Piggy Bank with Gold Coins Dropping into Slot (Middle-Center) */}
-      <div className="absolute right-16 sm:right-auto sm:left-[55%] md:left-[57%] top-1/2 -translate-y-1/2 anim-com-float-1 opacity-45 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
+      <div className="absolute left-[52%] sm:left-[55%] md:left-[57%] top-1/2 -translate-y-1/2 anim-com-float-1 opacity-35 sm:opacity-85 hover:opacity-100 transition-opacity hidden sm:block">
         <svg width="56" height="52" viewBox="0 0 64 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[64px] sm:h-[60px]">
           {/* Falling Gold Coin */}
           <g className="anim-coin-dropping">
@@ -387,7 +387,7 @@ export function FloatingCommerceOutlines({ className = "" }) {
       </div>
 
       {/* 3. 0% Brokerage & 100% Free Trust Shield (Positioned Safely Away from Right Button!) */}
-      <div className="absolute right-2 sm:right-auto sm:left-[70%] md:left-[72%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-com-float-2 opacity-40 sm:opacity-80 hover:opacity-100 transition-opacity block">
+      <div className="absolute left-[68%] sm:left-[70%] md:left-[72%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-com-float-2 opacity-35 sm:opacity-80 hover:opacity-100 transition-opacity hidden md:block">
         <svg width="54" height="54" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[62px] sm:h-[62px]">
           {/* Shield Outline */}
           <path
@@ -503,7 +503,7 @@ export function FloatingPropertyOutlines({ className = "" }) {
       </div>
 
       {/* 2. House Key with Keychain Pendant (Middle-Center) */}
-      <div className="absolute right-18 sm:right-auto sm:left-[55%] md:left-[58%] top-1 anim-key-sway opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
+      <div className="absolute left-[52%] sm:left-[55%] md:left-[58%] top-1 anim-key-sway opacity-45 sm:opacity-85 hover:opacity-100 transition-opacity hidden sm:block">
         <svg width="48" height="52" viewBox="0 0 54 58" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Key Ring */}
           <circle cx="27" cy="12" r="8" stroke="#fbbf24" strokeWidth="2" strokeDasharray="8 3" fill="none" />
@@ -519,7 +519,7 @@ export function FloatingPropertyOutlines({ className = "" }) {
       </div>
 
       {/* 3. Location Pin with Radar Wave / Verified Plot (Right Flank) */}
-      <div className="absolute right-2 sm:right-auto sm:left-[70%] md:left-[73%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-pin-bounce opacity-45 sm:opacity-80 hover:opacity-100 transition-opacity block">
+      <div className="absolute left-[68%] sm:left-[70%] md:left-[73%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-pin-bounce opacity-40 sm:opacity-80 hover:opacity-100 transition-opacity hidden md:block">
         <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Pulsing Base Ring */}
           <ellipse cx="32" cy="54" rx="14" ry="4" stroke="#f59e0b" strokeWidth="1.4" strokeDasharray="4 3" opacity="0.6" />
@@ -600,7 +600,7 @@ export function FloatingFurnitureOutlines({ className = "" }) {
       </svg>
 
       {/* 1. Designer Mid-Century Sofa with Cushions (Middle-Left) */}
-      <div className="absolute right-2 sm:right-auto sm:left-[38%] md:left-[41%] bottom-1 anim-furn-float-1 opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity block">
+      <div className="absolute left-[36%] sm:left-[38%] md:left-[41%] bottom-1 anim-furn-float-1 opacity-45 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
         <svg width="74" height="48" viewBox="0 0 80 52" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[80px] sm:h-[52px]">
           {/* Sofa Backrest */}
           <rect x="8" y="14" width="64" height="22" rx="7" stroke="url(#neonTealFurnGlow)" strokeWidth="1.8" fill="currentColor" fillOpacity="0.05" />
@@ -619,7 +619,7 @@ export function FloatingFurnitureOutlines({ className = "" }) {
       </div>
 
       {/* 2. Sleek Arc Floor Lamp with Light Cone (Middle-Center) */}
-      <div className="absolute right-18 sm:right-auto sm:left-[54%] md:left-[57%] top-1 anim-furn-float-2 opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
+      <div className="absolute left-[52%] sm:left-[54%] md:left-[57%] top-1 anim-furn-float-2 opacity-45 sm:opacity-85 hover:opacity-100 transition-opacity hidden sm:block">
         <svg width="52" height="58" viewBox="0 0 56 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Lamp Base */}
           <ellipse cx="14" cy="58" rx="10" ry="3.5" stroke="#94a3b8" strokeWidth="1.6" fill="#334155" />
@@ -634,7 +634,7 @@ export function FloatingFurnitureOutlines({ className = "" }) {
       </div>
 
       {/* 3. Nordic Coffee Table with Steaming Mug (Right Flank) */}
-      <div className="absolute right-2 sm:right-auto sm:left-[69%] md:left-[72%] bottom-2 anim-furn-float-1 opacity-45 sm:opacity-80 hover:opacity-100 transition-opacity block">
+      <div className="absolute left-[68%] sm:left-[69%] md:left-[72%] bottom-2 anim-furn-float-1 opacity-40 sm:opacity-80 hover:opacity-100 transition-opacity hidden md:block">
         <svg width="58" height="48" viewBox="0 0 64 52" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Table Legs */}
           <line x1="18" y1="36" x2="12" y2="50" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" />
@@ -707,7 +707,7 @@ export function FloatingFashionOutlines({ className = "" }) {
       </svg>
 
       {/* 1. Chic T-Shirt on Wooden Hanger (Middle-Left) */}
-      <div className="absolute right-2 sm:right-auto sm:left-[39%] md:left-[42%] top-2 anim-hanger-swing-slow opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity block">
+      <div className="absolute left-[36%] sm:left-[39%] md:left-[42%] top-2 anim-hanger-swing-slow opacity-45 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
         <svg width="58" height="58" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Hook */}
           <path d="M32 6c3 0 5 2 4.5 4.5C36 13 32 14 32 16" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" />
@@ -729,7 +729,7 @@ export function FloatingFashionOutlines({ className = "" }) {
       </div>
 
       {/* 2. Streetwear High-Top Sneaker Outline (Middle-Center) */}
-      <div className="absolute right-18 sm:right-auto sm:left-[55%] md:left-[58%] bottom-1 anim-fash-float-1 opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
+      <div className="absolute left-[52%] sm:left-[55%] md:left-[58%] bottom-1 anim-fash-float-1 opacity-45 sm:opacity-85 hover:opacity-100 transition-opacity hidden sm:block">
         <svg width="68" height="44" viewBox="0 0 74 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Sole Cushion */}
           <path d="M6 42h62c0-3-2-5-5-5H11c-3 0-5 2-5 5z" stroke="#38bdf8" strokeWidth="1.8" fill="#0284c7" fillOpacity="0.2" />
@@ -750,7 +750,7 @@ export function FloatingFashionOutlines({ className = "" }) {
       </div>
 
       {/* 3. Designer Sunglasses with Glint (Right Flank) */}
-      <div className="absolute right-2 sm:right-auto sm:left-[70%] md:left-[73%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-fash-float-2 opacity-45 sm:opacity-80 hover:opacity-100 transition-opacity block">
+      <div className="absolute left-[68%] sm:left-[70%] md:left-[73%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-fash-float-2 opacity-40 sm:opacity-80 hover:opacity-100 transition-opacity hidden md:block">
         <svg width="56" height="42" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="6" y="16" width="22" height="18" rx="6" stroke="url(#neonPurpleFashGlow)" strokeWidth="2" fill="#8b5cf6" fillOpacity="0.25" />
           <line x1="9" y1="21" x2="16" y2="30" stroke="#ffffff" strokeWidth="1.4" strokeLinecap="round" opacity="0.7" />
@@ -812,7 +812,7 @@ export function FloatingFitnessGymOutlines({ className = "" }) {
       </svg>
 
       {/* 1. Heavy Olympic Barbell with Weight Plates (Middle-Left) */}
-      <div className="absolute right-2 sm:right-auto sm:left-[38%] md:left-[41%] bottom-1 anim-gym-float-1 opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity block">
+      <div className="absolute left-[36%] sm:left-[38%] md:left-[41%] bottom-1 anim-gym-float-1 opacity-45 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
         <svg width="74" height="42" viewBox="0 0 80 44" fill="none" xmlns="http://www.w3.org/2000/svg">
           <line x1="6" y1="22" x2="74" y2="22" stroke="#94a3b8" strokeWidth="2.5" strokeLinecap="round" />
           <line x1="30" y1="22" x2="50" y2="22" stroke="#f59e0b" strokeWidth="2.8" strokeDasharray="3 2" />
@@ -824,7 +824,7 @@ export function FloatingFitnessGymOutlines({ className = "" }) {
       </div>
 
       {/* 2. Cast Iron Kettlebell (Middle-Center) */}
-      <div className="absolute right-18 sm:right-auto sm:left-[55%] md:left-[58%] top-1 anim-gym-float-2 opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
+      <div className="absolute left-[52%] sm:left-[55%] md:left-[58%] top-1 anim-gym-float-2 opacity-45 sm:opacity-85 hover:opacity-100 transition-opacity hidden sm:block">
         <svg width="48" height="52" viewBox="0 0 54 58" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M18 22 C 18 10, 36 10, 36 22" stroke="#38bdf8" strokeWidth="2.2" strokeLinecap="round" fill="none" />
           <circle cx="27" cy="36" r="16" stroke="url(#neonOrangeGymGlow)" strokeWidth="2" fill="currentColor" fillOpacity="0.06" />
@@ -834,7 +834,7 @@ export function FloatingFitnessGymOutlines({ className = "" }) {
       </div>
 
       {/* 3. Heartbeat ECG Pulse Wave (Right Flank) */}
-      <div className="absolute right-2 sm:right-auto sm:left-[70%] md:left-[73%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-gym-float-1 opacity-45 sm:opacity-80 hover:opacity-100 transition-opacity block">
+      <div className="absolute left-[68%] sm:left-[70%] md:left-[73%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-gym-float-1 opacity-40 sm:opacity-80 hover:opacity-100 transition-opacity hidden md:block">
         <svg width="56" height="44" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M4 24h12l4-14 6 28 6-20 4 10 4-4h18"
@@ -888,7 +888,7 @@ export function FloatingAgriEquipmentOutlines({ className = "" }) {
       </svg>
 
       {/* 1. Heavy Tractor Lug Tire & Wheel (Middle-Left) */}
-      <div className="absolute right-2 sm:right-auto sm:left-[38%] md:left-[41%] bottom-1 anim-agri-float-1 opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity block">
+      <div className="absolute left-[36%] sm:left-[38%] md:left-[41%] bottom-1 anim-agri-float-1 opacity-45 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
         <svg width="68" height="52" viewBox="0 0 74 56" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="37" cy="28" r="22" stroke="url(#neonGreenGoldGlow)" strokeWidth="3" strokeDasharray="6 4" />
           <circle cx="37" cy="28" r="16" stroke="#ca8a04" strokeWidth="2" fill="#1e293b" />
@@ -898,7 +898,7 @@ export function FloatingAgriEquipmentOutlines({ className = "" }) {
       </div>
 
       {/* 2. Golden Wheat Stalks (Middle-Center) */}
-      <div className="absolute right-18 sm:right-auto sm:left-[54%] md:left-[57%] bottom-1 anim-wheat-sway opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
+      <div className="absolute left-[52%] sm:left-[54%] md:left-[57%] bottom-1 anim-wheat-sway opacity-45 sm:opacity-85 hover:opacity-100 transition-opacity hidden sm:block">
         <svg width="48" height="54" viewBox="0 0 54 60" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M27 60 V 20" stroke="#ca8a04" strokeWidth="2" strokeLinecap="round" />
           <ellipse cx="22" cy="18" rx="4" ry="7" transform="rotate(-30 22 18)" fill="#facc15" stroke="#ca8a04" strokeWidth="1.2" />
@@ -910,7 +910,7 @@ export function FloatingAgriEquipmentOutlines({ className = "" }) {
       </div>
 
       {/* 3. Rotating Industrial Gear Pair (Right Flank) */}
-      <div className="absolute right-2 sm:right-auto sm:left-[69%] md:left-[72%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-agri-float-1 opacity-45 sm:opacity-80 hover:opacity-100 transition-opacity block">
+      <div className="absolute left-[68%] sm:left-[69%] md:left-[72%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-agri-float-1 opacity-40 sm:opacity-80 hover:opacity-100 transition-opacity hidden md:block">
         <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g className="anim-gear-turn">
             <circle cx="32" cy="32" r="22" stroke="url(#neonGreenGoldGlow)" strokeWidth="3" strokeDasharray="8 6" />

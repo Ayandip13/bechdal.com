@@ -1,17 +1,17 @@
 "use client";
 
 import React from "react";
-import { 
-  Tv, 
-  Smartphone, 
-  Car, 
-  Home, 
-  Armchair, 
-  Shirt, 
-  BookOpen, 
-  Wrench, 
-  Dog, 
-  Package, 
+import {
+  Tv,
+  Smartphone,
+  Car,
+  Home,
+  Armchair,
+  Shirt,
+  BookOpen,
+  Wrench,
+  Dog,
+  Package,
   Layers,
   Sailboat,
   Dumbbell,
@@ -197,45 +197,45 @@ export default function CategoryHero({ category, totalCount }) {
   const theme = CATEGORY_THEMES[currentSlug] || DEFAULT_THEME;
 
   return (
-    <div className={`relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-r ${theme.gradient} text-white p-4 xs:p-5 sm:p-7 lg:p-8 shadow-md border ${theme.border} transition-all duration-300`}>
+    <div className={`relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-r ${theme.gradient} text-white p-3 xs:p-4 sm:p-6 lg:p-8 shadow-md border ${theme.border} transition-all duration-300`}>
       {/* Dynamic Ambient Background Glow Elements */}
-      <div className={`absolute top-0 right-0 -mt-16 -mr-16 w-64 sm:w-80 h-64 sm:h-80 rounded-full ${theme.glow1} blur-3xl pointer-events-none`} />
-      <div className={`absolute bottom-0 left-1/3 -mb-16 w-64 sm:w-80 h-64 sm:h-80 rounded-full ${theme.glow2} blur-3xl pointer-events-none`} />
+      <div className={`absolute top-0 right-0 -mt-16 -mr-16 w-52 sm:w-80 h-52 sm:h-80 rounded-full ${theme.glow1} blur-3xl pointer-events-none`} />
+      <div className={`absolute bottom-0 left-1/3 -mb-16 w-52 sm:w-80 h-52 sm:h-80 rounded-full ${theme.glow2} blur-3xl pointer-events-none`} />
 
       {/* Floating Outline SVG Accessories Scene - Auto routes to category-specific neon SVGs */}
-      <CategoryBannerOutlines categorySlug={category?.slug} className="opacity-70" />
+      <CategoryBannerOutlines categorySlug={category?.slug} className="opacity-50 sm:opacity-70 pointer-events-none" />
 
-      <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 lg:gap-8">
-        <div className="max-w-2xl flex-1">
+      <div className="relative z-10 flex flex-row items-center justify-between gap-2.5 xs:gap-4 sm:gap-6 lg:gap-8">
+        <div className="flex-1 min-w-0 pr-1 sm:pr-0">
           {/* Category Chip Tag */}
-          <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-2.5 backdrop-blur-md ${theme.pillBg}`}>
-            <Sparkles className="w-3.5 h-3.5 shrink-0" />
-            <span>{theme.label}</span>
+          <div className={`inline-flex items-center gap-1 sm:gap-1.5 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full border text-[9.5px] xs:text-[10.5px] sm:text-xs font-bold uppercase tracking-wider mb-1 sm:mb-2 backdrop-blur-md ${theme.pillBg}`}>
+            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
+            <span className="truncate max-w-[140px] xs:max-w-none">{theme.label}</span>
           </div>
 
           {/* Heading */}
-          <h1 className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white mb-2 leading-tight">
+          <h1 className="text-base xs:text-xl sm:text-2xl lg:text-4xl font-black tracking-tight text-white mb-0.5 sm:mb-1.5 leading-tight truncate xs:whitespace-normal">
             {category?.title || "Explore Category"}
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xs xs:text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-xl">
+          <p className="text-[11px] xs:text-xs sm:text-sm text-slate-300 font-normal leading-snug sm:leading-relaxed line-clamp-2 max-w-xl">
             {category?.subtitle || theme.tagline}
           </p>
 
           {/* Statistics and Badges */}
-          <div className="mt-3.5 xs:mt-4 flex flex-wrap items-center gap-2.5 xs:gap-3 text-xs sm:text-sm text-slate-300 font-medium">
-            <div className="flex items-center gap-1.5 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-700/60 shadow-xs">
-              <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-light shrink-0" />
-              <span><strong className="text-white font-bold">{totalCount || 0}</strong> Active Listings</span>
+          <div className="mt-2 sm:mt-4 flex flex-wrap items-center gap-1.5 xs:gap-2 sm:gap-2.5 text-[10px] xs:text-xs sm:text-sm text-slate-300 font-medium">
+            <div className="flex items-center gap-1 sm:gap-1.5 bg-slate-900/80 backdrop-blur-md px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl border border-slate-700/60 shadow-xs">
+              <Layers className="w-3 h-3 sm:w-4 sm:h-4 text-primary-light shrink-0" />
+              <span><strong className="text-white font-bold">{totalCount || 0}</strong> <span className="hidden xs:inline">Active</span> Ads</span>
             </div>
 
-            <div className="flex items-center gap-1.5 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-700/60 shadow-xs text-emerald-400 font-semibold">
-              <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 text-emerald-400" />
-              <span>Verified Sellers</span>
+            <div className="flex items-center gap-1 sm:gap-1.5 bg-slate-900/80 backdrop-blur-md px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl border border-slate-700/60 shadow-xs text-emerald-400 font-semibold">
+              <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4 shrink-0 text-emerald-400" />
+              <span>Verified<span className="hidden xs:inline"> Sellers</span></span>
             </div>
 
-            <div className="hidden sm:flex items-center gap-1 text-slate-400 text-xs">
+            <div className="hidden md:flex items-center gap-1 text-slate-400 text-xs">
               <ShieldCheck className="w-3.5 h-3.5 text-secondary shrink-0" />
               <span>0% Platform Commission</span>
             </div>
@@ -243,7 +243,7 @@ export default function CategoryHero({ category, totalCount }) {
         </div>
 
         {/* Dedicated Animated Visual Showcase Graphic */}
-        <div className="w-full md:w-auto flex justify-center md:justify-end shrink-0 self-center md:self-auto pt-2 md:pt-0">
+        <div className="shrink-0 self-center flex items-center justify-end">
           <CategoryVisualGraphic
             slug={category?.slug}
             title={category?.title}
