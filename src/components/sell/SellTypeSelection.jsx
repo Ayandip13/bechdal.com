@@ -1,15 +1,20 @@
 "use client";
 
-import { Recycle, Package, Car, Home } from "lucide-react";
+import { Recycle, Package } from "lucide-react";
+import AnimatedCategoryIcon from "@/components/categories/AnimatedCategoryIcon";
 
-function SellTypeCard({ type, title, description, icon: Icon, onClick }) {
+function SellTypeCard({ type, title, description, icon: Icon, categorySlug, onClick }) {
   return (
     <div 
       onClick={() => onClick(type)}
-      className="p-4 sm:p-5 rounded-xl sm:rounded-2xl cursor-pointer border border-slate-200/80 dark:border-slate-700/80 bg-white dark:bg-slate-800 hover:border-primary dark:hover:border-blue-400 hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group min-h-[64px]"
+      className="p-4 sm:p-5 rounded-xl sm:rounded-2xl cursor-pointer border border-slate-200/80 dark:border-slate-700/80 bg-white dark:bg-slate-800/90 hover:border-primary dark:hover:border-blue-400 hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group min-h-[64px] funky-press"
     >
-      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 dark:bg-blue-500/20 text-primary dark:text-blue-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-        <Icon size={22} />
+      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200/60 dark:border-slate-600/50 flex items-center justify-center shrink-0 group-hover:bg-primary/10 dark:group-hover:bg-blue-500/15 group-hover:border-primary/30 transition-all shadow-xs">
+        {categorySlug ? (
+          <AnimatedCategoryIcon slug={categorySlug} size="md" className="group-hover:scale-115 transition-transform duration-200" />
+        ) : (
+          <Icon size={22} className="text-primary dark:text-blue-400 group-hover:scale-110 transition-transform duration-200" />
+        )}
       </div>
       
       <div className="flex-1 min-w-0 text-left">
@@ -58,18 +63,17 @@ export default function SellTypeSelection({ onSelectType }) {
           type="vehicle"
           title="Vehicle or Bike"
           description="Cars, motorcycles, scooty & commercial"
-          icon={Car}
+          categorySlug="vehicles"
           onClick={onSelectType}
         />
         <SellTypeCard 
           type="property"
           title="Property / Real Estate"
           description="Flats, houses, PG & land listings"
-          icon={Home}
+          categorySlug="properties"
           onClick={onSelectType}
         />
       </div>
     </div>
   );
 }
-

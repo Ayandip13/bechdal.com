@@ -275,6 +275,7 @@ export default function AnimatedCategoryIcon({ slug, size = "sm", className = ""
     case "gym-equipment":
     case "gym-equipments":
     case "fitness":
+    case "fitness-gym-music":
       return (
         <div className={`relative shrink-0 flex items-center justify-center ${dimensionClass} ${className}`}>
           <svg viewBox="0 0 32 32" fill="none" className="w-full h-full">
@@ -496,6 +497,69 @@ export default function AnimatedCategoryIcon({ slug, size = "sm", className = ""
               <rect x="9" y="17" width="14" height="7" rx="1" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1" />
               <line x1="11" y1="19.5" x2="18" y2="19.5" stroke="#0284c7" strokeWidth="1.2" strokeLinecap="round" />
               <line x1="11" y1="21.5" x2="16" y2="21.5" stroke="#64748b" strokeWidth="1" strokeLinecap="round" />
+            </g>
+          </svg>
+        </div>
+      );
+
+    // -------------------------------------------------------------
+    // 16. Kids Accessories & Toys — Playful retro handheld console
+    // -------------------------------------------------------------
+    case "kids-accessories":
+    case "kids":
+    case "toys":
+      return (
+        <div className={`relative shrink-0 flex items-center justify-center ${dimensionClass} ${className}`}>
+          <svg viewBox="0 0 32 32" fill="none" className="w-full h-full anim-laptop-bounce">
+            {/* Gamepad Console Body */}
+            <rect x="4" y="9" width="24" height="15" rx="5" fill="#f43f5e" stroke="#e11d48" strokeWidth="1.2" />
+            
+            {/* Screen Bezel & Display */}
+            <rect x="10" y="11" width="12" height="7" rx="1.5" fill="#0f172a" />
+            <rect x="11" y="12" width="10" height="5" rx="1" fill="#06b6d4" />
+            {/* Animated pixel heart on screen */}
+            <path d="M14 13.5 C13.5 13 12.5 13 12.5 14 C12.5 15 14.5 16 16 16.5 C17.5 16 19.5 15 19.5 14 C19.5 13 18.5 13 18 13.5 C17.5 14 16.5 14 16 13.5 Z" fill="#ffffff" className="anim-badge-spring" style={{ transformOrigin: "16px 14.5px" }} />
+
+            {/* Cross D-Pad on Left */}
+            <g transform="translate(6, 17)">
+              <rect x="1" y="2" width="5" height="2" rx="0.5" fill="#ffffff" />
+              <rect x="2.5" y="0.5" width="2" height="5" rx="0.5" fill="#ffffff" />
+            </g>
+
+            {/* Bouncy Action Buttons on Right */}
+            <g transform="translate(21, 16)">
+              <circle cx="2" cy="4" r="1.2" fill="#fde047" className="anim-tile-1" />
+              <circle cx="5" cy="4" r="1.2" fill="#22c55e" className="anim-tile-2" />
+              <circle cx="3.5" cy="1.5" r="1.2" fill="#38bdf8" className="anim-tile-3" />
+            </g>
+
+            {/* Left & Right Grip accents */}
+            <circle cx="6" cy="11.5" r="0.6" fill="#fb7185" />
+            <circle cx="26" cy="11.5" r="0.6" fill="#fb7185" />
+          </svg>
+        </div>
+      );
+
+    // -------------------------------------------------------------
+    // 17. Jobs & Opportunities — Professional briefcase with popping badge
+    // -------------------------------------------------------------
+    case "jobs":
+    case "job":
+    case "careers":
+      return (
+        <div className={`relative shrink-0 flex items-center justify-center ${dimensionClass} ${className}`}>
+          <svg viewBox="0 0 32 32" fill="none" className="w-full h-full anim-laptop-bounce">
+            {/* Handle */}
+            <path d="M12 9 C12 7 14 6 16 6 C18 6 20 7 20 9" stroke="#64748b" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+            {/* Briefcase Body */}
+            <rect x="5" y="9" width="22" height="16" rx="3" fill="#1e293b" stroke="#3b82f6" strokeWidth="1.2" />
+            {/* Flap & Straps */}
+            <path d="M5 14 L16 18 L27 14" stroke="#475569" strokeWidth="1" fill="none" />
+            <rect x="14" y="16.5" width="4" height="3" rx="0.75" fill="#f59e0b" />
+            {/* Popping Verified Document / Badge */}
+            <g className="anim-badge-spring" style={{ transformOrigin: "24px 8px" }}>
+              <circle cx="24" cy="8" r="3.5" fill="#10b981" stroke="#ffffff" strokeWidth="1" />
+              <path d="M22.5 8 L23.5 9 L25.5 7" stroke="#ffffff" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />
             </g>
           </svg>
         </div>

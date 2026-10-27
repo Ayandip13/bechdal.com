@@ -8,6 +8,7 @@ import LocationSection from "./LocationSection";
 import ContactSection from "./ContactSection";
 import PreviewModal from "./PreviewModal";
 import { Eye, CheckCircle, MapPin, FileText, Camera, ArrowRight, ArrowLeft, Check } from "lucide-react";
+import AnimatedCategoryIcon from "@/components/categories/AnimatedCategoryIcon";
 
 export default function ListingForm({ category, onPublish }) {
   const { register, watch, handleSubmit, trigger, formState: { errors } } = useFormContext();
@@ -66,9 +67,13 @@ export default function ListingForm({ category, onPublish }) {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight mb-1">Create Listing</h1>
-            <p className="text-xs sm:text-sm text-text-muted dark:text-slate-400 font-medium flex items-center gap-1.5">
-              Category: <span className="font-bold text-primary dark:text-blue-400">{category.name}</span>
-            </p>
+            <div className="text-xs sm:text-sm text-text-muted dark:text-slate-400 font-medium flex items-center gap-2 mt-1">
+              <span>Category:</span>
+              <span className="inline-flex items-center gap-1.5 font-bold text-primary dark:text-blue-400 bg-primary/10 dark:bg-blue-500/15 px-2.5 py-0.5 rounded-full border border-primary/20 dark:border-blue-500/30">
+                <AnimatedCategoryIcon slug={category?.id || category?.slug} size="xs" />
+                <span>{category.name}</span>
+              </span>
+            </div>
           </div>
           {isDraftSaved && (
             <span className="hidden md:flex items-center gap-1.5 text-xs text-emerald-700 dark:text-emerald-400 font-bold bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1.5 rounded-full border border-emerald-200 dark:border-emerald-800 shadow-2xs">
