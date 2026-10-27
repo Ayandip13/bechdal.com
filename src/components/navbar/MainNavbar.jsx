@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import {
   MapPin, Search, ChevronDown, User, ClipboardList, Heart,
   Inbox, PlusCircle, Menu, X, ArrowRight, Clock, TrendingUp, ShieldCheck, Check, HelpCircle, LogOut
@@ -21,6 +22,7 @@ export default function MainNavbar() {
   const { user, isAuthenticated, logout } = useAuth();
 
   // States
+  const [mounted, setMounted] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedLocation, setSelectedLocation] = useState("Kolkata");
@@ -29,6 +31,22 @@ export default function MainNavbar() {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Lock body scroll when mobile menu drawer is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   // Suggestion results
   const [suggestedProducts, setSuggestedProducts] = useState([]);
@@ -566,8 +584,8 @@ export default function MainNavbar() {
       </div>
 
 
-      {/* ----------------- MOBILE SLIDE-IN MENU DRAWER ----------------- */}
-      {isMobileMenuOpen && (
+      {/* ----------------- MOBILE SLIDE-IN MENU DRAWER (PORTAL) ----------------- */}
+      {isMobileMenuOpen && mounted && typeof document !== "undefined" && createPortal(
         <div className="fixed inset-0 z-[100] md:hidden animate-in fade-in duration-200">
 
           {/* Backdrop */}
@@ -718,7 +736,8 @@ export default function MainNavbar() {
 
           </div>
 
-        </div>
+        </div>,
+        document.body
       )}
 
     </div>
