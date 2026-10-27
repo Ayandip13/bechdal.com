@@ -34,6 +34,7 @@ const schema = z.object({
 
 export default function SellContainer() {
   const [stage, setStage] = useState(0); // 0: Old/New, 1: Category, 2: Form, 3: Success
+  const [selectedType, setSelectedType] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const methods = useForm({
@@ -51,6 +52,7 @@ export default function SellContainer() {
   });
 
   const handleSelectType = (type) => {
+    setSelectedType(type);
     methods.setValue("sellType", type, { shouldValidate: true });
     setStage(1);
     window.scrollTo(0, 0);
@@ -73,6 +75,7 @@ export default function SellContainer() {
 
   const resetFlow = () => {
     methods.reset();
+    setSelectedType("");
     setSelectedCategory(null);
     setStage(0);
     window.scrollTo(0, 0);
@@ -86,7 +89,14 @@ export default function SellContainer() {
         )}
 
         {stage === 1 && (
-          <SellCategoryGrid onSelectCategory={handleSelectCategory} />
+          <SellCategoryGrid 
+            sellType={selectedType}
+            onSelectCategory={handleSelectCategory} 
+            onBack={() => {
+              setStage(0);
+              window.scrollTo(0, 0);
+            }}
+          />
         )}
         
         {stage === 2 && selectedCategory && (
