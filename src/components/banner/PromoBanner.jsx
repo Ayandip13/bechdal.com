@@ -1,7 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Tag, ShieldCheck, Smartphone, Car, Armchair, Tractor } from "lucide-react";
+import { 
+  ArrowRight, 
+  Tag, 
+  ShieldCheck, 
+  Smartphone, 
+  Car, 
+  Armchair, 
+  Tractor,
+  Home,
+  Shirt,
+  Dumbbell,
+  Tv,
+  Sparkles
+} from "lucide-react";
 import {
   AnimatedSellActionIcon,
   AnimatedExploreActionIcon,
@@ -13,6 +26,12 @@ import {
   FloatingTechOutlines,
   FloatingVehicleOutlines,
   FloatingCommerceOutlines,
+  FloatingPropertyOutlines,
+  FloatingFurnitureOutlines,
+  FloatingFashionOutlines,
+  FloatingFitnessGymOutlines,
+  FloatingAgriEquipmentOutlines,
+  CategoryBannerOutlines,
 } from "./FloatingBannerOutlines";
 
 export default function PromoBanner({
@@ -20,20 +39,35 @@ export default function PromoBanner({
   subtitle,
   ctaText = "Explore Deals",
   ctaLink = "/",
-  theme = "blue", // 'blue' | 'emerald' | 'amber' | 'purple' | 'dark'
+  theme = "blue", // 'blue' | 'emerald' | 'amber' | 'teal' | 'purple' | 'cyan' | 'rose' | 'dark'
   badgeText,
   icon = "tag",
+  categorySlug,
 }) {
   const iconMap = {
     shield: ShieldCheck,
     smartphone: Smartphone,
     car: Car,
     furniture: Armchair,
+    armchair: Armchair,
     tractor: Tractor,
+    agri: Tractor,
     tag: Tag,
+    home: Home,
+    property: Home,
+    properties: Home,
+    shirt: Shirt,
+    fashion: Shirt,
+    dumbbell: Dumbbell,
+    fitness: Dumbbell,
+    gym: Dumbbell,
+    tv: Tv,
+    electronics: Tv,
+    sparkles: Sparkles,
   };
 
-  const IconComponent = typeof icon === "string" ? (iconMap[icon] || Tag) : icon || Tag;
+  const IconComponent = typeof icon === "string" ? (iconMap[icon.toLowerCase()] || Tag) : icon || Tag;
+
   const themeStyles = {
     blue: {
       bg: "bg-gradient-to-r from-blue-900 via-slate-900 to-blue-950 text-white border-blue-800/80 dark:border-blue-700/60",
@@ -47,6 +81,12 @@ export default function PromoBanner({
       button: "bg-emerald-600 hover:bg-emerald-700 text-white",
       accent: "text-emerald-400",
     },
+    teal: {
+      bg: "bg-gradient-to-r from-teal-950 via-slate-900 to-emerald-950 text-white border-teal-800/80 dark:border-teal-700/60",
+      badge: "bg-teal-800/80 text-teal-200 border-teal-700",
+      button: "bg-teal-600 hover:bg-teal-700 text-white",
+      accent: "text-teal-400",
+    },
     amber: {
       bg: "bg-gradient-to-r from-amber-950 via-slate-900 to-orange-950 text-white border-amber-800/80 dark:border-amber-700/60",
       badge: "bg-amber-800/80 text-amber-200 border-amber-700",
@@ -59,6 +99,18 @@ export default function PromoBanner({
       button: "bg-purple-600 hover:bg-purple-700 text-white",
       accent: "text-purple-400",
     },
+    cyan: {
+      bg: "bg-gradient-to-r from-cyan-950 via-slate-900 to-blue-950 text-white border-cyan-800/80 dark:border-cyan-700/60",
+      badge: "bg-cyan-800/80 text-cyan-200 border-cyan-700",
+      button: "bg-cyan-600 hover:bg-cyan-700 text-white",
+      accent: "text-cyan-400",
+    },
+    rose: {
+      bg: "bg-gradient-to-r from-rose-950 via-slate-900 to-neutral-950 text-white border-rose-800/80 dark:border-rose-700/60",
+      badge: "bg-rose-800/80 text-rose-200 border-rose-700",
+      button: "bg-rose-600 hover:bg-rose-700 text-white",
+      accent: "text-rose-400",
+    },
     dark: {
       bg: "bg-slate-900 dark:bg-slate-800/90 text-white border-slate-800 dark:border-slate-700/80",
       badge: "bg-slate-800 text-amber-400 border-slate-700",
@@ -69,12 +121,51 @@ export default function PromoBanner({
 
   const currentTheme = themeStyles[theme] || themeStyles.blue;
 
+  // Determine which floating SVG outlines scene to render
+  const renderFloatingOutlines = () => {
+    if (categorySlug) {
+      return <CategoryBannerOutlines categorySlug={categorySlug} className="opacity-75" />;
+    }
+
+    const iconStr = typeof icon === "string" ? icon.toLowerCase() : "";
+
+    // Properties
+    if (iconStr === "home" || iconStr === "property" || iconStr === "properties" || theme === "amber") {
+      return <FloatingPropertyOutlines className="opacity-75" />;
+    }
+    // Furniture
+    if (iconStr === "furniture" || iconStr === "armchair" || theme === "teal") {
+      return <FloatingFurnitureOutlines className="opacity-75" />;
+    }
+    // Fashion
+    if (iconStr === "shirt" || iconStr === "fashion" || theme === "purple") {
+      return <FloatingFashionOutlines className="opacity-75" />;
+    }
+    // Fitness
+    if (iconStr === "dumbbell" || iconStr === "fitness" || iconStr === "gym" || theme === "cyan") {
+      return <FloatingFitnessGymOutlines className="opacity-75" />;
+    }
+    // Tech / Mobiles
+    if (iconStr === "smartphone" || iconStr === "tech" || iconStr === "tv" || iconStr === "electronics" || theme === "blue") {
+      return <FloatingTechOutlines className="opacity-75" />;
+    }
+    // Vehicles
+    if (iconStr === "car" || iconStr === "bike" || iconStr === "vehicle" || theme === "emerald" || theme === "rose") {
+      return <FloatingVehicleOutlines className="opacity-75" />;
+    }
+    // Agri
+    if (iconStr === "tractor" || iconStr === "agri") {
+      return <FloatingAgriEquipmentOutlines className="opacity-75" />;
+    }
+
+    // Default Commerce / Trust scene
+    return <FloatingCommerceOutlines className="opacity-75" />;
+  };
+
   return (
     <div className={`w-full rounded-2xl p-3.5 sm:p-6 border ${currentTheme.bg} shadow-sm relative overflow-hidden my-2 group`}>
-      {/* Floating Outline SVG Accessories Scene */}
-      {(icon === "smartphone" || theme === "blue") && <FloatingTechOutlines />}
-      {(icon === "car" || theme === "emerald") && <FloatingVehicleOutlines />}
-      {(icon === "shield" || theme === "dark") && <FloatingCommerceOutlines />}
+      {/* Dynamic Animated Floating Outline Scene */}
+      {renderFloatingOutlines()}
 
       <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-6">
         <div className="flex items-start gap-2.5 sm:gap-3 pr-14 sm:pr-0">

@@ -210,6 +210,57 @@ export default function Home() {
     },
   ];
 
+  const propertyAndLivingListings = [
+    {
+      id: 401,
+      title: "Luxury 3 BHK Flat in New Town Action Area 1",
+      price: "68,00,000",
+      originalPrice: "78,00,000",
+      discount: "13% off",
+      location: "New Town, Kolkata",
+      postedTime: "Today",
+      image: "https://images.unsplash.com/photo-1560518884-ce58750a5656?q=80&w=600&auto=format&fit=crop",
+      badge: "0% Brokerage",
+      isVerifiedSeller: true,
+    },
+    {
+      id: 402,
+      title: "Solid Teak Wood 6-Seater Dining Table Set",
+      price: "18,500",
+      originalPrice: "38,000",
+      discount: "51% off",
+      location: "Salt Lake, Kolkata",
+      postedTime: "Yesterday",
+      image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?q=80&w=600&auto=format&fit=crop",
+      badge: "Deal",
+      isVerifiedSeller: true,
+    },
+    {
+      id: 403,
+      title: "Modern L-Shape Recliner Fabric Sofa Set",
+      price: "16,000",
+      originalPrice: "34,000",
+      discount: "53% off",
+      location: "Ballygunge, Kolkata",
+      postedTime: "2 days ago",
+      image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=600&auto=format&fit=crop",
+      badge: "Verified",
+      isVerifiedSeller: true,
+    },
+    {
+      id: 404,
+      title: "Commercial Office Space (1200 Sq.Ft)",
+      price: "45,000 / mo",
+      originalPrice: "55,000",
+      discount: "18% off",
+      location: "Sector V, Kolkata",
+      postedTime: "3 days ago",
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop",
+      badge: "Direct Owner",
+      isVerifiedSeller: true,
+    },
+  ];
+
   return (
     <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 flex flex-col gap-4 sm:gap-7 pt-2 sm:pt-4 overflow-x-hidden">
       {/* 1. Compact Hero Banner Carousel */}
@@ -244,6 +295,7 @@ export default function Home() {
         theme="blue"
         badgeText="Trending Category"
         icon="smartphone"
+        categorySlug="mobiles"
       />
 
       {/* 7. Category Product Grid: Mobiles & Electronics */}
@@ -266,6 +318,7 @@ export default function Home() {
         theme="emerald"
         badgeText="Direct Deals"
         icon="car"
+        categorySlug="vehicles"
       />
 
       {/* 10. Category Product Grid: Vehicles & Bikes */}
@@ -276,10 +329,42 @@ export default function Home() {
         products={vehicleListings}
       />
 
-      {/* 11. Verified Sellers */}
+      {/* 11. Interstitial Promo Banner 4: Properties & Real Estate */}
+      <PromoBanner
+        title="Zero Brokerage Properties & Direct Deals"
+        subtitle="Buy, sell & rent flats, houses, plots & commercial spaces directly from verified owners."
+        ctaText="Explore Properties"
+        ctaLink="/category/properties"
+        theme="amber"
+        badgeText="0% Brokerage"
+        icon="property"
+        categorySlug="properties"
+      />
+
+      {/* 12. Category Product Grid: Properties & Home Living */}
+      <CategoryProductGrid
+        title="Properties & Home Living"
+        subtitle="Direct owner homes, apartments & premium furniture deals"
+        categorySlug="properties"
+        products={propertyAndLivingListings}
+      />
+
+      {/* 13. Interstitial Promo Banner 5: Furniture & Lifestyle */}
+      <PromoBanner
+        title="Transform Your Space with Quality Pre-Loved Furniture"
+        subtitle="Solid teak wood sofas, beds, dining sets & ergonomic desks at up to 60% off."
+        ctaText="Explore Furniture"
+        ctaLink="/category/furniture"
+        theme="teal"
+        badgeText="Home & Living"
+        icon="furniture"
+        categorySlug="furniture"
+      />
+
+      {/* 14. Verified Sellers */}
       <VerifiedSellers />
 
-      {/* 12. FAQ Section */}
+      {/* 15. FAQ Section */}
       <FAQSection />
     </div>
   );

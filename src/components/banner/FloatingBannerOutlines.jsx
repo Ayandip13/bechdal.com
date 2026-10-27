@@ -432,3 +432,537 @@ export function FloatingCommerceOutlines({ className = "" }) {
     </div>
   );
 }
+
+// 4. Properties Floating Scene (Modern Villa, Skyline, Smart Key, Blueprint, Location Pin)
+export function FloatingPropertyOutlines({ className = "" }) {
+  return (
+    <div
+      className={`absolute inset-0 pointer-events-none overflow-hidden select-none z-0 ${className}`}
+      aria-hidden="true"
+    >
+      <style>{`
+        @keyframes propFloat1 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-5px) rotate(1.5deg); }
+        }
+        @keyframes propFloat2 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(5px) rotate(-1.5deg); }
+        }
+        @keyframes windowGlint {
+          0%, 100% { opacity: 0.35; }
+          50% { opacity: 0.95; filter: drop-shadow(0 0 4px #fbbf24); }
+        }
+        @keyframes keySway {
+          0%, 100% { transform: rotate(-8deg); }
+          50% { transform: rotate(12deg); }
+        }
+        @keyframes pinBounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-6px); }
+        }
+        .anim-prop-float-1 { animation: propFloat1 4.5s ease-in-out infinite; }
+        .anim-prop-float-2 { animation: propFloat2 5.0s ease-in-out infinite 0.8s; }
+        .anim-window-glow-pulse { animation: windowGlint 2.4s ease-in-out infinite; }
+        .anim-key-sway { animation: keySway 3.6s ease-in-out infinite; transform-origin: 27px 12px; }
+        .anim-pin-bounce { animation: pinBounce 2.8s ease-in-out infinite; }
+      `}</style>
+
+      {/* SVG Defs */}
+      <svg className="absolute w-0 h-0" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="neonAmberPropGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#ef4444" stopOpacity="0.4" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      {/* 1. Modern Duplex Villa / Multi-story Residence (Middle-Left) */}
+      <div className="absolute right-2 sm:right-auto sm:left-[39%] md:left-[42%] bottom-1 anim-prop-float-1 opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity block">
+        <svg width="68" height="52" viewBox="0 0 76 56" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[76px] sm:h-[56px]">
+          {/* Ground base */}
+          <line x1="2" y1="52" x2="74" y2="52" stroke="#f59e0b" strokeWidth="1.6" strokeDasharray="4 3" strokeOpacity="0.6" />
+          {/* Main Duplex Structure */}
+          <rect x="14" y="20" width="34" height="32" rx="3" stroke="url(#neonAmberPropGlow)" strokeWidth="1.8" fill="currentColor" fillOpacity="0.05" />
+          {/* Cantilever Upper Floor Balcony */}
+          <rect x="8" y="16" width="46" height="4" rx="2" stroke="#f59e0b" strokeWidth="1.4" fill="#fbbf24" fillOpacity="0.2" />
+          {/* Windows on Floor 2 */}
+          <rect x="18" y="24" width="11" height="9" rx="1.5" stroke="#38bdf8" strokeWidth="1.2" fill="#38bdf8" fillOpacity="0.2" className="anim-window-glow-pulse" />
+          <rect x="33" y="24" width="11" height="9" rx="1.5" stroke="#fbbf24" strokeWidth="1.2" fill="#fbbf24" fillOpacity="0.25" className="anim-window-glow-pulse" style={{ animationDelay: "500ms" }} />
+          {/* Balcony Railing */}
+          <line x1="16" y1="36" x2="46" y2="36" stroke="#94a3b8" strokeWidth="1" strokeDasharray="2 2" />
+          {/* Entrance Door */}
+          <rect x="26" y="39" width="10" height="13" rx="1.5" stroke="#f59e0b" strokeWidth="1.4" fill="#0f172a" />
+          <circle cx="34" cy="46" r="0.8" fill="#fbbf24" />
+          {/* Adjacent Wing */}
+          <path d="M48 26h18v26H48" stroke="url(#neonAmberPropGlow)" strokeWidth="1.6" fill="currentColor" fillOpacity="0.03" />
+          <rect x="52" y="30" width="10" height="7" rx="1" stroke="#38bdf8" strokeWidth="1" fill="#38bdf8" fillOpacity="0.15" />
+          <rect x="52" y="41" width="10" height="7" rx="1" stroke="#38bdf8" strokeWidth="1" fill="#38bdf8" fillOpacity="0.15" />
+        </svg>
+      </div>
+
+      {/* 2. House Key with Keychain Pendant (Middle-Center) */}
+      <div className="absolute right-18 sm:right-auto sm:left-[55%] md:left-[58%] top-1 anim-key-sway opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
+        <svg width="48" height="52" viewBox="0 0 54 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Key Ring */}
+          <circle cx="27" cy="12" r="8" stroke="#fbbf24" strokeWidth="2" strokeDasharray="8 3" fill="none" />
+          {/* Key Stem */}
+          <path d="M27 20v26l5-3v-4l4-3v-3l-9 0" stroke="url(#neonAmberPropGlow)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="27" cy="12" r="3" fill="#f59e0b" />
+          {/* Mini House Charm on Keychain */}
+          <g transform="translate(36, 14)">
+            <path d="M0 6l6-5 6 5v7H0V6z" stroke="#38bdf8" strokeWidth="1.4" fill="#0284c7" fillOpacity="0.2" />
+            <rect x="4" y="8" width="4" height="5" fill="#38bdf8" />
+          </g>
+        </svg>
+      </div>
+
+      {/* 3. Location Pin with Radar Wave / Verified Plot (Right Flank) */}
+      <div className="absolute right-2 sm:right-auto sm:left-[70%] md:left-[73%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-pin-bounce opacity-45 sm:opacity-80 hover:opacity-100 transition-opacity block">
+        <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Pulsing Base Ring */}
+          <ellipse cx="32" cy="54" rx="14" ry="4" stroke="#f59e0b" strokeWidth="1.4" strokeDasharray="4 3" opacity="0.6" />
+          {/* Map Pin Shell */}
+          <path
+            d="M32 8C22 8 14 16 14 26c0 14 18 26 18 26s18-12 18-26c0-10-8-18-18-18z"
+            stroke="url(#neonAmberPropGlow)"
+            strokeWidth="2"
+            fill="currentColor"
+            fillOpacity="0.06"
+          />
+          {/* Center House / For Sale glyph */}
+          <path d="M25 28l7-6 7 6v8H25v-8z" stroke="#38bdf8" strokeWidth="1.6" fill="#38bdf8" fillOpacity="0.2" />
+          <rect x="29" y="30" width="6" height="6" fill="#fbbf24" rx="1" />
+        </svg>
+      </div>
+
+      {/* 4. Architectural Blueprint / Floor Plan (Top-Center) */}
+      <div className="absolute left-[47%] sm:left-[49%] top-2 anim-prop-float-2 opacity-65 hover:opacity-100 transition-opacity hidden sm:block">
+        <svg width="52" height="44" viewBox="0 0 58 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="50" height="40" rx="4" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="3 3" fill="#0284c7" fillOpacity="0.04" />
+          <path d="M12 12h16v14H12zM28 12h18v8H28zM28 20h18v16H28z" stroke="#38bdf8" strokeWidth="1.2" />
+          <text x="24" y="40" fill="#f59e0b" fontSize="5" fontWeight="bold">100% 0% BROKERAGE</text>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+// 5. Furniture & Living Floating Scene (Designer Sofa, Floor Lamp, Coffee Table, Wall Clock)
+export function FloatingFurnitureOutlines({ className = "" }) {
+  return (
+    <div
+      className={`absolute inset-0 pointer-events-none overflow-hidden select-none z-0 ${className}`}
+      aria-hidden="true"
+    >
+      <style>{`
+        @keyframes furnFloat1 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-5px) rotate(1deg); }
+        }
+        @keyframes furnFloat2 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(5px) rotate(-1.5deg); }
+        }
+        @keyframes lampConeGlow {
+          0%, 100% { opacity: 0.25; filter: drop-shadow(0 0 4px #fef08a); }
+          50% { opacity: 0.65; filter: drop-shadow(0 0 12px #fde047); }
+        }
+        @keyframes steamFloatPuff {
+          0% { transform: translateY(0) scale(0.8); opacity: 0; }
+          50% { opacity: 0.8; }
+          100% { transform: translateY(-8px) scale(1.2); opacity: 0; }
+        }
+        @keyframes clockSecondSweep {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .anim-furn-float-1 { animation: furnFloat1 4.6s ease-in-out infinite; }
+        .anim-furn-float-2 { animation: furnFloat2 5.2s ease-in-out infinite 0.6s; }
+        .anim-lamp-glow { animation: lampConeGlow 2.6s ease-in-out infinite; }
+        .anim-steam-puff-1 { animation: steamFloatPuff 2s ease-out infinite; }
+        .anim-clock-sweep { animation: clockSecondSweep 12s linear infinite; transform-origin: 20px 20px; }
+      `}</style>
+
+      {/* SVG Defs */}
+      <svg className="absolute w-0 h-0" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="neonTealFurnGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#10b981" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.45" />
+          </linearGradient>
+          <linearGradient id="neonWarmWood" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#ca8a04" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.5" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      {/* 1. Designer Mid-Century Sofa with Cushions (Middle-Left) */}
+      <div className="absolute right-2 sm:right-auto sm:left-[38%] md:left-[41%] bottom-1 anim-furn-float-1 opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity block">
+        <svg width="74" height="48" viewBox="0 0 80 52" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[80px] sm:h-[52px]">
+          {/* Sofa Backrest */}
+          <rect x="8" y="14" width="64" height="22" rx="7" stroke="url(#neonTealFurnGlow)" strokeWidth="1.8" fill="currentColor" fillOpacity="0.05" />
+          {/* Split Tufted Cushions */}
+          <rect x="14" y="17" width="24" height="16" rx="4" stroke="#34d399" strokeWidth="1.2" fill="#10b981" fillOpacity="0.15" />
+          <rect x="42" y="17" width="24" height="16" rx="4" stroke="#34d399" strokeWidth="1.2" fill="#10b981" fillOpacity="0.15" />
+          {/* Sofa Seat Base */}
+          <rect x="4" y="28" width="72" height="12" rx="4" stroke="url(#neonTealFurnGlow)" strokeWidth="1.8" fill="#047857" fillOpacity="0.2" />
+          {/* Rounded Armrests */}
+          <rect x="4" y="22" width="9" height="18" rx="4.5" stroke="url(#neonTealFurnGlow)" strokeWidth="1.6" fill="#0f172a" />
+          <rect x="67" y="22" width="9" height="18" rx="4.5" stroke="url(#neonTealFurnGlow)" strokeWidth="1.6" fill="#0f172a" />
+          {/* Wooden Peg Legs */}
+          <line x1="14" y1="40" x2="10" y2="50" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" />
+          <line x1="66" y1="40" x2="70" y2="50" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      </div>
+
+      {/* 2. Sleek Arc Floor Lamp with Light Cone (Middle-Center) */}
+      <div className="absolute right-18 sm:right-auto sm:left-[54%] md:left-[57%] top-1 anim-furn-float-2 opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
+        <svg width="52" height="58" viewBox="0 0 56 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Lamp Base */}
+          <ellipse cx="14" cy="58" rx="10" ry="3.5" stroke="#94a3b8" strokeWidth="1.6" fill="#334155" />
+          {/* Arch Stem */}
+          <path d="M14 58 V 30 C 14 12, 42 12, 42 22" stroke="url(#neonWarmWood)" strokeWidth="2" strokeLinecap="round" />
+          {/* Conical Shade */}
+          <path d="M34 22 L 50 22 L 54 30 L 30 30 Z" stroke="#facc15" strokeWidth="1.8" fill="#ca8a04" fillOpacity="0.3" />
+          {/* Light Cone Glow */}
+          <polygon points="32,30 52,30 62,56 22,56" fill="url(#neonWarmWood)" opacity="0.2" className="anim-lamp-glow" />
+          <circle cx="42" cy="27" r="2.5" fill="#fef08a" />
+        </svg>
+      </div>
+
+      {/* 3. Nordic Coffee Table with Steaming Mug (Right Flank) */}
+      <div className="absolute right-2 sm:right-auto sm:left-[69%] md:left-[72%] bottom-2 anim-furn-float-1 opacity-45 sm:opacity-80 hover:opacity-100 transition-opacity block">
+        <svg width="58" height="48" viewBox="0 0 64 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Table Legs */}
+          <line x1="18" y1="36" x2="12" y2="50" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" />
+          <line x1="46" y1="36" x2="52" y2="50" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" />
+          {/* Table Surface */}
+          <ellipse cx="32" cy="36" rx="26" ry="7" stroke="url(#neonTealFurnGlow)" strokeWidth="1.8" fill="#047857" fillOpacity="0.15" />
+          {/* Steaming Mug */}
+          <rect x="28" y="24" width="8" height="9" rx="1.5" stroke="#f8fafc" strokeWidth="1.4" fill="#38bdf8" fillOpacity="0.2" />
+          <path d="M36 26.5h2.5a1.5 1.5 0 0 1 0 3H36" stroke="#f8fafc" strokeWidth="1.2" />
+          <path d="M30 21 Q 28 17, 30 13" stroke="#94a3b8" strokeWidth="1.2" strokeLinecap="round" className="anim-steam-puff-1" />
+          <path d="M34 20 Q 36 16, 34 12" stroke="#94a3b8" strokeWidth="1.2" strokeLinecap="round" className="anim-steam-puff-1" style={{ animationDelay: "500ms" }} />
+        </svg>
+      </div>
+
+      {/* 4. Minimalist Wall Clock (Top-Center) */}
+      <div className="absolute left-[46%] sm:left-[48%] top-1 anim-furn-float-2 opacity-65 hover:opacity-100 transition-opacity hidden sm:block">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="16" stroke="#34d399" strokeWidth="1.8" strokeDasharray="6 3" />
+          <circle cx="20" cy="20" r="13" stroke="#34d399" strokeWidth="1.2" fill="currentColor" fillOpacity="0.04" />
+          <g className="anim-clock-sweep">
+            <line x1="20" y1="20" x2="20" y2="10" stroke="#f59e0b" strokeWidth="1.6" strokeLinecap="round" />
+            <line x1="20" y1="20" x2="26" y2="20" stroke="#38bdf8" strokeWidth="1.4" strokeLinecap="round" />
+          </g>
+          <circle cx="20" cy="20" r="2" fill="#facc15" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+// 6. Fashion & Lifestyle Floating Scene (Designer Hanger, Sneakers, Sunglasses, Handbag)
+export function FloatingFashionOutlines({ className = "" }) {
+  return (
+    <div
+      className={`absolute inset-0 pointer-events-none overflow-hidden select-none z-0 ${className}`}
+      aria-hidden="true"
+    >
+      <style>{`
+        @keyframes fashFloat1 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-5px) rotate(2deg); }
+        }
+        @keyframes fashFloat2 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(5px) rotate(-2deg); }
+        }
+        @keyframes hangerSwingGently {
+          0%, 100% { transform: rotate(-10deg); }
+          50% { transform: rotate(10deg); }
+        }
+        @keyframes glintShine {
+          0%, 100% { opacity: 0.3; transform: scale(0.9); }
+          50% { opacity: 1; transform: scale(1.2); }
+        }
+        .anim-fash-float-1 { animation: fashFloat1 4.4s ease-in-out infinite; }
+        .anim-fash-float-2 { animation: fashFloat2 5.0s ease-in-out infinite 0.7s; }
+        .anim-hanger-swing-slow { animation: hangerSwingGently 3.8s ease-in-out infinite; transform-origin: 32px 6px; }
+        .anim-glint-sparkle { animation: glintShine 2s ease-in-out infinite; }
+      `}</style>
+
+      {/* SVG Defs */}
+      <svg className="absolute w-0 h-0" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="neonPurpleFashGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#c084fc" stopOpacity="0.85" />
+            <stop offset="50%" stopColor="#f43f5e" stopOpacity="0.75" />
+            <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.4" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      {/* 1. Chic T-Shirt on Wooden Hanger (Middle-Left) */}
+      <div className="absolute right-2 sm:right-auto sm:left-[39%] md:left-[42%] top-2 anim-hanger-swing-slow opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity block">
+        <svg width="58" height="58" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Hook */}
+          <path d="M32 6c3 0 5 2 4.5 4.5C36 13 32 14 32 16" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" />
+          {/* Hanger Triangle */}
+          <path d="M14 22L32 16l18 6" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          {/* T-Shirt Body Outline */}
+          <path
+            d="M24 19c2 3 14 3 16 0l12 6-4 8-4-2v24H20V31l-4 2-4-8 12-6z"
+            stroke="url(#neonPurpleFashGlow)"
+            strokeWidth="1.8"
+            fill="currentColor"
+            fillOpacity="0.06"
+            strokeLinejoin="round"
+          />
+          {/* Front V/Collar line */}
+          <path d="M26 19.5c2 2.5 10 2.5 12 0" stroke="#f43f5e" strokeWidth="1.4" strokeLinecap="round" />
+          <circle cx="28" cy="28" r="2" fill="#ec4899" />
+        </svg>
+      </div>
+
+      {/* 2. Streetwear High-Top Sneaker Outline (Middle-Center) */}
+      <div className="absolute right-18 sm:right-auto sm:left-[55%] md:left-[58%] bottom-1 anim-fash-float-1 opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
+        <svg width="68" height="44" viewBox="0 0 74 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Sole Cushion */}
+          <path d="M6 42h62c0-3-2-5-5-5H11c-3 0-5 2-5 5z" stroke="#38bdf8" strokeWidth="1.8" fill="#0284c7" fillOpacity="0.2" />
+          {/* Sneaker Body */}
+          <path
+            d="M10 37l4-18 16 2 12 12 18 1c4 0 7 2 8 3v-2l-12-8-6-15h-8l-4 8-18-2-10 20z"
+            stroke="url(#neonPurpleFashGlow)"
+            strokeWidth="1.8"
+            fill="currentColor"
+            fillOpacity="0.05"
+            strokeLinejoin="round"
+          />
+          {/* Swoosh */}
+          <path d="M22 28c8 2 24-2 36 6" stroke="#f43f5e" strokeWidth="2.2" strokeLinecap="round" />
+          <line x1="32" y1="20" x2="38" y2="23" stroke="#f8fafc" strokeWidth="1.4" strokeLinecap="round" />
+          <line x1="34" y1="24" x2="40" y2="27" stroke="#f8fafc" strokeWidth="1.4" strokeLinecap="round" />
+        </svg>
+      </div>
+
+      {/* 3. Designer Sunglasses with Glint (Right Flank) */}
+      <div className="absolute right-2 sm:right-auto sm:left-[70%] md:left-[73%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-fash-float-2 opacity-45 sm:opacity-80 hover:opacity-100 transition-opacity block">
+        <svg width="56" height="42" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="16" width="22" height="18" rx="6" stroke="url(#neonPurpleFashGlow)" strokeWidth="2" fill="#8b5cf6" fillOpacity="0.25" />
+          <line x1="9" y1="21" x2="16" y2="30" stroke="#ffffff" strokeWidth="1.4" strokeLinecap="round" opacity="0.7" />
+          <path d="M28 22c2-2 6-2 8 0" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" />
+          <rect x="36" y="16" width="22" height="18" rx="6" stroke="url(#neonPurpleFashGlow)" strokeWidth="2" fill="#8b5cf6" fillOpacity="0.25" />
+          <line x1="39" y1="21" x2="46" y2="30" stroke="#ffffff" strokeWidth="1.4" strokeLinecap="round" opacity="0.7" />
+          <path d="M6 18l-3-4" stroke="url(#neonPurpleFashGlow)" strokeWidth="2" strokeLinecap="round" />
+          <path d="M58 18l3-4" stroke="url(#neonPurpleFashGlow)" strokeWidth="2" strokeLinecap="round" />
+          <path d="M12 14l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3z" fill="#facc15" className="anim-glint-sparkle" />
+        </svg>
+      </div>
+
+      {/* 4. Luxury Handbag / Tote Outline (Top-Center) */}
+      <div className="absolute left-[47%] sm:left-[49%] bottom-2 anim-fash-float-1 opacity-65 hover:opacity-100 transition-opacity hidden sm:block">
+        <svg width="44" height="44" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 18c0-7 14-7 14 0" stroke="#fbbf24" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+          <path d="M12 18h26l-3 24H15l-3-24z" stroke="#ec4899" strokeWidth="1.8" fill="#ec4899" fillOpacity="0.08" strokeLinejoin="round" />
+          <circle cx="25" cy="27" r="2" fill="#fbbf24" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+// 7. Fitness & Gym Floating Scene (Barbell Weights, Kettlebell, Heartbeat Pulse, Dumbbell)
+export function FloatingFitnessGymOutlines({ className = "" }) {
+  return (
+    <div
+      className={`absolute inset-0 pointer-events-none overflow-hidden select-none z-0 ${className}`}
+      aria-hidden="true"
+    >
+      <style>{`
+        @keyframes gymFloat1 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-5px) rotate(2deg); }
+        }
+        @keyframes gymFloat2 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(5px) rotate(-2deg); }
+        }
+        @keyframes pulseEcgWave {
+          0%, 100% { opacity: 0.6; }
+          50% { opacity: 1; filter: drop-shadow(0 0 4px #ef4444); }
+        }
+        .anim-gym-float-1 { animation: gymFloat1 4.5s ease-in-out infinite; }
+        .anim-gym-float-2 { animation: gymFloat2 5.0s ease-in-out infinite 0.7s; }
+        .anim-ecg-pulse { animation: pulseEcgWave 2.2s linear infinite; }
+      `}</style>
+
+      {/* SVG Defs */}
+      <svg className="absolute w-0 h-0" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="neonOrangeGymGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#f97316" stopOpacity="0.9" />
+            <stop offset="50%" stopColor="#ef4444" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.4" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      {/* 1. Heavy Olympic Barbell with Weight Plates (Middle-Left) */}
+      <div className="absolute right-2 sm:right-auto sm:left-[38%] md:left-[41%] bottom-1 anim-gym-float-1 opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity block">
+        <svg width="74" height="42" viewBox="0 0 80 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="6" y1="22" x2="74" y2="22" stroke="#94a3b8" strokeWidth="2.5" strokeLinecap="round" />
+          <line x1="30" y1="22" x2="50" y2="22" stroke="#f59e0b" strokeWidth="2.8" strokeDasharray="3 2" />
+          <rect x="14" y="8" width="5" height="28" rx="2" stroke="url(#neonOrangeGymGlow)" strokeWidth="1.8" fill="#1e293b" />
+          <rect x="20" y="12" width="4" height="20" rx="1.5" stroke="url(#neonOrangeGymGlow)" strokeWidth="1.6" fill="#0f172a" />
+          <rect x="61" y="8" width="5" height="28" rx="2" stroke="url(#neonOrangeGymGlow)" strokeWidth="1.8" fill="#1e293b" />
+          <rect x="56" y="12" width="4" height="20" rx="1.5" stroke="url(#neonOrangeGymGlow)" strokeWidth="1.6" fill="#0f172a" />
+        </svg>
+      </div>
+
+      {/* 2. Cast Iron Kettlebell (Middle-Center) */}
+      <div className="absolute right-18 sm:right-auto sm:left-[55%] md:left-[58%] top-1 anim-gym-float-2 opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
+        <svg width="48" height="52" viewBox="0 0 54 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 22 C 18 10, 36 10, 36 22" stroke="#38bdf8" strokeWidth="2.2" strokeLinecap="round" fill="none" />
+          <circle cx="27" cy="36" r="16" stroke="url(#neonOrangeGymGlow)" strokeWidth="2" fill="currentColor" fillOpacity="0.06" />
+          <circle cx="27" cy="36" r="11" stroke="#f97316" strokeWidth="1.2" strokeDasharray="4 2" />
+          <text x="27" y="39" fill="#facc15" fontSize="7" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">24 KG</text>
+        </svg>
+      </div>
+
+      {/* 3. Heartbeat ECG Pulse Wave (Right Flank) */}
+      <div className="absolute right-2 sm:right-auto sm:left-[70%] md:left-[73%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-gym-float-1 opacity-45 sm:opacity-80 hover:opacity-100 transition-opacity block">
+        <svg width="56" height="44" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M4 24h12l4-14 6 28 6-20 4 10 4-4h18"
+            stroke="#ef4444"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="anim-ecg-pulse"
+          />
+          <circle cx="54" cy="24" r="2.5" fill="#f97316" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+// 8. Agricultural & Machinery Floating Scene (Tractor Wheel, Wheat Stalks, Industrial Gears)
+export function FloatingAgriEquipmentOutlines({ className = "" }) {
+  return (
+    <div
+      className={`absolute inset-0 pointer-events-none overflow-hidden select-none z-0 ${className}`}
+      aria-hidden="true"
+    >
+      <style>{`
+        @keyframes agriFloat1 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-5px) rotate(1.5deg); }
+        }
+        @keyframes gearTurnWheel {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes wheatBreeze {
+          0%, 100% { transform: rotate(-5deg); }
+          50% { transform: rotate(8deg); }
+        }
+        .anim-agri-float-1 { animation: agriFloat1 4.5s ease-in-out infinite; }
+        .anim-gear-turn { animation: gearTurnWheel 12s linear infinite; transform-origin: 32px 32px; }
+        .anim-wheat-sway { animation: wheatBreeze 3.2s ease-in-out infinite; transform-origin: 27px 60px; }
+      `}</style>
+
+      {/* SVG Defs */}
+      <svg className="absolute w-0 h-0" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="neonGreenGoldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#eab308" stopOpacity="0.9" />
+            <stop offset="50%" stopColor="#22c55e" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#10b981" stopOpacity="0.4" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      {/* 1. Heavy Tractor Lug Tire & Wheel (Middle-Left) */}
+      <div className="absolute right-2 sm:right-auto sm:left-[38%] md:left-[41%] bottom-1 anim-agri-float-1 opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity block">
+        <svg width="68" height="52" viewBox="0 0 74 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="37" cy="28" r="22" stroke="url(#neonGreenGoldGlow)" strokeWidth="3" strokeDasharray="6 4" />
+          <circle cx="37" cy="28" r="16" stroke="#ca8a04" strokeWidth="2" fill="#1e293b" />
+          <circle cx="37" cy="28" r="7" stroke="#15803d" strokeWidth="2" fill="#0f172a" />
+          <circle cx="37" cy="28" r="2.5" fill="#eab308" />
+        </svg>
+      </div>
+
+      {/* 2. Golden Wheat Stalks (Middle-Center) */}
+      <div className="absolute right-18 sm:right-auto sm:left-[54%] md:left-[57%] bottom-1 anim-wheat-sway opacity-50 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
+        <svg width="48" height="54" viewBox="0 0 54 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M27 60 V 20" stroke="#ca8a04" strokeWidth="2" strokeLinecap="round" />
+          <ellipse cx="22" cy="18" rx="4" ry="7" transform="rotate(-30 22 18)" fill="#facc15" stroke="#ca8a04" strokeWidth="1.2" />
+          <ellipse cx="32" cy="18" rx="4" ry="7" transform="rotate(30 32 18)" fill="#facc15" stroke="#ca8a04" strokeWidth="1.2" />
+          <ellipse cx="23" cy="28" rx="3.5" ry="6.5" transform="rotate(-30 23 28)" fill="#facc15" stroke="#ca8a04" strokeWidth="1.2" />
+          <ellipse cx="31" cy="28" rx="3.5" ry="6.5" transform="rotate(30 31 28)" fill="#facc15" stroke="#ca8a04" strokeWidth="1.2" />
+          <circle cx="27" cy="10" r="3" fill="#fef08a" />
+        </svg>
+      </div>
+
+      {/* 3. Rotating Industrial Gear Pair (Right Flank) */}
+      <div className="absolute right-2 sm:right-auto sm:left-[69%] md:left-[72%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-agri-float-1 opacity-45 sm:opacity-80 hover:opacity-100 transition-opacity block">
+        <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g className="anim-gear-turn">
+            <circle cx="32" cy="32" r="22" stroke="url(#neonGreenGoldGlow)" strokeWidth="3" strokeDasharray="8 6" />
+            <circle cx="32" cy="32" r="14" stroke="#ca8a04" strokeWidth="2" fill="currentColor" fillOpacity="0.05" />
+            <circle cx="32" cy="32" r="5" fill="#facc15" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Universal Category Banner Outlines Dispatcher
+ * Renders dedicated, relatable animated SVG floating outlines based on category slug.
+ */
+export function CategoryBannerOutlines({ categorySlug, className = "" }) {
+  const slug = (categorySlug || "").toLowerCase().trim();
+
+  if (slug === "mobiles" || slug === "electronics") {
+    return <FloatingTechOutlines className={className} />;
+  }
+  if (slug === "vehicles" || slug === "bikes" || slug === "cars" || slug === "boats") {
+    return <FloatingVehicleOutlines className={className} />;
+  }
+  if (slug === "properties" || slug === "property" || slug === "real-estate") {
+    return <FloatingPropertyOutlines className={className} />;
+  }
+  if (slug === "furniture" || slug === "home-decor") {
+    return <FloatingFurnitureOutlines className={className} />;
+  }
+  if (slug === "fashion" || slug === "clothing" || slug === "lifestyle") {
+    return <FloatingFashionOutlines className={className} />;
+  }
+  if (
+    slug === "fitness-gym-music" ||
+    slug === "gym-equipment" ||
+    slug === "gym" ||
+    slug === "fitness" ||
+    slug === "sports"
+  ) {
+    return <FloatingFitnessGymOutlines className={className} />;
+  }
+  if (
+    slug === "agricultural-products" ||
+    slug === "construction-equipment" ||
+    slug === "agriculture" ||
+    slug === "machinery"
+  ) {
+    return <FloatingAgriEquipmentOutlines className={className} />;
+  }
+
+  // Default fallback for pets, pet-products, books, services, jobs, office-equipment, etc.
+  return <FloatingCommerceOutlines className={className} />;
+}
