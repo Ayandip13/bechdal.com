@@ -92,15 +92,15 @@ export default function CategoryNav() {
           <div className="hidden sm:block absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-white dark:from-slate-800/90 to-transparent pointer-events-none z-10" />
         )}
 
-        {/* Single Scroll Container (same as mobile view) */}
+        {/* Single Scroll Container with smooth touch scrolling */}
         <div 
           ref={scrollRef} 
-          className="overflow-x-auto overflow-y-hidden whitespace-nowrap hide-scrollbar flex items-center gap-2 sm:gap-2.5 py-2.5 w-full scroll-smooth select-none"
+          className="overflow-x-auto overflow-y-hidden whitespace-nowrap hide-scrollbar flex items-center gap-1.5 sm:gap-2.5 py-2 sm:py-2.5 w-full scroll-smooth select-none touch-pan-x overscroll-x-contain"
         >
           {/* All Categories Pill */}
           <Link
             href="/search"
-            className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap shadow-3xs shrink-0 select-none group funky-press ${
+            className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap shadow-3xs shrink-0 select-none group funky-press ${
               pathname === "/search"
                 ? "bg-primary text-white dark:bg-blue-600 shadow-sm"
                 : "bg-primary/10 dark:bg-blue-500/15 text-primary dark:text-blue-400 border border-primary/25 dark:border-blue-500/30 hover:bg-primary hover:text-white dark:hover:bg-blue-600 dark:hover:text-white"
@@ -118,7 +118,7 @@ export default function CategoryNav() {
                 key={cat.slug} 
                 href={`/category/${cat.slug}`} 
                 style={{ animationDelay: `${idx * 40}ms` }}
-                className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap shadow-3xs shrink-0 select-none group funky-press ${
+                className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-semibold transition-all whitespace-nowrap shadow-3xs shrink-0 select-none group funky-press ${
                   isActive
                     ? "bg-primary text-white border border-primary dark:bg-blue-600 dark:border-blue-500 shadow-sm"
                     : "bg-slate-50 dark:bg-slate-700/60 border border-slate-200/70 dark:border-slate-600/70 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-blue-400 hover:border-primary/40 dark:hover:border-blue-500/40 hover:bg-white dark:hover:bg-slate-700"

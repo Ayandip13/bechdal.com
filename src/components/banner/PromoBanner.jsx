@@ -70,17 +70,17 @@ export default function PromoBanner({
   const currentTheme = themeStyles[theme] || themeStyles.blue;
 
   return (
-    <div className={`w-full rounded-2xl p-4 sm:p-6 border ${currentTheme.bg} shadow-sm relative overflow-hidden my-2 group`}>
+    <div className={`w-full rounded-2xl p-3.5 sm:p-6 border ${currentTheme.bg} shadow-sm relative overflow-hidden my-2 group`}>
       {/* Floating Outline SVG Accessories Scene */}
       {(icon === "smartphone" || theme === "blue") && <FloatingTechOutlines />}
       {(icon === "car" || theme === "emerald") && <FloatingVehicleOutlines />}
       {(icon === "shield" || theme === "dark") && <FloatingCommerceOutlines />}
 
       <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-6">
-        <div className="flex items-start gap-3">
+        <div className="flex items-start gap-2.5 sm:gap-3 pr-14 sm:pr-0">
           {IconComponent && (
-            <div className={`p-2.5 rounded-xl bg-white/10 backdrop-blur-xs shrink-0 ${currentTheme.accent}`}>
-              <IconComponent size={20} />
+            <div className={`p-2 sm:p-2.5 rounded-xl bg-white/10 backdrop-blur-xs shrink-0 ${currentTheme.accent}`}>
+              <IconComponent size={18} className="sm:w-5 sm:h-5" />
             </div>
           )}
           <div>
@@ -93,7 +93,7 @@ export default function PromoBanner({
               {title}
             </h3>
             {subtitle && (
-              <p className="text-[11px] sm:text-xs text-slate-300 font-medium mt-0.5 leading-normal max-w-xl">
+              <p className="text-[10px] sm:text-xs text-slate-300 font-medium mt-0.5 leading-normal max-w-xl">
                 {subtitle}
               </p>
             )}
@@ -102,18 +102,18 @@ export default function PromoBanner({
 
         <Link
           href={ctaLink}
-          className={`inline-flex items-center justify-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all shrink-0 cursor-pointer self-start sm:self-auto min-h-[38px] group btn-shimmer hover:scale-105 active:scale-95 shadow-md ${currentTheme.button}`}
+          className={`inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-lg sm:rounded-xl text-xs sm:text-sm font-black transition-all shrink-0 cursor-pointer self-start sm:self-auto min-h-[34px] sm:min-h-[38px] group btn-shimmer hover:scale-105 active:scale-95 shadow-md ${currentTheme.button}`}
         >
-          {ctaText?.toLowerCase().includes("sell") && <AnimatedSellActionIcon size={16} />}
-          {ctaText?.toLowerCase().includes("mobile") && <AnimatedGadgetActionIcon size={16} />}
-          {ctaText?.toLowerCase().includes("vehicle") && <AnimatedCarActionIcon size={16} />}
+          {ctaText?.toLowerCase().includes("sell") && <AnimatedSellActionIcon size={15} className="sm:w-4 sm:h-4" />}
+          {ctaText?.toLowerCase().includes("mobile") && <AnimatedGadgetActionIcon size={15} className="sm:w-4 sm:h-4" />}
+          {ctaText?.toLowerCase().includes("vehicle") && <AnimatedCarActionIcon size={15} className="sm:w-4 sm:h-4" />}
           {!ctaText?.toLowerCase().includes("sell") &&
             !ctaText?.toLowerCase().includes("mobile") &&
             !ctaText?.toLowerCase().includes("vehicle") && (
-              <AnimatedExploreActionIcon size={16} />
+              <AnimatedExploreActionIcon size={15} className="sm:w-4 sm:h-4" />
             )}
           <span>{ctaText}</span>
-          <AnimatedActionArrow size={14} />
+          <AnimatedActionArrow size={13} className="sm:w-3.5 sm:h-3.5" />
         </Link>
       </div>
     </div>

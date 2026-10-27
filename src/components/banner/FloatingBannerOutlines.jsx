@@ -65,9 +65,9 @@ export function FloatingTechOutlines({ className = "" }) {
         </defs>
       </svg>
 
-      {/* Accessory 1: Modern Smartwatch Outline with Pulsing Activity Ring & Heartbeat (Middle-Left) */}
-      <div className="absolute left-[38%] sm:left-[42%] md:left-[45%] top-1/2 -translate-y-1/2 anim-tech-1 opacity-75 hover:opacity-100 transition-opacity hidden xs:block">
-        <svg width="66" height="66" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Accessory 1: Modern Smartwatch Outline with Pulsing Activity Ring & Heartbeat (Responsive on Mobile) */}
+      <div className="absolute right-2 sm:right-auto sm:left-[42%] md:left-[45%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-tech-1 opacity-45 sm:opacity-75 hover:opacity-100 transition-opacity block">
+        <svg width="60" height="60" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[66px] sm:h-[66px]">
           <path d="M26 6V16h16V6c0-1.1-.9-2-2-2H28c-1.1 0-2 .9-2 2z" stroke="url(#neonCyanGlow)" strokeWidth="1.6" strokeDasharray="2 2" />
           <path d="M26 52v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V52" stroke="url(#neonCyanGlow)" strokeWidth="1.6" strokeDasharray="2 2" />
           <rect x="17" y="16" width="34" height="36" rx="9" stroke="url(#neonCyanGlow)" strokeWidth="1.8" fill="currentColor" fillOpacity="0.04" />
@@ -78,8 +78,8 @@ export function FloatingTechOutlines({ className = "" }) {
       </div>
 
       {/* Accessory 2: Wireless TWS Earbuds & Open Charging Case (Middle-Right) */}
-      <div className="absolute left-[54%] sm:left-[57%] md:left-[60%] top-[10%] anim-tech-2 opacity-75 hover:opacity-100 transition-opacity hidden sm:block">
-        <svg width="60" height="60" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div className="absolute right-16 sm:right-auto sm:left-[57%] md:left-[60%] top-2 sm:top-[10%] anim-tech-2 opacity-40 sm:opacity-75 hover:opacity-100 transition-opacity hidden xs:block">
+        <svg width="54" height="54" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[60px] sm:h-[60px]">
           <circle cx="32" cy="14" r="7" stroke="#38bdf8" strokeWidth="1.2" strokeDasharray="3 3" className="anim-audio-wave" />
           <g transform="translate(18, 8) rotate(-14)">
             <ellipse cx="6" cy="6" rx="4.5" ry="3.5" stroke="url(#neonBlueGlow)" strokeWidth="1.5" />
@@ -187,8 +187,8 @@ export function FloatingVehicleOutlines({ className = "" }) {
         </defs>
       </svg>
 
-      {/* 1. Curving Asphalt Highway / Race Track with Center Dashed Markings */}
-      <div className="absolute left-[30%] sm:left-[34%] md:left-[36%] right-[18%] sm:right-[22%] bottom-0 h-12 overflow-hidden opacity-80 hidden xs:block">
+      {/* 1. Curving Asphalt Highway / Race Track with Center Dashed Markings (Responsive on Mobile) */}
+      <div className="absolute left-[10%] sm:left-[34%] md:left-[36%] right-[5%] sm:right-[22%] bottom-0 h-10 sm:h-12 overflow-hidden opacity-50 sm:opacity-80 block">
         <svg width="100%" height="48" viewBox="0 0 400 48" fill="none" preserveAspectRatio="none">
           {/* Top Road Boundary */}
           <path d="M0 32 Q 100 12, 200 24 T 400 18" stroke="#34d399" strokeWidth="1.8" strokeOpacity="0.65" />
@@ -199,9 +199,9 @@ export function FloatingVehicleOutlines({ className = "" }) {
         </svg>
       </div>
 
-      {/* 2. Speeding Modern Sports Car Outline (Driving on Track in the Open Middle Area) */}
-      <div className="absolute left-[36%] sm:left-[39%] md:left-[41%] bottom-2 anim-car-drive opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
-        <svg width="72" height="38" viewBox="0 0 72 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* 2. Speeding Modern Sports Car Outline (Responsive on Mobile) */}
+      <div className="absolute right-2 sm:right-auto sm:left-[39%] md:left-[41%] bottom-1 sm:bottom-2 anim-car-drive opacity-65 sm:opacity-85 hover:opacity-100 transition-opacity block">
+        <svg width="64" height="34" viewBox="0 0 72 38" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[72px] sm:h-[38px]">
           {/* Speed Dust / Motion Lines */}
           <line x1="2" y1="20" x2="10" y2="20" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
           <line x1="0" y1="24" x2="8" y2="24" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
@@ -236,7 +236,7 @@ export function FloatingVehicleOutlines({ className = "" }) {
       </div>
 
       {/* 3. Sporty Motorbike / Scooter Silhouette (Beside the Car, Clear of Button) */}
-      <div className="absolute left-[54%] sm:left-[56%] md:left-[58%] bottom-3 anim-bike-bounce opacity-80 hover:opacity-100 transition-opacity hidden sm:block">
+      <div className="absolute right-20 sm:right-auto sm:left-[56%] md:left-[58%] bottom-2 sm:bottom-3 anim-bike-bounce opacity-50 sm:opacity-80 hover:opacity-100 transition-opacity hidden xs:block">
         <svg width="56" height="36" viewBox="0 0 56 36" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Bike Frame & Tank */}
           <path d="M12 28l10-14h10l8 14" stroke="#38bdf8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -340,9 +340,9 @@ export function FloatingCommerceOutlines({ className = "" }) {
         .anim-cash-flutter { animation: cashFlutter 3.4s ease-in-out infinite; }
       `}</style>
 
-      {/* 1. Stack of Rupee Banknotes / Instant Cash Deal (Middle-Left) */}
-      <div className="absolute left-[36%] sm:left-[39%] md:left-[42%] bottom-1 anim-cash-flutter opacity-80 hover:opacity-100 transition-opacity hidden xs:block">
-        <svg width="68" height="48" viewBox="0 0 68 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* 1. Stack of Rupee Banknotes / Instant Cash Deal (Responsive on Mobile) */}
+      <div className="absolute right-2 sm:right-auto sm:left-[39%] md:left-[42%] bottom-1 anim-cash-flutter opacity-45 sm:opacity-80 hover:opacity-100 transition-opacity block">
+        <svg width="60" height="42" viewBox="0 0 68 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[68px] sm:h-[48px]">
           {/* Bottom Bill */}
           <rect x="4" y="16" width="52" height="26" rx="4" stroke="#facc15" strokeWidth="1.4" strokeOpacity="0.4" fill="currentColor" fillOpacity="0.04" />
           {/* Middle Bill */}
@@ -358,8 +358,8 @@ export function FloatingCommerceOutlines({ className = "" }) {
       </div>
 
       {/* 2. Cute Savings Piggy Bank with Gold Coins Dropping into Slot (Middle-Center) */}
-      <div className="absolute left-[52%] sm:left-[55%] md:left-[57%] top-1/2 -translate-y-1/2 anim-com-float-1 opacity-85 hover:opacity-100 transition-opacity hidden sm:block">
-        <svg width="64" height="60" viewBox="0 0 64 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div className="absolute right-16 sm:right-auto sm:left-[55%] md:left-[57%] top-1/2 -translate-y-1/2 anim-com-float-1 opacity-45 sm:opacity-85 hover:opacity-100 transition-opacity hidden xs:block">
+        <svg width="56" height="52" viewBox="0 0 64 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[64px] sm:h-[60px]">
           {/* Falling Gold Coin */}
           <g className="anim-coin-dropping">
             <ellipse cx="32" cy="12" rx="6" ry="3.5" stroke="#facc15" strokeWidth="1.5" fill="#fde047" fillOpacity="0.8" />
@@ -387,8 +387,8 @@ export function FloatingCommerceOutlines({ className = "" }) {
       </div>
 
       {/* 3. 0% Brokerage & 100% Free Trust Shield (Positioned Safely Away from Right Button!) */}
-      <div className="absolute left-[68%] sm:left-[70%] md:left-[72%] top-1/2 -translate-y-1/2 anim-com-float-2 opacity-80 hover:opacity-100 transition-opacity hidden md:block">
-        <svg width="62" height="62" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div className="absolute right-2 sm:right-auto sm:left-[70%] md:left-[72%] top-2 sm:top-1/2 sm:-translate-y-1/2 anim-com-float-2 opacity-40 sm:opacity-80 hover:opacity-100 transition-opacity block">
+        <svg width="54" height="54" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[62px] sm:h-[62px]">
           {/* Shield Outline */}
           <path
             d="M34 10l18 6v18c0 14-18 24-18 24S16 48 16 34V16l18-6z"
@@ -404,7 +404,7 @@ export function FloatingCommerceOutlines({ className = "" }) {
       </div>
 
       {/* 4. 3D Floating Gold Rupee Coin with Gleam Star (Top-Left Center) */}
-      <div className="absolute left-[44%] sm:left-[47%] top-1 anim-com-float-1 opacity-80 hover:opacity-100 transition-opacity hidden sm:block">
+      <div className="absolute right-16 sm:right-auto sm:left-[47%] top-2 sm:top-1 anim-com-float-1 opacity-50 sm:opacity-80 hover:opacity-100 transition-opacity hidden xs:block">
         <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="32" cy="32" r="22" stroke="#facc15" strokeWidth="2" strokeDasharray="6 3" />
           <circle cx="32" cy="32" r="17" stroke="#facc15" strokeWidth="1.4" fill="#facc15" fillOpacity="0.08" />

@@ -151,7 +151,7 @@ export default function HeroBanner() {
 
   return (
     <div
-      className="w-full relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-slate-800 min-h-[250px] xs:min-h-[270px] sm:min-h-[300px] md:min-h-[330px] lg:min-h-[360px] flex items-center select-none bg-slate-950 outline-none group"
+      className="w-full relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl border border-slate-200/80 dark:border-slate-800 min-h-[190px] xs:min-h-[220px] sm:min-h-[280px] md:min-h-[320px] lg:min-h-[360px] flex items-center select-none bg-slate-950 outline-none group"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={onTouchStart}
@@ -178,27 +178,27 @@ export default function HeroBanner() {
             />
             <div className="absolute bottom-0 left-10 w-48 sm:w-64 h-48 sm:h-64 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none" />
 
-            {/* Container with Generous Padding to Avoid Arrow Overlap */}
-            <div className="w-full px-8 xs:px-10 sm:px-14 md:px-18 lg:px-22 py-4 sm:py-6 md:py-8 flex items-center justify-between gap-3 sm:gap-6 md:gap-8 relative z-10">
+            {/* Container with Responsive Padding for Mobile & Desktop */}
+            <div className="w-full px-3.5 xs:px-5 sm:px-12 md:px-16 lg:px-20 py-3 xs:py-4 sm:py-6 md:py-8 flex items-center justify-between gap-2.5 xs:gap-4 sm:gap-6 md:gap-8 relative z-10">
               {isActive && (
                 <div
                   key={`slide-inner-${banner.id}-${currentIndex}`}
-                  className="w-full flex items-center justify-between gap-3 sm:gap-6 md:gap-8"
+                  className="w-full flex items-center justify-between gap-2.5 xs:gap-4 sm:gap-6 md:gap-8"
                 >
                   {/* Left Column: Text & CTA with Staggered Entrance Animations */}
-                  <div className="flex-1 min-w-0 max-w-xl flex flex-col items-start pr-1 sm:pr-4">
+                  <div className="flex-1 min-w-0 max-w-xl flex flex-col items-start pr-1 sm:pr-3">
                     {/* Badge Pill */}
                     <div
-                      className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider border backdrop-blur-md mb-1.5 sm:mb-2.5 animate-hero-fade-up ${banner.badgeBg}`}
+                      className={`inline-flex items-center gap-1 sm:gap-1.5 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[9px] xs:text-[10px] sm:text-xs font-bold uppercase tracking-wider border backdrop-blur-md mb-1 sm:mb-2 animate-hero-fade-up ${banner.badgeBg}`}
                       style={{ animationDelay: "100ms", animationFillMode: "both" }}
                     >
-                      <BadgeIcon size={12} className="sm:w-3.5 sm:h-3.5" />
+                      <BadgeIcon size={11} className="sm:w-3.5 sm:h-3.5" />
                       <span className="truncate">{banner.tag}</span>
                     </div>
 
                     {/* Main Headline */}
                     <h2
-                      className="text-base xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight sm:leading-tight mb-1.5 sm:mb-2.5 text-white drop-shadow-sm animate-hero-fade-up"
+                      className="text-sm xs:text-base sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug sm:leading-tight mb-1 sm:mb-2 text-white drop-shadow-sm animate-hero-fade-up"
                       style={{ animationDelay: "200ms", animationFillMode: "both" }}
                     >
                       {banner.title}
@@ -206,7 +206,7 @@ export default function HeroBanner() {
 
                     {/* Subtitle */}
                     <p
-                      className="text-[10px] xs:text-xs sm:text-sm text-slate-200 dark:text-slate-300 font-medium mb-3 sm:mb-5 leading-relaxed line-clamp-2 max-w-md animate-hero-fade-up"
+                      className="text-[10px] xs:text-xs sm:text-sm text-slate-200 dark:text-slate-300 font-medium mb-2.5 sm:mb-4 leading-normal sm:leading-relaxed line-clamp-2 max-w-md animate-hero-fade-up"
                       style={{ animationDelay: "300ms", animationFillMode: "both" }}
                     >
                       {banner.subtitle}
@@ -216,21 +216,21 @@ export default function HeroBanner() {
                     <Link
                       href={banner.ctaLink}
                       onClick={() => setIsPaused(true)}
-                      className={`inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer animate-hero-fade-up group btn-shimmer ${banner.buttonBg}`}
+                      className={`inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 xs:px-4 xs:py-2 sm:px-5 sm:py-2.5 rounded-lg sm:rounded-xl text-[11px] xs:text-xs sm:text-sm font-black transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer animate-hero-fade-up group btn-shimmer shadow-md ${banner.buttonBg}`}
                       style={{ animationDelay: "400ms", animationFillMode: "both" }}
                     >
-                      {banner.id === 1 && <AnimatedCarActionIcon size={18} />}
-                      {banner.id === 2 && <AnimatedFurnitureActionIcon size={18} />}
-                      {banner.id === 3 && <AnimatedGadgetActionIcon size={18} />}
-                      {banner.id === 4 && <AnimatedFitnessActionIcon size={18} />}
+                      {banner.id === 1 && <AnimatedCarActionIcon size={15} className="sm:w-[18px] sm:h-[18px]" />}
+                      {banner.id === 2 && <AnimatedFurnitureActionIcon size={15} className="sm:w-[18px] sm:h-[18px]" />}
+                      {banner.id === 3 && <AnimatedGadgetActionIcon size={15} className="sm:w-[18px] sm:h-[18px]" />}
+                      {banner.id === 4 && <AnimatedFitnessActionIcon size={15} className="sm:w-[18px] sm:h-[18px]" />}
                       <span>{banner.ctaText}</span>
-                      <AnimatedActionArrow size={14} className="sm:w-4 sm:h-4" />
+                      <AnimatedActionArrow size={12} className="sm:w-4 sm:h-4" />
                     </Link>
                   </div>
 
                   {/* Right Column: Genuine Animated SVG Scene with Multi-layer Motion */}
                   <div
-                    className="shrink-0 flex items-center justify-center w-[46%] xs:w-[48%] sm:w-[50%] max-w-[220px] xs:max-w-[270px] sm:max-w-[360px] md:max-w-[440px] lg:max-w-[480px] animate-hero-slide-right"
+                    className="shrink-0 flex items-center justify-center w-[44%] xs:w-[46%] sm:w-[48%] md:w-[50%] max-w-[180px] xs:max-w-[240px] sm:max-w-[360px] md:max-w-[440px] lg:max-w-[480px] animate-hero-slide-right"
                     style={{ animationDelay: "250ms", animationFillMode: "both" }}
                   >
                     <HeroVisualScene slideId={banner.id} />
@@ -242,17 +242,17 @@ export default function HeroBanner() {
         );
       })}
 
-      {/* Navigation Arrows (Sleek Glassmorphic Buttons) */}
+      {/* Navigation Arrows (Desktop & Tablet only to avoid mobile overlapping) */}
       <button
         onClick={(e) => {
           e.stopPropagation();
           handlePrev();
           setIsPaused(true);
         }}
-        className="absolute left-1.5 sm:left-3 md:left-4 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all duration-200 z-20 cursor-pointer shadow-lg hover:scale-105 active:scale-95"
+        className="hidden sm:flex absolute left-3 md:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 backdrop-blur-md border border-white/20 text-white items-center justify-center transition-all duration-200 z-20 cursor-pointer shadow-lg hover:scale-105 active:scale-95"
         aria-label="Previous Banner"
       >
-        <ChevronLeft size={16} className="sm:w-5 sm:h-5" />
+        <ChevronLeft size={18} className="sm:w-5 sm:h-5" />
       </button>
 
       <button
@@ -261,10 +261,10 @@ export default function HeroBanner() {
           handleNext();
           setIsPaused(true);
         }}
-        className="absolute right-1.5 sm:right-3 md:right-4 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all duration-200 z-20 cursor-pointer shadow-lg hover:scale-105 active:scale-95"
+        className="hidden sm:flex absolute right-3 md:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 backdrop-blur-md border border-white/20 text-white items-center justify-center transition-all duration-200 z-20 cursor-pointer shadow-lg hover:scale-105 active:scale-95"
         aria-label="Next Banner"
       >
-        <ChevronRight size={16} className="sm:w-5 sm:h-5" />
+        <ChevronRight size={18} className="sm:w-5 sm:h-5" />
       </button>
 
       {/* Pagination Indicators (4 Dots with Active Expansion) */}

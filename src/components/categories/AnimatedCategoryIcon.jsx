@@ -12,10 +12,10 @@ export default function AnimatedCategoryIcon({ slug, size = "sm", className = ""
 
   // Size configurations
   const sizeMap = {
-    xs: "w-3.5 h-3.5",
-    sm: "w-4.5 h-4.5 sm:w-5 sm:h-5", // default for CategoryNav pills
-    md: "w-7 h-7 sm:w-8 sm:h-8",
-    lg: "w-10 h-10 sm:w-12 sm:h-12", // for PopularCategories cards
+    xs: "w-3.5 h-3.5 shrink-0",
+    sm: "w-4 h-4 sm:w-5 sm:h-5 shrink-0", // default for CategoryNav pills
+    md: "w-7 h-7 sm:w-8 sm:h-8 shrink-0",
+    lg: "w-10 h-10 sm:w-12 sm:h-12 shrink-0", // for PopularCategories cards
   };
 
   const dimensionClass = sizeMap[size] || sizeMap.sm;

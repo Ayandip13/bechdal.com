@@ -249,13 +249,13 @@ export default function AnimatedLivingScene() {
           </g>
         </svg>
 
-        {/* Live Quick-Commerce Floating Badges */}
-        <div className="absolute top-1 sm:top-2 left-2 sm:left-4 z-20 bg-slate-950/90 border border-emerald-400/50 px-2.5 py-1 rounded-xl shadow-xl backdrop-blur-md flex items-center gap-1.5">
+        {/* Live Quick-Commerce Floating Badges (Desktop & Tablet) */}
+        <div className="hidden sm:flex absolute top-1 sm:top-2 left-2 sm:left-4 z-20 bg-slate-950/90 border border-emerald-400/50 px-2.5 py-1 rounded-xl shadow-xl backdrop-blur-md items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block" />
           <span className="text-[10px] sm:text-xs font-black text-white">Save Up to 60%</span>
         </div>
 
-        <div className="absolute bottom-1 sm:bottom-2 right-2 sm:right-4 z-20 bg-slate-950/90 border border-amber-400/50 px-3 py-1.5 rounded-xl shadow-xl backdrop-blur-md flex items-center gap-1.5">
+        <div className="hidden sm:flex absolute bottom-1 sm:bottom-2 right-2 sm:right-4 z-20 bg-slate-950/90 border border-amber-400/50 px-3 py-1.5 rounded-xl shadow-xl backdrop-blur-md items-center gap-1.5">
           <div className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center">
             <ShieldCheck size={12} className="text-amber-400" />
           </div>
